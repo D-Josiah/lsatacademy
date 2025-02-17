@@ -57,9 +57,10 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <button onClick={() => navigate('/testimonials')}>
+          <button onClick={() => window.location.href = '/testimonials'}>
             VIEW TESTIMONIALS
           </button>
+
         </section>
         <section className="services padding">
           <h2>SERVICES</h2>
