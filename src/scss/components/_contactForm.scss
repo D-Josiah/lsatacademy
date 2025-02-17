@@ -123,7 +123,7 @@ form {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(36, 4, 3, 0.8); 
+    background-color: $myblue; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,17 +140,17 @@ form {
   }
   
   .modal-content h2 {
-    color: #240403; 
+    color: $myblue; 
     margin-bottom: 1rem;
   }
   
   .modal-content p {
-    color: #240403; 
+    color: $myblue; 
     margin-bottom: 1.5rem;
   }
   
   .modal-content button {
-    background-color: #240403; 
+    background-color: $myblue; 
     color: #fff;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -160,7 +160,7 @@ form {
   }
   
   .modal-content button:hover {
-    background-color: #5a0a0a; 
+    background-color: $myblue; 
   }
 @media (min-width: 320px) and (max-width: 1024px) {
     /* Styles for very small phones */
@@ -182,7 +182,9 @@ form {
         padding-right:1rem;
         flex-direction: column;
         justify-content: center;
+        gap: 30px;
         .details{
+          gap: 30px;
  
           .email,.name{
             width: 80vw;
