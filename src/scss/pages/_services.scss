@@ -1,0 +1,54 @@
+.services{
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            font-size: 3rem;
+            font-family: $bree;
+            font-weight: 100;
+        }
+       
+        p{
+            margin-bottom: 30px;
+            width: 80%;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            text-align: center;
+            font-family: $poppins;
+
+        }
+    }
+   
+
+}
+
+@media (max-width: 480px) {
+    .services{
+        .content{
+            h1{
+                font-size: 2rem;
+                text-align: center;
+            }
+            p{
+                font-size: 1rem;
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px){
+    .services{
+        .content{
+            h1{
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            p{
+                font-size: 1.3rem;
+                width: 90%;
+            }
+        }
+    }
+}
