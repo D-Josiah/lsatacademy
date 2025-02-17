@@ -3,10 +3,22 @@ import ContactForm from "../components/ContactForm";
 
 const Services = () => {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
+    // Load Calendly script
+    const calendlyScript = document.createElement("script");
+    calendlyScript.src = "https://assets.calendly.com/assets/external/widget.js";
+    calendlyScript.async = true;
+    document.body.appendChild(calendlyScript);
+
+    // Load Reddit script
+    const redditScript = document.createElement("script");
+    redditScript.src = "https://embed.reddit.com/widgets.js";
+    redditScript.async = true;
+    redditScript.onload = () => {
+      if (window.__REDDIT_EMBED_LOADED__) {
+        window.__REDDIT_EMBED_LOADED__();
+      }
+    };
+    document.body.appendChild(redditScript);
   }, []);
 
   return (
@@ -20,15 +32,23 @@ const Services = () => {
             Schedule your free consultation today.
           </p>
         </section>
-       
-        
-        
+
+        {/* Reddit Embed */}
+        <div className="reddit-embed">
+          <blockquote className="reddit-card" data-card-preview="0">
+            <a href="https://www.reddit.com/r/LSAT/comments/example_post/">
+              Reddit LSAT Discussion
+            </a>
+          </blockquote>
+        </div>
+
+        {/* Calendly Widget */}
         <div
           className="calendly-inline-widget"
           data-url="https://calendly.com/dalisayjosiah00/30min?text_color=023247&primary_color=023247"
           style={{ minWidth: "320px", height: "700px" }}
         ></div>
-        
+
         {/* Ensure ContactForm has the correct ID */}
         <ContactForm id="get-in-touch" />
       </main>
