@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [showPopup, setShowPopup] = useState(false);
@@ -15,13 +14,22 @@ const ContactForm = () => {
 
     try {
       const result = await emailjs.sendForm(
-        "service_v2nms5o",      // Service ID
-        "template_da3xczk",      // Template ID
+        "service_0yhiz5p",      // Service ID
+        "template_bpp5mkj",      // Template ID
         e.target,                // Form data
         "vAlH0oPhePwpjdMFK"      // User token
       );
       console.log("SUCCESS!", result.status, result.text);
       setShowPopup(true); // Show the popup
+
+      // Trigger a HubSpot tracking event
+      window._hsq = window._hsq || [];
+      window._hsq.push(["trackEvent", {
+        id: "contact_form_submission", // Custom event ID
+        value: "Form submitted with data", // Custom description
+        name: formData.name,            // Optional: include form data like name, email
+        email: formData.email
+      }]);
     } catch (error) {
       console.log("FAILED...", error);
     }
@@ -33,7 +41,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <h2>Get in Touch</h2>
         <div className="input">
           <div className="details">

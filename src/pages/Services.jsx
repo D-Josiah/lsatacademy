@@ -45,7 +45,7 @@ const Services = () => {
         {/* Calendly Widget */}
         <div
           className="calendly-inline-widget"
-          data-url="https://calendly.com/dalisayjosiah00/30min?text_color=023247&primary_color=023247"
+          data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
           style={{ minWidth: "320px", height: "700px" }}
         ></div>
 
