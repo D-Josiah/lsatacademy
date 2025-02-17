@@ -116,14 +116,15 @@ const Testimonials = () => {
           </blockquote>
         </section>
 
-        <section className="survey">
-          <div className="title">
-            <hr></hr>
-            <img src="/assets/survey-icon.png" alt="survey icon" />
-            <h2>Survey From Past Students</h2>
-            <hr></hr>
-          </div>
-        </section>
+       {/* <section className="survey">
+        <div className="title">
+          <hr />
+          <img src="/assets/survey-icon.png" alt="survey icon" />
+          <h2>Survey From Past Students</h2>
+          <hr />
+        </div>
+      </section> */}
+
       </main>
     </>
   );

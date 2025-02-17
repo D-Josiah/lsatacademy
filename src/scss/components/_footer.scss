@@ -1,6 +1,6 @@
 .footer{
     background-color:$myblue ;
-    height: 50vh;
+    height: fit-content;
     padding-top: 40px;
     padding-bottom: 40px;
     color: $myblue;
@@ -32,12 +32,14 @@
             }
             p{
                 text-align: left;
+                
+                font-family: $poppins;
             }
             .socials{
                 display: flex;
                 gap: 5px;
                 img{
-                    width: 42px;
+                    width: 32px;
 
                 }
             }
@@ -50,9 +52,12 @@
         gap: 10px;
         margin-right: 10%;
         justify-content:flex-start;
+        font-family: $poppins;
         h3{
             text-align: left;
             padding-left: 20px;
+            font-family: $bree;
+            font-weight: 100;
         }
         ul{
             text-decoration: none;
@@ -70,14 +75,17 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        font-family: $poppins;
         h3{
             text-align: left;
             padding-left: 10px;
+            font-weight: 100;
+            font-family: $bree;
         }
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .footer{
         height: fit-content;
         

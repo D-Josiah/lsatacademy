@@ -15,7 +15,9 @@ const Home = () => {
           <div className="hero-content">
             <h1>ACE the LSAT with EXPERT TUTORING</h1>
             <h2>Years of Proven Strategies to Boost Your LSAT Success.</h2>
-            <button>BOOK A FREE CONSULTATION</button>
+            <button onClick={() => navigate('/services')}>
+              BOOK A FREE CONSULTATION
+            </button>
             
           </div>
           <img src="assets/hero-image.png" alt="hero image, image of david mcmaste lsat tutor" className="hero-image" />
