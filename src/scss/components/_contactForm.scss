@@ -23,12 +23,12 @@ form {
     .input {
       display: flex;
       justify-content: space-between;
-      width: 70%;
+      width: 80%;
       gap: 3rem;
       max-width: 1600px;
   
       .details {
-        width: 50vw;
+        width: 60vw;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -49,7 +49,7 @@ form {
   
           input {
             max-width: 1600px;
-            width: 90%;
+            width: 100%;
             height: 3rem;
             background-color: transparent;
             border: 2px solid $myblue;
@@ -77,7 +77,7 @@ form {
       .message {
         display: flex;
         flex-direction: column;
-        width: 50%;
+        width: 70%;
         max-width: 1600px;
   
         label {
@@ -162,16 +162,16 @@ form {
   .modal-content button:hover {
     background-color: $myblue; 
   }
-@media (min-width: 320px) and (max-width: 1024px) {
+@media (min-width: 320px) and (max-width: 768px) {
     /* Styles for very small phones */
     form{
       height: fit-content;
       padding-right:1rem;
       width: 100%;
-      margin-bottom: 1rem;
-      margin-top: 1rem;
-      background-color: yellow;
-      gap: 10px;
+      margin-bottom: 2rem;
+      margin-top: 2rem;
+
+      gap: 20px;
      
 
       h2{
@@ -185,14 +185,17 @@ form {
         padding-left: 1rem;
         padding-right:1rem;
         flex-direction: column;
-        justify-content: center;
-        gap: 30px;
+        gap: 10px;
+
         .details{
           gap: 30px;
  
           .email,.name{
-            width: 80vw;
-            height: 28vh;
+            input{
+              width: 80vw;
+              height: 40px;
+            }
+            
             label{
               font-size: 1.3rem;
             }
@@ -200,42 +203,23 @@ form {
           
         }
         .message{
-          width: 90vw;
-          height: 70vh;
-          label{
-            font-size: 1.3rem;
+
+          
+        textarea{
+            width: 90vw;
+            height: 30vh;
+            font-size: 1rem;
+
           }
+          
+          &::placeholder {
+            color: $myblue;
+            font-size: 1rem;
+          }
+          
         }
-      }
+        
     }
 }
 
-
-@media (min-width: 1025px) {
-  form{
-    height: fit-content;
-    padding-right:1rem;
-    width: 100%;
-    max-width: 1600px;
-
-    h2{
-      font-size: 2.3rem;
-      width: 100vw;
-      
-    }
-    .input{
-      width: 95vw;
-      padding-left: 4rem;
-      padding-right:4rem;
-      justify-content: space-between;
-     
-      
-    }
-  }
 }
-
-  
-
-  
-
-
