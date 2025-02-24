@@ -9,16 +9,6 @@ const Services = () => {
     calendlyScript.async = true;
     document.body.appendChild(calendlyScript);
 
-    // Load Reddit script
-    const redditScript = document.createElement("script");
-    redditScript.src = "https://embed.reddit.com/widgets.js";
-    redditScript.async = true;
-    redditScript.onload = () => {
-      if (window.__REDDIT_EMBED_LOADED__) {
-        window.__REDDIT_EMBED_LOADED__();
-      }
-    };
-    document.body.appendChild(redditScript);
   }, []);
 
   return (
@@ -33,14 +23,6 @@ const Services = () => {
           </p>
         </section>
 
-        {/* Reddit Embed */}
-        <div className="reddit-embed">
-          <blockquote className="reddit-card" data-card-preview="0">
-            <a href="https://www.reddit.com/r/LSAT/comments/example_post/">
-              Reddit LSAT Discussion
-            </a>
-          </blockquote>
-        </div>
 
         {/* Calendly Widget */}
         <div

@@ -44,7 +44,7 @@ const About = () => {
               <img src="/assets/strategy-icon.png" alt="strategy icon" />
               <div className="text">
                 <h3>Confidence & Strategy</h3>
-                <p>I emphasize key skills like critical thinking and efficient test strategies, helping boost your confidence and performance under timed conditions.</p>
+                <p>I emphasize key skills like critical thinking and efficient test strategies, helping to boost your confidence and performance under timed conditions.</p>
               </div>
             </div>
             
