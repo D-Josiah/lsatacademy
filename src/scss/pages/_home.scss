@@ -192,6 +192,7 @@
             height: fit-content;
             width: 100%;
             height: 560px;
+           
             .hero-content{
                 width: 100%;
                 h1{
@@ -216,9 +217,11 @@
 
             }
             .hero-image{
-                width: 100%;
+                width:100%;
                 height: 70vh;
                 justify-self: flex-start;
+                margin-left: auto;
+                margin-right: auto;
                
 
             }
@@ -310,12 +313,14 @@
 @media (min-width: 411px) and (max-width: 460px) {
 
     .home{
-        margin-top: 4vh;
+        margin-top: 1.5vh;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
             width: 100%;
-            height: 600px;
+            height: 560px;
+           
+         
             .hero-content{
                 width: 100%;
                 h1{
@@ -341,10 +346,12 @@
 
             }
             .hero-image{
-                width: 100%;
-                height: 90vh;
-                margin-top: 15vh;
+                width: 80%;
+                height: 70vh;
+               
                 justify-self: flex-start;
+                margin-left: auto;
+                margin-right: auto;
               
 
             }
@@ -425,15 +432,16 @@
 
 }
 
+
 @media (min-width: 461px) and (max-width: 540px) {
 
     .home{
-        margin-top: 4vh;
+        margin-top: 5vh;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
             width: 100%;
-            height: 700px;
+            height: 560px;
             .hero-content{
                 width: 100%;
                 h1{
@@ -459,10 +467,12 @@
 
             }
             .hero-image{
-                width: 100%;
-                height: 90vh;
+                width: 80%;
+                height: 80vh;
                 margin-top: 2vh;
                 justify-self: flex-start;
+                margin-left: auto;
+                margin-right: auto;
           
 
             }
@@ -543,17 +553,21 @@
 
 }
 
+@media (min-width: 461px) and (max-width: 500px) {
+    .home{
+        margin-top: 1vh;
+    }
+}
+
 @media (min-width: 541px) and (max-width: 620px) {
     .home{
-        margin-top: 16vh;
-        
-        
-      
+        margin-top: 7vh;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
             width: 100%;
-            height: 650px;
+            height: 600px;
+
          
             padding-left: 0;
             margin-right: 0;
@@ -579,14 +593,16 @@
                 button{
                     margin: auto;
                     width: 64%;
+                   
                     font-size: 1rem;
                 }
 
             }
             .hero-image{
-                width: 90%;
-                height: 90vh;
-                margin: auto;
+                width: 70%;
+                height: 80vh;
+                margin-left: auto;
+                margin-right: auto;
                 justify-self: flex-start;
                 
 
@@ -668,13 +684,12 @@
 
 @media (min-width: 621px) and (max-width: 900px) {
     .home{
-        margin-top: 24vh;
-
+        margin-top: 18vh;
         .hero{
             flex-direction: column-reverse;
-            height: fit-content;
+   
             width: 100%;
-            height: 600px;
+            height: 560px;
          
             padding-left: 0;
             margin-right: 0;
@@ -699,15 +714,16 @@
                 }
                 button{
                     margin: auto;
-                    width: 50%;
+                    width: 60%;
                     font-size: 1rem;
                 }
 
             }
             .hero-image{
-                width: 75%;
-                height: 100vh;
-                margin: auto;
+                width: 60%;
+                height: 70vh;
+                margin-left: auto;
+                margin-right: auto;
                 justify-self: flex-start;
                
 
@@ -784,6 +800,12 @@
             }
         }
         
+    }
+}
+
+@media (min-width: 621px) and (max-width: 690px) {
+    .home{
+        margin-top: 10vh;
     }
 }
 @media (min-width: 901px) and (max-width: 1040px) {
