@@ -186,7 +186,8 @@
 /* Mobile Portrait */
 @media (max-width: 410px) {
     .home{
-        
+        margin-top: 30px;
+        background-color: aqua;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
@@ -313,7 +314,8 @@
 @media (min-width: 411px) and (max-width: 460px) {
 
     .home{
-        margin-top: 1.5vh;
+        margin-top: 30px;
+        background-color: aqua;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
@@ -436,7 +438,8 @@
 @media (min-width: 461px) and (max-width: 540px) {
 
     .home{
-        margin-top: 5vh;
+        margin-top: 30px;
+        background-color: aqua;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
@@ -555,13 +558,15 @@
 
 @media (min-width: 461px) and (max-width: 500px) {
     .home{
-        margin-top: 1vh;
+        margin-top: 30px;
+        background-color: aqua;
     }
 }
 
 @media (min-width: 541px) and (max-width: 620px) {
     .home{
-        margin-top: 7vh;
+        margin-top: 30px;
+        background-color: aqua;
         .hero{
             flex-direction: column-reverse;
             height: fit-content;
@@ -684,12 +689,13 @@
 
 @media (min-width: 621px) and (max-width: 900px) {
     .home{
-        margin-top: 18vh;
+        margin-top: 30px;
+        background-color: aqua;
         .hero{
             flex-direction: column-reverse;
    
             width: 100%;
-            height: 560px;
+            height: 670px;
          
             padding-left: 0;
             margin-right: 0;
@@ -805,11 +811,13 @@
 
 @media (min-width: 621px) and (max-width: 690px) {
     .home{
-        margin-top: 10vh;
+        margin-top: 30px;
+        background-color: aqua;
     }
 }
 @media (min-width: 901px) and (max-width: 1040px) {
     .home{
+        
         .hero{
             
             height: 65vh;
