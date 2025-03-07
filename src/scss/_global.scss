@@ -39,7 +39,7 @@ a {
   text-decoration: none;
   color: $myblue;
   position: relative;
-  display: inline-block; // Ensures the pseudo-element aligns with the text
+  display: inline-block; 
 
  
   &::after {
