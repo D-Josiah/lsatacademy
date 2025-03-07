@@ -3,7 +3,8 @@
     height: fit-content;
     .hero{
         display: flex;
-        height: 80vh;
+        height: 70vh;
+       
         
         
         .hero-content{
@@ -788,6 +789,7 @@
         .hero{
             
             height: 65vh;
+            max-height: 500px;
         
             align-items: center;
             .hero-content{
