@@ -3,7 +3,7 @@
     height: fit-content;
     .hero{
         display: flex;
-        height: 70vh;
+        height: 65vh;
        
         
         
@@ -30,7 +30,9 @@
             }
         }
         .hero-image{
-            
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
             height: 400px;
             width: 440px;
             
