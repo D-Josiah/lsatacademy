@@ -690,12 +690,12 @@
 @media (min-width: 621px) and (max-width: 900px) {
     .home{
         margin-top: 30px;
-        background-color: blue;
+        background-color: green;
         .hero{
             flex-direction: column-reverse;
    
             width: 100%;
-            height: 600px;
+            height: 560px;
          
             padding-left: 0;
             margin-right: 0;
@@ -727,7 +727,7 @@
             }
             .hero-image{
                 width: 60%;
-                height: 70vh;
+                height: 80vh;
                 margin-left: auto;
                 margin-right: auto;
                 justify-self: flex-start;
