@@ -816,6 +816,12 @@
         .hero{
             height: 620px;
             background-color: green;
+            .hero-content{
+                background-color: aqua;
+            }
+            .hero-image{
+                background-color: yellow;
+            }
         }
       
     }
