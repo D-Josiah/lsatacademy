@@ -169,9 +169,11 @@
     .header{
       
       .nav{
+        background-color: yellow;
+        height: fit-content;
         .side-menu{
           height: 150vh;
-          background-color: blue;
+          background-color: violet;
         }
       }
     }
