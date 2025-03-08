@@ -47,7 +47,7 @@
         display: flex;
         width: 100%;
         align-items: center;
-        height: 120vh;
+        height: 100vh;
         .close-icon{
           display: none;
         }
@@ -123,7 +123,7 @@
           position: fixed;
           top: 0;
           left: 0;
-          height: 120vh;
+          height: 100vh;
           width: 100vw;  
           z-index: 999; 
           transform: translateX(100%);
@@ -172,8 +172,17 @@
       .nav{
        
         .side-menu{
-          height: fit-content;
-          background-color: violet;
+        
+          ul{
+            gap: 5px;
+          }
+          button{
+            margin-top: 10px;
+          }
+        }
+        .nav-links{
+          gap: 10px;
+          
         }
       }
     }
