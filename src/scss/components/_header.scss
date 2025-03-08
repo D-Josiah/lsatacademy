@@ -1,179 +1,166 @@
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 
-  
-    .nav {
-      height: 12vh;
-      background-color: white;
+  .nav {
+    height: 12vh;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.90);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    .logo-image {
+      width: 180px;
+      height: auto;
+      transition: transform 0.2s;
+    }
+
+    .logo-image:hover {
+      transform: scale(1.1);
+    }
+
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+
+      .menu-icon {
+        display: none;
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+      }
+    }
+    
+    .side-menu {
       display: flex;
       width: 100%;
       align-items: center;
-      background: rgba(255, 255, 255, 0.90);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-      padding-left: 3rem;
-      padding-right: 3rem;
-  
-  
-      .logo-image {
-        width:180px;
-        height: auto;
-        transition: transform 0.2s;
-   
-        
+      .close-icon {
+        display: none;
       }
-  
-      .logo-image:hover {
-        transform: scale(1.1);
-      }
-  
+    }
+    
+    .side-menu.open {
+      display: block; /* Ensure the menu is visible */
+      transform: translateX(0);
+    }
+
+    .nav-links {
+      display: flex;
+      font-size: 1.2rem;
+      gap: 30px;
+      list-style-type: none;
+      justify-content: center;
+      width: 100%;
+      padding-left: 0;
+      margin: auto;
+    }
+
+    .join-button {
+      margin-left: auto;
+      width: 180px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    .nav {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      height: 70px;
+
       .mobile-header {
-        display: flex;
-        justify-content: space-between;
-        
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 100%;
   
+        .logo-image {
+          width: 120px;
+        }
+
         .menu-icon {
-          display: none;
+          display: block;
+          width: 44px;
+          height: 44px;
+        }
+      }
+
+      .side-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;  
+        z-index: 999; 
+        transform: translateX(-100%); /* Move off-screen to the left */
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        background-color: #FFFFFD;
+        align-items: flex-start;
+        padding: 20px;
+        overflow-y: auto; /* Enable scrolling */
+  
+        &.open {
+          transform: translateX(0); /* Slide in the side menu */
+        }
+  
+        .close-icon {
+          display: block;
           width: 44px;
           height: 44px;
           cursor: pointer;
-        }
-      }
-      .side-menu{
-        display: flex;
-        width: 100%;
-        align-items: center;
-        .close-icon{
-          display: none;
-        }
-      }
-      .side-menu.open {
-        display: block; /* Ensure the menu is visible */
-        transform: translateX(0);
-      }
-  
-      .nav-links {
-        display: flex;
-        font-size: 1.2rem;
-        gap: 30px;
-        list-style-type: none;
-
-        justify-content: center;
-        width: 100%;
-        padding-left: 0;
-        
-        margin: auto;
-        
-        
-      }
-  
-      .join-button {
-        margin-left: auto;
-        width: 180px;
-        
-      }
-    }
-  }
-  
-  @media (max-width:1024px) {
-    .header {
-  
-      .nav {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        height: 70px;
-
-        .mobile-header {
-          padding-top: 5px;
-          padding-bottom: 5px;
-          width: 100%;
-    
-          .logo-image{
-            width: 120px;
-          }
-  
-          .menu-icon {
-            display: block;
-            width: 44px;
-            height: 44px;
-          }
+          margin-left: auto;
         }
   
-        .side-menu {
-          background-color: #FFFFFD;
-          left: 0; /* Start the side menu from the left side */
-          display: none;
-          .close-icon {
-            display: block;
-            height: 44px;
-
-          }
-  
-          ul {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-        .side-menu {
-          position: fixed;
-          top: 0;
-          left: 0;
-          height: 100vh;
-          width: 100vw;  
-          z-index: 999; 
-          transform: translateX(100%);
-          transition: transform 0.3s ease-in-out;
+        ul {
+          display: flex;
           flex-direction: column;
+          gap: 20px;
+          list-style-type: none;
+          padding: 0;
+          width: 100%;
           
-          align-items: flex-start;
-          padding: 20px;
-    
-          &.open {
-            transform: translateX(0); /* Slide in the side menu */
+          li {
+            padding: 5px;
+            border-bottom: 1px solid $myblue;
           }
-    
-          .close-icon {
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            margin-left: auto;
-          }
-    
-          ul {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            list-style-type: none;
-            padding: 0;
-            li{
-              padding: 5px;
-              border-bottom: 1px solid $myblue;
-            }
-          }
-          button{
-            margin-top: 30px;
-          
-            
-          }
+        }
+        
+        button {
+          margin-top: 30px;
         }
       }
     }
   }
+}
 
+/* Add orientation-specific rules for landscape mode */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .header .nav .side-menu {
+    max-height: 100%;
+    overflow-y: auto;
+    padding-bottom: 40px; /* Add some padding at the bottom for better scrolling */
+  }
+}
 
-  @media (min-width: 621px) and (max-width: 740px) {
-    .header{
-      
-      .nav{
-       
-        .side-menu{
-          height: fit-content;
-          background-color: violet;
-        }
+@media (min-width: 621px) and (max-width: 740px) {
+  .header {
+    .nav {
+      .side-menu {
+        height: auto; /* Use auto instead of fit-content for better compatibility */
+        min-height: 100%;
+        background-color: yellow;
       }
     }
   }
+}
