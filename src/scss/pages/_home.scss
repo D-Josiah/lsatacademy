@@ -360,7 +360,7 @@
         }
         .choose{
             padding: 30px;
-            margin-top: 10vh;
+            margin-top: 30px;
             .title{
                 h2{
                     font-size: 1.5rem;
@@ -482,7 +482,7 @@
         }
         .choose{
             padding: 30px;
-            margin-top: 10vh;
+            margin-top: 30px;
             .title{
                 h2{
                     font-size: 1.5rem;
@@ -615,7 +615,7 @@
         }
         .choose{
             padding: 30px;
-            margin-top: 10vh;
+            margin-top: 30px;
             .title{
                 h2{
                     font-size: 1.8rem;
@@ -738,7 +738,7 @@
         }
         .choose{
             padding: 30px;
-            margin-top: 10vh;
+            margin-top: 30px;
             .title{
                 h2{
                     font-size: 1.8rem;
@@ -867,10 +867,14 @@
         .choose{
             padding-left: 5vw;
             padding-right: 5vw;
+            padding: 30px;
+            margin-top: 30px;
+          
             .title{
                 h2{
                     font-size: 1.8rem;
                     width: 45%;
+                  
                 }
             }
             .qualities{
@@ -888,12 +892,14 @@
             }
         }
         .services{
+           
             h2{
                 font-size: 1.8rem;
             }
             .service-wrap{
                .service{
-                height: 40vh;
+                height: fit-content;
+                
            
                 justify-content: center;
                 h3{
