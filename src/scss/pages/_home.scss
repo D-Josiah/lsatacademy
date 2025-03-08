@@ -814,13 +814,16 @@
     .home{
         .hero{
             
-            height: 620px;
+            height: 580px;
             background-color: blue;
+            
             .hero-content{
                 background-color: aqua;
                 height: fit-content;
+                
             }
             .hero-image{
+                height: auto;
                 background-color: yellow;
             }
         }
