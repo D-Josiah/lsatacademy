@@ -812,12 +812,13 @@
 
 @media (min-width: 621px) and (max-width: 740px) {
     .home{
-        margin-top: 30px;
         .hero{
+            
             height: 620px;
             background-color: green;
             .hero-content{
                 background-color: aqua;
+                height: fit-content;
             }
             .hero-image{
                 background-color: yellow;
