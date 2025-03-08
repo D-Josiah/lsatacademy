@@ -163,4 +163,16 @@
       }
     }
   }
-  
+
+
+  @media (min-width: 621px) and (max-width: 740px) {
+    .header{
+      
+      .nav{
+        .side-menu{
+          height: 150vh;
+          background-color: blue;
+        }
+      }
+    }
+  }
