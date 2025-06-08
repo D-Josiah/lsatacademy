@@ -93,6 +93,14 @@ const Header = () => {
                 Testimonials
               </Link>
             </li>
+            <li className="nav-link">
+              <Link
+                to="/resources"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Free Guides
+              </Link>
+            </li>
             
           </ul>
 
