@@ -26,7 +26,7 @@ const Abc = () => {
               <button onClick={handleDownload}>Download</button>
             </div>
             <img
-              src="https://drive.google.com/uc?export=view&id=1s2oxlzg14SKsCKGNMYJrItZlOKIwDJjT"
+              src="https://res.cloudinary.com/derzriuel/image/upload/v1744267522/Abc_jj8i7f.png"
               alt="Law School Application Guide"
               className="blog-pic"
             />
