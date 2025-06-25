@@ -6,6 +6,7 @@ import About from './pages/About';
 import Testimonials from './pages/Testimonials';
 import Services from './pages/Services';
 import Resources from './pages/Resources';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import SufficientAssumption from './pages/SufficientAssumption';
 import IndicatorWords from './pages/IndicatorWords';
 import ScrollToTop from "./components/ScrollToTop";
@@ -24,11 +25,12 @@ const App = () => {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/services" element={<Services />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/sufficient_assumption" element={<SufficientAssumption />} />
         <Route path="/indicator_words" element={<IndicatorWords />} />
         <Route path="/abc" element={<Abc/>} />
         <Route path="/lsat-quizlet" element={<Quizlet/>} />
-       
+        
       </Routes>
       <Footer />
     </Router>
