@@ -3,8 +3,8 @@
     top: 0;
     z-index: 1000;
     width: 100vw;
+    pointer-events: none; // Make header transparent to clicks
 
-  
     .nav {
       height: 12vh;
       background-color: white;
@@ -17,25 +17,24 @@
       -webkit-backdrop-filter: blur(5px);
       padding-left: 3rem;
       padding-right: 3rem;
-  
-  
+      pointer-events: none; // Nav also transparent
+
       .logo-image {
         width:180px;
         height: auto;
         transition: transform 0.2s;
-   
-        
+        pointer-events: auto; // Logo is clickable
       }
-  
+
       .logo-image:hover {
         transform: scale(1.1);
       }
-  
+
       .mobile-header {
         display: flex;
         justify-content: space-between;
-        
-  
+        pointer-events: auto; // Mobile header elements are clickable
+
         .menu-icon {
           display: none;
           width: 44px;
@@ -43,46 +42,54 @@
           cursor: pointer;
         }
       }
+      
       .side-menu{
         display: flex;
         width: 100%;
         align-items: center;
         height: 100vh;
+        
         .close-icon{
           display: none;
         }
+        
+        // Desktop nav links are clickable
+        .nav-links {
+          pointer-events: auto;
+        }
+        
+        // Join button is clickable
+        .join-button {
+          pointer-events: auto;
+        }
       }
+      
       .side-menu.open {
-        display: block; /* Ensure the menu is visible */
+        display: block;
         transform: translateX(0);
+        pointer-events: auto; // Open menu is fully interactive
       }
-  
+
       .nav-links {
         display: flex;
         font-size: 1.2rem;
         gap: 30px;
         list-style-type: none;
-
         justify-content: center;
         width: 100%;
         padding-left: 0;
-        
         margin: auto;
-        
-        
       }
-  
+
       .join-button {
         margin-left: auto;
         width: 180px;
-        
       }
     }
   }
   
   @media (max-width:1024px) {
     .header {
-  
       .nav {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -106,20 +113,8 @@
   
         .side-menu {
           background-color: #FFFFFD;
-          left: 0; /* Start the side menu from the left side */
+          left: 0;
           display: none;
-          .close-icon {
-            display: block;
-            height: 44px;
-
-          }
-  
-          ul {
-            display: flex;
-            flex-direction: column;
-          }
-        }
-        .side-menu {
           position: fixed;
           top: 0;
           left: 0;
@@ -129,15 +124,23 @@
           transform: translateX(100%);
           transition: transform 0.3s ease-in-out;
           flex-direction: column;
-          
           align-items: flex-start;
           padding: 20px;
+          
+          // When closed on mobile, completely hide it
+          &:not(.open) {
+            visibility: hidden;
+            pointer-events: none;
+          }
     
           &.open {
-            transform: translateX(0); /* Slide in the side menu */
+            transform: translateX(0);
+            visibility: visible;
+            pointer-events: auto;
           }
     
           .close-icon {
+            display: block;
             width: 44px;
             height: 44px;
             cursor: pointer;
@@ -155,24 +158,19 @@
               border-bottom: 1px solid $myblue;
             }
           }
+          
           button{
             margin-top: 30px;
-          
-            
           }
         }
       }
     }
   }
 
-
   @media (min-width: 621px) and (max-width: 740px) {
     .header{
-      
       .nav{
-       
         .side-menu{
-        
           ul{
             gap: 5px;
           }
@@ -182,7 +180,6 @@
         }
         .nav-links{
           gap: 10px;
-          
         }
       }
     }

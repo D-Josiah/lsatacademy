@@ -19,7 +19,7 @@ const Quizlet = () => {
   return (
     <>
       <main className="blogs max padding spacer">
-
+        <h1>LSAT Quizlet</h1>
         <iframe 
           src="https://quizlet.com/1029179492/match/embed?i=5ic7un&x=1jj1" 
           height="500" 

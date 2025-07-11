@@ -1,4 +1,7 @@
 .blogs{
+    h1{
+        text-align: center;
+    }
     article{
        
         p{
@@ -202,4 +205,36 @@
             z-index: 0!important;
         }
     }
+}
+
+.discord-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.discord-images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    padding-top: 30px;
+    img{
+        width: 30%;
+    }
+   
+}
+ .discord-h2{
+        text-align: center;
+     
+    }
+.discord-btn{
+    margin: auto;
+}
+
+.server{
+    margin: auto;
+    width: 30%;
 }

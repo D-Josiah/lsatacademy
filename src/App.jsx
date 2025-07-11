@@ -12,6 +12,7 @@ import IndicatorWords from './pages/IndicatorWords';
 import ScrollToTop from "./components/ScrollToTop";
 import Abc from "./pages/Abc";
 import Quizlet from "./pages/Quizlet";
+import Discord from "./pages/Discord";
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/indicator_words" element={<IndicatorWords />} />
         <Route path="/abc" element={<Abc/>} />
         <Route path="/lsat-quizlet" element={<Quizlet/>} />
+        <Route path="/discord" element={<Discord/>} />
         
       </Routes>
       <Footer />

@@ -101,7 +101,14 @@ const Header = () => {
                 Free Guides
               </Link>
             </li>
-            
+            <li className="nav-link">
+              <Link
+                to="/discord"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Discord
+              </Link>
+            </li>
           </ul>
 
           {/* Contact Button */}
