@@ -14,7 +14,7 @@ const Quizlet = () => {
     };
   }, []);
 
-  const zIndexValue = windowWidth <= 1024 ? 0 : 9999;
+  const zIndexValue = windowWidth <= 1024 ? 0 : 1;
 
   return (
     <>

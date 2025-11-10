@@ -69,14 +69,8 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-link">
-              <Link 
-                to="/about"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-            </li>
+
+            
             <li className="nav-link">
               <Link
                 to="/services"
@@ -85,6 +79,8 @@ const Header = () => {
                 Services
               </Link>
             </li>
+
+          
             <li className="nav-link">
               <Link
                 to="/testimonials"
@@ -93,6 +89,16 @@ const Header = () => {
                 Testimonials
               </Link>
             </li>
+
+                <li className="nav-link">
+              <Link 
+                to="/consultation"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Consultation
+              </Link>
+            </li>
+
             <li className="nav-link">
               <Link
                 to="/resources"
@@ -101,14 +107,10 @@ const Header = () => {
                 Free Guides
               </Link>
             </li>
-            <li className="nav-link">
-              <Link
-                to="/discord"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Discord
-              </Link>
-            </li>
+        
+
+           
+            
           </ul>
 
           {/* Contact Button */}

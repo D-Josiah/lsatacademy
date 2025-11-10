@@ -28,8 +28,20 @@ const Resources = () => {
           </li>
           <li className="resource">
           <img src="assets/redirect-icon.png" alt="redirect icon" className="redirect" />
+            <Link to="/patterns" className="resource-link">
+              Some Patterns That Jump Out After 15 Years of Tutoring
+            </Link>
+          </li>
+          <li className="resource">
+          <img src="assets/redirect-icon.png" alt="redirect icon" className="redirect" />
             <Link to="/lsat-quizlet" className="resource-link">
               LSAT Quizlet
+            </Link>
+          </li>
+          <li className="resource">
+          <img src="assets/redirect-icon.png" alt="redirect icon" className="redirect" />
+            <Link to="/discord" className="resource-link">
+              Join our Discord Server
             </Link>
           </li>
           

@@ -3,8 +3,8 @@ import React from "react";
 const Abc = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "https://drive.google.com/uc?export=download&id=1r38YPISvcAyGCLipPIWa6297GgI4TndR";
-    link.download = "https://drive.google.com/uc?export=download&id=1r38YPISvcAyGCLipPIWa6297GgI4TndR";
+    link.href = "https://share-na2.hsforms.com/1Fl0tKf1xTFOelwVlkCo8iA401key";
+    link.download = "https://share-na2.hsforms.com/1Fl0tKf1xTFOelwVlkCo8iA401key";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

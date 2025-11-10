@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.lsat.academy/</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://www.lsat.academy/about</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Services Page -->
+  <url>
+    <loc>https://www.lsat.academy/services</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Testimonials Page -->
+  <url>
+    <loc>https://www.lsat.academy/testimonials</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Resources Page -->
+  <url>
+    <loc>https://www.lsat.academy/resources</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog/Resource: Sufficient Assumption -->
+  <url>
+    <loc>https://www.lsat.academy/sufficient_assumption</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog/Resource: Indicator Words -->
+  <url>
+    <loc>https://www.lsat.academy/indicator_words</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Blog/Resource: ABC of Applying to Law School -->
+  <url>
+    <loc>https://www.lsat.academy/abc</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- LSAT Quizlet -->
+  <url>
+    <loc>https://www.lsat.academy/lsat-quizlet</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Discord Community -->
+  <url>
+    <loc>https://www.lsat.academy/discord</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.lsat.academy/privacy-policy</loc>
+    <lastmod>2025-01-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

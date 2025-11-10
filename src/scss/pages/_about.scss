@@ -1,5 +1,6 @@
 .about {
     .about-me {
+        
         .about-title {
             display: flex;
             align-items: center; 
@@ -21,9 +22,12 @@
         }
         .about-content{
             display: flex;
-            height: 60vh;
+            height: fit-content;
             justify-content: space-between;
             gap: 13vw;
+            img{
+                max-height:500px ;
+            }
             .content{
                 h2{
                     font-size: 2.5rem;
@@ -42,7 +46,7 @@
         background-color: white;
         border-radius: 30px;
         padding: 80px;
-        margin-top: 40px;
+        margin-top: 80px;
         display: flex;
         flex-direction: column;
         gap: 40px;

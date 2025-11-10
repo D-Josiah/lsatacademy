@@ -16,12 +16,15 @@ const About = () => {
             <img src="/assets/david.png" alt="picture of david" />
             <div className="content">
               <h2>David McMaster</h2>
-              <p>I've dedicated the past 15 years to helping students master the LSAT. While I prefer letting my results speak for themselves, my students consistently tell me I should share more about my impact. They're right – my track record includes helping students gain admission to Harvard Law, Yale Law, and other top schools, with success stories spanning from initial scores in the 140s to final scores in the 170s.</p>
+              <p>After leaving college I spent years traveling the world playing poker. Looking to do something more fulfilling, I took the LSAT (scoring in the top percentile) in order to start tutoring people. I’ve since dedicated the past 15 years to helping students master the LSAT. In that time, I've seen every mistake a student can make. Seriously, every single one. The overthinking, the pride that keeps you from drilling basics, the pressure from friends and family, the belief that you're just "not a 170+ person." I've watched countless students find success by patiently dedicating themselves, through repeated practice, to internalizing the patterns of the LSAT. I’ve seen this because I’m a former star classroom teacher for an elite test prep agency, where I taught hundreds of students and learned exactly what separates those who succeed from those who stay stuck.</p>
+              <br></br>
+              <p>Now I work one-on-one with  students who are ready to stop treating this test like it measures their self-worth and instead treating it like a game they can master. My students don't just improve their scores. They learn to approach test day with the kind of quiet confidence that comes from truly mastering the fundamentals. No anxiety. No overthinking. Just execution. </p>
             </div>
           </div>
           
 
         </section>
+        <br></br>
         <section className="approach-wrap spacer">
           <h2>MY APPROACH</h2>
           

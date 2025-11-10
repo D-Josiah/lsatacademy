@@ -1,0 +1,404 @@
+.group-tutoring{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    h1{
+        font-size: 3rem;
+        font-family: $bree;
+        font-weight: 100;
+    }
+    
+    .group-tutoring-header{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    
+    .class-details{
+        display: flex;
+        width: 95%;
+        background-color: white;
+        border-radius: 10px;
+        padding: 5%;
+        
+        .details-card{
+            width: 50%;
+            padding: 2%;
+            
+            h2{
+                padding-bottom: 20px;
+            }
+            
+            .program-info{
+                .info-item{
+                    text-align: start;
+                    display: flex;
+                    gap: 10px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+        
+        .group-cta{
+            width: 50%;
+            background-color: rgba(249, 251, 252, 0.76);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-left: 10%;
+            padding: 2%;
+            
+            .cta-buttons{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 5%;
+            }
+        }
+    }
+    
+    .schedule{
+        width: 60%;
+        margin-top: 60px;
+        
+        h2{
+            text-align: center;
+            font-size: 2rem;
+            padding-bottom: 30px;
+        }
+        
+        .sessions-grid{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            
+            .session{
+                background-color: white;
+                border-radius: 10px;
+                padding: 15px;
+                
+                .session-content{
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+    
+    .survey-section{
+        margin-top: 60px;
+        text-align: center;
+       
+       
+        
+        h2{
+            font-size: 2rem;
+            padding-bottom: 10px;
+        }
+        
+        .survey-embed{
+            margin-top: 30px;
+            
+        }
+    }
+}
+
+// Mobile breakpoints
+@media (max-width: 768px) {
+    .group-tutoring{
+        h1{
+            font-size: 1.6rem;
+            text-align: center;
+        }
+        
+        .group-tutoring-header{
+            width: 95%;
+            margin-bottom: 20px;
+        }
+        
+        .class-details{
+            flex-direction: column;
+            width: 90vw;
+            padding: 4%;
+           
+            
+            .details-card{
+                width: 100%;
+                padding: 0;
+                margin-bottom: 20px;
+                
+                
+                h2{
+                    font-size: 1.3rem;
+                    text-align: center;
+                }
+                
+                .program-info{
+                    .info-item{
+                        
+                        gap: 5px;
+                        padding-bottom: 15px;
+                        text-align: start;
+                        width: 80%;
+                   
+                        margin: auto;
+                        
+
+                        h3{
+                            font-size: 1.2rem;
+                        }
+                        
+                        p{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+            
+            .group-cta{
+                width: 100%;
+                margin-left: 0;
+                padding: 4%;
+                
+                h3{
+                    font-size: 1.3rem;
+                    text-align: center;
+                }
+                
+                .cta-buttons{
+                    gap: 10px;
+                    margin-top: 20px;
+                    align-items: center;
+                    
+                    button{
+                        font-size: 0.9rem;
+                        padding: 12px 20px;
+                        width: 100%;
+                        max-width: 250px;
+                    }
+                }
+            }
+        }
+        
+        .schedule{
+            width: 95%;
+            margin-top: 40px;
+            
+            h2{
+                font-size: 1.3rem;
+                padding-bottom: 20px;
+            }
+            
+            .sessions-grid{
+                gap: 10px;
+                
+                .session{
+                    padding: 12px;
+                    
+                    h3{
+                        font-size: 1.2rem;
+                    }
+                    
+                    .session-content{
+                        margin-left: 10px;
+                        
+                        p{
+                            font-size: 0.9rem;
+                            line-height: 1.4;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .survey-section{
+            margin-top: 40px;
+            width: 95%;
+            
+            h2{
+                font-size: 1.1rem;
+            }
+            
+            p{
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
+            
+            .survey-embed{
+                margin-top: 20px;
+                
+                iframe{
+                    height: 600px;
+                }
+            }
+        }
+    }
+}
+
+// Small mobile breakpoints
+@media (max-width: 480px) {
+    .group-tutoring{
+        h1{
+            font-size: 1.4rem;
+        }
+        
+        .class-details{
+            padding: 3%;
+            width: 90vw;
+            
+            .details-card{
+                h2{
+                    font-size: 1.1rem;
+                }
+                
+                .program-info{
+                    .info-item{
+                        h3{
+                            font-size: 1.1rem;
+                        }
+                        
+                        p{
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+            
+            .group-cta{
+                padding: 3%;
+                
+                h3{
+                    font-size: 1.2rem;
+                }
+                
+                .cta-buttons{
+                    button{
+                        font-size: 0.8rem;
+                        padding: 10px 16px;
+                        width: 100%;
+                        max-width: 220px;
+                    }
+                }
+            }
+        }
+        
+        .schedule{
+            h2{
+                font-size: 1.1rem;
+            }
+            
+            .sessions-grid{
+                .session{
+                    padding: 10px;
+                    
+                    h3{
+                        font-size: 1.1rem;
+                    }
+                    
+                    .session-content{
+                        margin-left: 5px;
+                        
+                        p{
+                            font-size: 0.85rem;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .survey-section{
+            h2{
+                font-size: 1.3rem;
+            }
+            
+            p{
+                font-size: 0.9rem;
+            }
+            
+            .survey-embed{
+                iframe{
+                    height: 500px;
+                }
+            }
+        }
+    }
+}
+
+// Tablet breakpoints
+@media (min-width: 769px) and (max-width: 1024px) {
+    .group-tutoring{
+        h1{
+            font-size: 2.5rem;
+        }
+        
+        .schedule{
+            width: 80%;
+            
+            h2{
+                font-size: 1.8rem;
+            }
+        }
+        
+        .class-details{
+            
+            width: 95vw;
+            
+            .details-card{
+                width: 50%;
+                h2{
+                    font-size: 1.8rem;
+                }
+                .program-info{
+                    .info-item{
+                        
+                        gap: 5px;
+                        padding-bottom: 15px;
+                        text-align: start;
+
+                        h3{
+                            font-size: 1.2rem;
+                        }
+                        
+                        p{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+            
+            .group-cta{
+                h3{
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+.group-session{
+    width: 90%;
+    text-align: center;
+    h1{
+        padding-bottom: 20px;
+    }
+    iframe{
+        margin-bottom: 40px;
+    }
+    p{
+        padding-bottom: 30px;
+        font-weight: bold;
+    }
+   
+}
+
+hr {
+    background-color: $myblue;  
+    border: none;  
+    height: 3px;  
+    width: 100%;  
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}

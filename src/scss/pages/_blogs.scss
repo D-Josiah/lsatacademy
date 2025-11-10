@@ -33,11 +33,7 @@
     
         
     }
-    button{
-        z-index: 9999;
-       
-    }
-
+    
     .blog-details{
         display: flex;
         width: 80%;
@@ -222,7 +218,7 @@
 
     padding-top: 30px;
     img{
-        width: 30%;
+        width: 15%;
     }
    
 }
@@ -232,9 +228,34 @@
     }
 .discord-btn{
     margin: auto;
+    height: 7vh;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
-
+.discord-p{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 .server{
     margin: auto;
     width: 30%;
+}
+
+@media (max-width: 768px) {
+    .discord-btn{
+    
+    margin-bottom: 0px;
+    margin-top: 0px;
+    height: 5vh;
+}
+.discord-images{
+   
+    img{
+        width: 30%;
+    }
+   
+}
+
+
 }

@@ -3,8 +3,8 @@ import React from "react";
 const SufficientAssumption = () => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "https://drive.google.com/uc?export=download&id=1Zo4ObXXSqSIJXm4zfjw2QPp2XN_RwZOj";
-    link.download = "https://drive.google.com/uc?export=download&id=1Zo4ObXXSqSIJXm4zfjw2QPp2XN_RwZOj";
+    link.href = "https://share-na2.hsforms.com/1pSUh__rtTxKFGJx2SbYi5g401key";
+    link.download = "https://share-na2.hsforms.com/1pSUh__rtTxKFGJx2SbYi5g401keys";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
