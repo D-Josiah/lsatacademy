@@ -104,7 +104,7 @@ const Header = () => {
                 to="/resources"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Free Guides
+                Resources
               </Link>
             </li>
         

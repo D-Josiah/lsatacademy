@@ -63,15 +63,15 @@ const Services = () => {
             <div className="service">
               <h3>1-on-1 Private Tutoring</h3>
               <p>Personalized, focused sessions tailored to the student's specific strengths and weaknesses.</p>
-              <p className="base-price">$85 per session</p>
+              <p className="base-price">$85 per hour</p>
               <ul className="pricing">  
                 
-                <li className="package-deal">5% discount for 10-hour package</li>
-                <li className="package-deal">15% discount for 20-hour package</li>
+                <li className="package-deal">5% discount for 10 hour package</li>
+                <li className="package-deal">15% discount for 20 hour package</li>
               </ul>
             
               <button 
-                onClick={() => window.open('https://calendly.com/dave-mcmaster/1-on-1-private-tutoring', '_blank')}
+                onClick={() => window.open('https://calendly.com/dave-mcmaster/private-lsat-tutoring', '_blank')}
                 className="inquire-button"
               >
                 Schedule 1-on-1
@@ -116,7 +116,7 @@ const Services = () => {
          {/* Calendly Widget - 1-on-1 Tutoring */}
         <div
           className="calendly-inline-widget"
-          data-url="https://calendly.com/dave-mcmaster/1-on-1-private-tutoring?text_color=023247&primary_color=023247"
+          data-url="https://calendly.com/dave-mcmaster/private-lsat-tutoring?text_color=023247&primary_color=023247"
           style={{ minWidth: "320px", height: "700px" }}
         >
         </div>

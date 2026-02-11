@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -18,11 +19,32 @@ import Discord from "./pages/Discord";
 import Library from "./pages/Library";
 import GroupTutoring from "./pages/GroupTutoring";
 import LSATAnswers from "./pages/LSATAnswers";
+import ThankYouConsultation from "./pages/ThankYouConsultation";
+import LSATExplained from './pages/LSATExplained';
+import ThankYouDownload from "./pages/ThankYouDownload";
 
+// Component to track page views
+const PageViewTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Push virtual pageview to dataLayer on every route change
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "virtual_pageview",
+      page_path: location.pathname,
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  }, [location]);
+
+  return null;
+};
 
 const App = () => {
   return (
     <Router>
+      <PageViewTracker />
       <Header/>
       <ScrollToTop />
       <Routes>
@@ -42,6 +64,9 @@ const App = () => {
         <Route path="/group-tutoring" element={<GroupTutoring/>} />
         <Route path="/lsat-answers" element={<LSATAnswers/>} />
         <Route path="/library" element={<Library/>} />
+        <Route path="/lsat-explained" element={<LSATExplained/>} />
+        <Route path="/thank-you-consultation" element={<ThankYouConsultation/>} />
+        <Route path="/thank-you-download" element={<ThankYouDownload/>} />
       </Routes>
       <Footer />
     </Router>

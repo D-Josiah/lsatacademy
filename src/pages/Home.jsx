@@ -28,7 +28,7 @@ const Home = () => {
                 onClick={() => window.open('https://calendly.com/dave-mcmaster/free-lsat-consultation', '_blank')}
                 className="consultation-button inquire-button"
               >
-                Book Free Consultation
+                Book Your Free Consultation
               </button>
               <button onClick={() => {
                 const servicesSection = document.getElementById('services');
@@ -64,7 +64,32 @@ const Home = () => {
               </div>
             </div>
           </div>
+           <div style={{ textAlign: 'center', maxWidth: '600px' }}>
+                <h3 style={{ fontSize: '2rem', marginBottom: '15px', color: '#023247' }}>
+                  How was David as a tutor, really?
+                </h3>
+                <p style={{ fontSize: '0.95rem', color: '#555', marginBottom: '30px', textAlign: 'center', marginTop: '20px' }}>
+                  Note: Some older testimonials may mention logic games — those were part of past LSAT formats.
+                </p>
+                <button 
+                  onClick={() => window.open('https://docs.google.com/forms/d/1rL_IQq45dGYxYBQIvjX3Pauc7UhUTCCSHK7UwB_rIoc/viewanalytics?pli=1&pli=1', '_blank')}
+                  className="primary-btn"
+                  style={{ 
+                    marginTop: '10px',
+                    padding: '14px 32px',
+                    fontSize: '1.1rem',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    lineHeight: '1'
+                  }}
+                >
+                  Read Student Answers
+                </button>
+              </div>
         </section>
+              
+         
         
         
         <section className="services padding" id="services">
@@ -85,16 +110,16 @@ const Home = () => {
             <div className="service">
               <h3>1-on-1 Private Tutoring</h3>
               <p>Personalized, focused sessions tailored to the student's specific strengths and weaknesses.</p>
-              <p className="base-price">$85 per session</p>
+              <p className="base-price">$85 per hour</p>
               
               <ul className="pricing">  
                 
-                <li className="package-deal">5% discount for 10-hour package</li>
-                <li className="package-deal">15% discount for 20-hour package</li>
+                <li className="package-deal">5% discount for 10 hour package</li>
+                <li className="package-deal">15% discount for 20 hour package</li>
               </ul>
             
               <button 
-                onClick={() => window.open('https://calendly.com/dave-mcmaster/1-on-1-private-tutoring', '_blank')}
+                onClick={() => window.open('https://calendly.com/dave-mcmaster/private-lsat-tutoring', '_blank')}
                 className="inquire-button"
               >
                 Schedule 1-on-1
@@ -169,98 +194,164 @@ const Home = () => {
           
         </section>
 
-        <section class LSAT Academy Community>
-                   <div style={{
-        maxWidth: '1000px',
-        margin: '60px auto 0',
-        padding: '0 20px'
-      }}>
-        <div style={{
-          background: 'linear-gradient(135deg, #FF4500 0%, #FF5722 100%)',
-          borderRadius: '20px',
-          padding: '40px',
-          boxShadow: '0 8px 24px rgba(255, 69, 0, 0.25)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '20px'
-        }}>
+        <section className="lsat-academy-community">
+          <style>{`
+            @media (max-width: 768px) {
+              .lsat-academy-community .community-card {
+                flex-direction: column !important;
+                text-align: center !important;
+                padding: 30px 20px !important;
+              }
+              
+              .lsat-academy-community .community-content {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+              }
+              
+              .lsat-academy-community .community-icon {
+                width: 50px !important;
+                height: 50px !important;
+              }
+              
+              .lsat-academy-community .community-title {
+                font-size: 1.4rem !important;
+                text-align: center !important;
+              }
+              
+              .lsat-academy-community .community-description {
+                font-size: 0.95rem !important;
+                text-align: center !important;
+              }
+              
+              .lsat-academy-community .community-button {
+                width: 100% !important;
+                text-align: center !important;
+                padding: 12px 24px !important;
+                font-size: 1rem !important;
+              }
+            }
+
+            @media (max-width: 480px) {
+              .lsat-academy-community .community-card {
+                padding: 25px 15px !important;
+                gap: 15px !important;
+              }
+              
+              .lsat-academy-community .community-icon {
+                width: 45px !important;
+                height: 45px !important;
+              }
+              
+              .lsat-academy-community .community-title {
+                font-size: 1.2rem !important;
+                margin-bottom: 6px !important;
+              }
+              
+              .lsat-academy-community .community-description {
+                font-size: 0.9rem !important;
+              }
+              
+              .lsat-academy-community .community-button {
+                padding: 10px 20px !important;
+                font-size: 0.95rem !important;
+              }
+            }
+          `}</style>
+
+          {/* Reddit Community */}
           <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '20px',
-            flex: '1',
-            minWidth: '250px'
+            maxWidth: '1000px',
+            margin: '60px auto 0',
+            padding: '0 20px'
           }}>
-            <img 
-              src="/assets/reddit-icon.png" 
-              alt="Reddit Logo" 
-              style={{
-                width: '60px',
-                height: '60px',
-                filter: 'brightness(0) invert(1)'
-              }}
-            />
-            <div>
-              <h3 style={{
-                fontSize: '1.8rem',
-                fontFamily: "'Bree Serif', serif",
-                fontWeight: '100',
-                color: 'white',
-                marginBottom: '8px'
-              }}>Join Our Subreddit</h3>
-              <p style={{
-                fontSize: '1.1rem',
-                color: 'rgba(255,255,255,0.95)',
-                margin: 0
+            <div className="community-card" style={{
+              background: 'linear-gradient(135deg, #FF4500 0%, #FF5722 100%)',
+              borderRadius: '20px',
+              padding: '40px',
+              boxShadow: '0 8px 24px rgba(255, 69, 0, 0.25)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '20px'
+            }}>
+              <div className="community-content" style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '20px',
+                flex: '1',
+                minWidth: '250px'
               }}>
-                Get daily LSAT tips, ask questions, and connect with fellow students
-              </p>
+                <img 
+                  src="/assets/reddit-icon.png" 
+                  alt="Reddit Logo"
+                  className="community-icon"
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    filter: 'brightness(0) invert(1)'
+                  }}
+                />
+                <div>
+                  <h3 className="community-title" style={{
+                    fontSize: '1.8rem',
+                    fontFamily: "'Bree Serif', serif",
+                    fontWeight: '100',
+                    color: 'white',
+                    marginBottom: '8px'
+                  }}>Join Our Subreddit</h3>
+                  <p className="community-description" style={{
+                    fontSize: '1.1rem',
+                    color: 'rgba(255,255,255,0.95)',
+                    margin: 0
+                  }}>
+                    Get daily LSAT tips, ask questions, and connect with fellow students
+                  </p>
+                </div>
+              </div>
+              
+              <a
+                href="https://www.reddit.com/r/LSATAcademy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="community-button"
+                style={{
+                  background: 'white',
+                  color: '#FF4500',
+                  padding: '14px 32px',
+                  borderRadius: '50px',
+                  border: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  display: 'inline-block',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+                }}
+              >
+                Join r/LSATAcademy →
+              </a>
             </div>
           </div>
-          
-          <a
-            href="https://www.reddit.com/r/LSATAcademy/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: 'white',
-              color: '#FF4500',
-              padding: '14px 32px',
-              borderRadius: '50px',
-              border: 'none',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              textDecoration: 'none',
-              display: 'inline-block',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
-            }}
-            onMouseOver={(e) => {
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
-            }}
-            onMouseOut={(e) => {
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
-            }}
-          >
-            Join r/LSATAcademy →
-          </a>
-        </div>
-      </div>
 
-      
-
-      {/* Discord Community */}
+          {/* Discord Community */}
           <div style={{
             maxWidth: '1000px',
             margin: '30px auto 0',
             padding: '0 20px'
           }}>
-            <div style={{
+            <div className="community-card" style={{
               background: 'linear-gradient(135deg, #5865F2 0%, #7289DA 100%)',
               borderRadius: '20px',
               padding: '40px',
@@ -271,7 +362,7 @@ const Home = () => {
               flexWrap: 'wrap',
               gap: '20px'
             }}>
-              <div style={{
+              <div className="community-content" style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '20px',
@@ -280,7 +371,8 @@ const Home = () => {
               }}>
                 <img 
                   src="/assets/discord-icon.png" 
-                  alt="Discord Logo" 
+                  alt="Discord Logo"
+                  className="community-icon"
                   style={{
                     width: '60px',
                     height: '60px',
@@ -288,14 +380,14 @@ const Home = () => {
                   }}
                 />
                 <div>
-                  <h3 style={{
+                  <h3 className="community-title" style={{
                     fontSize: '1.8rem',
                     fontFamily: "'Bree Serif', serif",
                     fontWeight: '100',
                     color: 'white',
                     marginBottom: '8px'
                   }}>Join Our Discord Server</h3>
-                  <p style={{
+                  <p className="community-description" style={{
                     fontSize: '1.1rem',
                     color: 'rgba(255,255,255,0.95)',
                     margin: 0,
@@ -310,6 +402,7 @@ const Home = () => {
                 href="https://discord.gg/PPJezp2y9P"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="community-button"
                 style={{
                   background: 'white',
                   color: '#5865F2',
@@ -337,7 +430,6 @@ const Home = () => {
               </a>
             </div>
           </div>
-
         </section>
 
         

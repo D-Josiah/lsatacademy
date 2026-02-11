@@ -48,10 +48,134 @@ const Consultation = () => {
 
   return (
     <>
+      <style>{`
+        :root {
+          --myblue: #1a3a52;
+          --mylightblue: #2e5c8a;
+          --bree: 'Bree Serif', serif;
+          --poppins: 'Poppins', sans-serif;
+        }
+
+        .pattern-section {
+          background: linear-gradient(135deg, var(--myblue) 0%, var(--mylightblue) 100%);
+          padding: 3rem 2rem;
+          border-radius: 12px;
+          margin: 3rem auto;
+          max-width: 900px;
+          text-align: center;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .pattern-section h3 {
+          margin-bottom: 0.75rem;
+          color: #ffffff;
+          font-size: 2rem;
+          font-weight: 100;
+          font-family: var(--bree);
+          letter-spacing: 0.5px;
+        }
+
+        .pattern-list {
+          list-style: none;
+          padding: 0;
+          margin: 2rem auto;
+          max-width: 700px;
+          text-align: left;
+        }
+
+        .pattern-list li {
+          padding: 0.4rem 0;
+          padding-left: 1.5rem;
+          position: relative;
+          line-height: 1.6;
+          color: #ffffff;
+          font-size: 1rem;
+          font-family: var(--poppins);
+        }
+
+        .pattern-list li:before {
+          content: "✓";
+          color: #e8f0fe;
+          font-weight: bold;
+          font-size: 1.2rem;
+          position: absolute;
+          left: 0;
+          top: 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+          .pattern-section {
+            padding: 2rem 1.5rem;
+            margin: 2rem 1rem;
+          }
+
+          .pattern-section h3 {
+            font-size: 1.6rem;
+          }
+
+          .pattern-list li {
+            padding-left: 1.25rem;
+            font-size: 0.95rem;
+          }
+        }
+      `}</style>
+
       <main className="consultation max padding spacer">
         
-        <h1 style={{ margin:'auto', fontFamily:'bree', textAlign:'center' }}>LSAT Academy Consultations</h1>
-         {/* Consultation Testimonials */}
+        <h1 style={{ 
+        
+          fontFamily: 'var(--bree)', 
+          textAlign: 'center',
+          fontSize: '2.8rem',
+          fontWeight: 100,
+          color: 'var(--myblue)',
+          lineHeight: 1.3
+        }}>LSAT Academy Consultations</h1>
+        
+        <div className="pattern-section">
+          <h3>Take advantage of this free LSAT consultation if:</h3>
+          
+          <ul className="pattern-list">
+            
+            <li>your recent diagnostic left you unsure about what to fix</li>
+            <li>you want clearer guidance instead of studying alone</li>
+            <li>you're looking for real LSAT help, not more scattered resources</li>
+            <li>you'd benefit from structure and a study plan that makes sense</li>
+            <li>you want an LSAT tutor who can bring clarity to your approach and timeline</li>
+          </ul>
+        </div>
+        <h3 style={{ marginTop:'40px', textAlign:'center' }}>Pick a Time That Works for You</h3>
+
+          {/* Calendly Widget - Free Consultation */}
+        <div style={{ position: 'relative', minHeight: '700px' }} id="free-consultation">
+          {!calendlyLoaded && (
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '700px',
+              backgroundColor: '#f9f9f9'
+            }}>
+              <img 
+                src="/assets/loading.gif" 
+                alt="Loading..." 
+                style={{ width: '80px', height: '80px' }}
+              />
+            </div>
+          )}
+          <div
+            className="calendly-inline-widget"
+            data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
+            style={{ 
+              minWidth: "320px", 
+              height: "700px",
+              display: calendlyLoaded ? 'block' : 'none'
+            }}
+          >
+          </div>
+        </div>
+
+        {/* Consultation Testimonials */}
         <section className="consultation-testimonials">
           
           <div style={{ 
@@ -132,34 +256,7 @@ const Consultation = () => {
           </div>
         </section>
 
-        {/* Calendly Widget - Free Consultation */}
-        <div style={{ position: 'relative', minHeight: '700px' }} id="free-consultation">
-          {!calendlyLoaded && (
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '700px',
-              backgroundColor: '#f9f9f9'
-            }}>
-              <img 
-                src="/assets/loading.gif" 
-                alt="Loading..." 
-                style={{ width: '80px', height: '80px' }}
-              />
-            </div>
-          )}
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
-            style={{ 
-              minWidth: "320px", 
-              height: "700px",
-              display: calendlyLoaded ? 'block' : 'none'
-            }}
-          >
-          </div>
-        </div>
+      
 
         {/* Image Grid Section */}
         <section className="image-grid padding">

@@ -27,6 +27,7 @@
                 font-family: $poppins;
                 font-weight: 500;
                 width: 70%;
+                font-size: 1.3rem;
                 
             }
         }
@@ -206,7 +207,7 @@
 /* Mobile Portrait */
 @media (max-width: 410px) {
     .home{
-        margin-top: 30px;
+        margin-top: 40px;
       
    
         .hero{
@@ -227,7 +228,7 @@
                     padding-top: 20px;
                 }
                 h2{
-                    font-size: 1.3rem;
+                    font-size: 0.9rem;
                     width: 100%;
                     text-align: center;
                     padding-left: 3%;
@@ -362,7 +363,7 @@
                     padding-top: 20px;
                 }
                 h2{
-                    font-size: 1.5rem;
+                    font-size: 0.9rem;
                     width: 100%;
                     text-align: center;
                     padding-left: 5%;
@@ -488,7 +489,7 @@
                     padding-top: 20px;
                 }
                 h2{
-                    font-size: 1.5rem;
+                    font-size: 0.9rem;
                     width: 100%;
                     text-align: center;
                     padding-left: 5%;
@@ -620,7 +621,7 @@
                     padding-top: 20px;
                 }
                 h2{
-                    font-size: 1.8rem;
+                    font-size: 1.2rem;
                     width: 90%;
                     text-align: center;
                     padding-left: 5%;
@@ -744,7 +745,7 @@
                     padding-top: 20px;
                 }
                 h2{
-                    font-size: 1.8rem;
+                    font-size: 1.2rem;
                     width: 90%;
                     text-align: center;
                     padding-left: 5%;
@@ -1168,7 +1169,7 @@
       padding: 2rem 0;
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
 
       .about-intro {
@@ -1233,3 +1234,4 @@
     padding: 2rem 0;
   }
 }
+
