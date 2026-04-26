@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>LSAT Academy · Private LSAT Tutoring with David McMaster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Bree+Serif&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"/>
+<style>
+  /* Responsive adjustments */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding-top: 24px !important; }
+    .services-grid { grid-template-columns: 1fr !important; }
+    .services-grid > :nth-child(2) { transform: none !important; }
+    .meet-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .meet-stats { grid-template-columns: 1fr !important; }
+    .meet-stats > div { padding: 20px 0 !important; border-left: none !important; border-top: 1px solid var(--ink-200) !important; }
+    .meet-stats > div:first-child { border-top: none !important; }
+    .why-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+    .community-grid { grid-template-columns: 1fr !important; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+    .contact-row { grid-template-columns: 1fr !important; }
+    .footer-grid { grid-template-columns: 1fr 1fr !important; }
+    .nav-links { display: none !important; }
+    .community-grid > div { grid-template-columns: 48px 1fr !important; gap: 16px !important; }
+    .community-grid > div > a { grid-column: 1 / -1; }
+  }
+  input:focus, textarea:focus { border-color: var(--teal-500) !important; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="hero.jsx"></script>
+<script type="text/babel" src="middle-sections.jsx"></script>
+<script type="text/babel" src="end-sections.jsx"></script>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "#2A8E9E",
+  "heroBg": "cream",
+  "showTrustBadge": true,
+  "showRibbon": true
+}/*EDITMODE-END*/;
+
+function App() {
+  const [tweaks, setTweaks] = useTweaks(TWEAK_DEFAULTS);
+
+  // Live apply accent color
+  React.useEffect(() => {
+    document.documentElement.style.setProperty("--teal-500", tweaks.accentColor);
+  }, [tweaks.accentColor]);
+
+  const heroBgStyles = {
+    cream: "#EFF2F6",
+    mist: "linear-gradient(180deg, #e2ecf0 0%, #c7dbe0 100%)",
+    dark: "linear-gradient(to right, #045573, #1092c5)",
+  };
+
+  React.useEffect(() => {
+    const firstSection = document.querySelector("[data-screen-label='01 Hero']");
+    if (firstSection) firstSection.style.background = heroBgStyles[tweaks.heroBg] || heroBgStyles.cream;
+    // dark mode text adjustments
+    if (firstSection) {
+      firstSection.classList.toggle("hero-dark", tweaks.heroBg === "dark");
+    }
+  }, [tweaks.heroBg]);
+
+  return (
+    <>
+      <Hero />
+      <MeetTutor />
+      <Services />
+      <WhyChoose />
+      <Community />
+      <Contact />
+      <Footer />
+
+      <TweaksPanel>
+        <TweakSection title="Brand accent">
+          <TweakColor
+            label="Accent color"
+            value={tweaks.accentColor}
+            onChange={(v) => setTweaks({ accentColor: v })}
+          />
+          <TweakRadio
+            label="Accent presets"
+            value={tweaks.accentColor}
+            onChange={(v) => setTweaks({ accentColor: v })}
+            options={[
+              {label: "Brand blue", value: "#2A8E9E"},
+              {label: "Navy", value: "#023247"},
+              {label: "Deep teal", value: "#0f6d7e"},
+              {label: "Warm gold", value: "#c89b3c"},
+            ]}
+          />
+        </TweakSection>
+
+        <TweakSection title="Hero">
+          <TweakRadio
+            label="Hero background"
+            value={tweaks.heroBg}
+            onChange={(v) => setTweaks({ heroBg: v })}
+            options={[
+              {label: "Cream (default)", value: "cream"},
+              {label: "Teal mist", value: "mist"},
+              {label: "Navy dark", value: "dark"},
+            ]}
+          />
+          <TweakToggle
+            label="Show trust badge"
+            value={tweaks.showTrustBadge}
+            onChange={(v) => setTweaks({ showTrustBadge: v })}
+          />
+          <TweakToggle
+            label="Show 'Featured in' ribbon"
+            value={tweaks.showRibbon}
+            onChange={(v) => setTweaks({ showRibbon: v })}
+          />
+        </TweakSection>
+      </TweaksPanel>
+
+      <HeroDomTweaks tweaks={tweaks} />
+    </>
+  );
+}
+
+// side-effect component for DOM tweaks that aren't state-driven in Hero
+function HeroDomTweaks({ tweaks }) {
+  React.useEffect(() => {
+    const hero = document.querySelector("[data-screen-label='01 Hero']");
+    if (!hero) return;
+
+    // trust badge visibility
+    const trust = hero.querySelector("[data-el='trust']");
+    // we use first element by structure — safer: first child's first child direct
+    const badges = hero.querySelectorAll("div");
+    // Use textContent matching for robustness
+    hero.querySelectorAll(":scope .container > *").forEach(() => {});
+
+    // Simpler: toggle via selector on the trust badge (we know it contains "Trusted by")
+    const trustEl = [...hero.querySelectorAll("div")].find(
+      (d) => d.textContent && d.textContent.includes("Trusted by") && d.children.length <= 3 && d.offsetWidth < 400
+    );
+    if (trustEl) trustEl.style.display = tweaks.showTrustBadge ? "inline-flex" : "none";
+
+    // ribbon
+    const ribbonLabel = [...hero.querySelectorAll("span")].find(
+      (d) => d.textContent === "As featured in"
+    );
+    if (ribbonLabel) {
+      const ribbon = ribbonLabel.parentElement;
+      if (ribbon) ribbon.style.display = tweaks.showRibbon ? "flex" : "none";
+    }
+
+    // Dark hero text contrast
+    if (tweaks.heroBg === "dark") {
+      hero.style.color = "#fff";
+      const h1 = hero.querySelector("h1");
+      if (h1) h1.style.color = "#fff";
+      const sub = hero.querySelector("p");
+      if (sub) sub.style.color = "rgba(255,255,255,0.7)";
+    } else {
+      hero.style.color = "";
+      const h1 = hero.querySelector("h1");
+      if (h1) h1.style.color = "var(--navy-900)";
+      const sub = hero.querySelector("p");
+      if (sub) sub.style.color = "var(--ink-700)";
+    }
+  }, [tweaks]);
+  return null;
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
