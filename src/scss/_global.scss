@@ -39,24 +39,34 @@ a {
   text-decoration: none;
   color: $myblue;
   position: relative;
-  display: inline-block; 
+  display: inline-block;
 
- 
+
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 0; 
+    width: 0;
     height: 2px;
     background-color: $myblue;
-    transition: width 0.3s ease; 
+    transition: width 0.3s ease;
   }
 
-  
+
   &:hover::after {
-    width: 100%; 
+    width: 100%;
   }
+}
+
+// Disable the animated underline on anchors that are styled as buttons
+button a,
+a[class*="button"],
+a[class*="btn"],
+a.community-button,
+a.pay-btn {
+  &::after { content: none !important; }
+  &:hover::after { width: 0 !important; }
 }
 
 body{

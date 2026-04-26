@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const GroupTutoring = () => {
   const handleSurvey = () => {
@@ -19,6 +20,17 @@ const GroupTutoring = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Group LSAT Tutoring | LSAT Academy</title>
+        <meta name="description" content="Join LSAT Academy's group tutoring program — an affordable way to study LSAT with peers in a collaborative environment led by David McMaster. Join the waitlist today." />
+        <link rel="canonical" href="https://www.lsat.academy/group-tutoring" />
+        <meta property="og:title" content="Group LSAT Tutoring | LSAT Academy" />
+        <meta property="og:description" content="Join LSAT Academy's group tutoring program — an affordable way to study LSAT with peers in a collaborative environment led by David McMaster. Join the waitlist today." />
+        <meta property="og:url" content="https://www.lsat.academy/group-tutoring" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Group LSAT Tutoring | LSAT Academy" />
+        <meta name="twitter:description" content="Join LSAT Academy's group tutoring program — an affordable way to study LSAT with peers in a collaborative environment led by David McMaster. Join the waitlist today." />
+      </Helmet>
       <main className="group-tutoring max padding spacer">
         
 

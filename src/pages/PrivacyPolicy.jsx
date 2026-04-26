@@ -1,10 +1,22 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 
 const PrivacyPolicy = () => {
   return (
     <>
+      <Helmet>
+        <title>Privacy Policy | LSAT Academy</title>
+        <meta name="description" content="Read the LSAT Academy privacy policy to understand how we collect, use, and protect your personal information." />
+        <link rel="canonical" href="https://www.lsat.academy/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy | LSAT Academy" />
+        <meta property="og:description" content="Read the LSAT Academy privacy policy to understand how we collect, use, and protect your personal information." />
+        <meta property="og:url" content="https://www.lsat.academy/privacy-policy" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Privacy Policy | LSAT Academy" />
+        <meta name="twitter:description" content="Read the LSAT Academy privacy policy to understand how we collect, use, and protect your personal information." />
+      </Helmet>
       <main className="privacy max padding spacer">
         <div className="privacy-container">
           <h1 className="privacy-title">Privacy Policy for LSAT Academy</h1>

@@ -1,10 +1,22 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import ContactForm from "../components/ContactForm";
 
 
 const About = () => {
   return (
     <>
+      <Helmet>
+        <title>About David McMaster | LSAT Academy Tutor</title>
+        <meta name="description" content="Meet David McMaster — 99th percentile LSAT scorer, former elite test-prep instructor, and founder of LSAT Academy with 15 years of tutoring experience." />
+        <link rel="canonical" href="https://www.lsat.academy/about" />
+        <meta property="og:title" content="About David McMaster | LSAT Academy Tutor" />
+        <meta property="og:description" content="Meet David McMaster — 99th percentile LSAT scorer, former elite test-prep instructor, and founder of LSAT Academy with 15 years of tutoring experience." />
+        <meta property="og:url" content="https://www.lsat.academy/about" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="About David McMaster | LSAT Academy Tutor" />
+        <meta name="twitter:description" content="Meet David McMaster — 99th percentile LSAT scorer, former elite test-prep instructor, and founder of LSAT Academy with 15 years of tutoring experience." />
+      </Helmet>
    
       <main className="about max padding">
         <section className="about-me">
@@ -13,7 +25,7 @@ const About = () => {
             <hr></hr>
           </div>
           <div className="about-content">
-            <img src="/assets/david.png" alt="picture of david" />
+            <img src="/assets/david.png" alt="David McMaster, LSAT Tutor and founder of LSAT Academy" loading="lazy" width="400" height="400" />
             <div className="content">
               <h2>David McMaster</h2>
               <p>After leaving college I spent years traveling the world playing poker. Looking to do something more fulfilling, I took the LSAT (scoring in the top percentile) in order to start tutoring people. I’ve since dedicated the past 15 years to helping students master the LSAT. In that time, I've seen every mistake a student can make. Seriously, every single one. The overthinking, the pride that keeps you from drilling basics, the pressure from friends and family, the belief that you're just "not a 170+ person." I've watched countless students find success by patiently dedicating themselves, through repeated practice, to internalizing the patterns of the LSAT. I’ve seen this because I’m a former star classroom teacher for an elite test prep agency, where I taught hundreds of students and learned exactly what separates those who succeed from those who stay stuck.</p>
@@ -30,21 +42,21 @@ const About = () => {
           
           <div className="approach-content">
             <div className="approach">
-              <img src="/assets/person-icon.png" alt="person icon" />
+              <img src="/assets/person-icon.png" alt="person icon" loading="lazy" width="48" height="48" />
               <div className="text">
                 <h3>Personalized Study Plans</h3>
                 <p>I create customized plans tailored to your unique strengths and weaknesses, ensuring we focus on what matters most to you.</p>
               </div>
             </div>
             <div className="approach">
-              <img src="/assets/brain-icon.png" alt="brain icon" />
+              <img src="/assets/brain-icon.png" alt="brain icon" loading="lazy" width="48" height="48" />
               <div className="text">
                 <h3>Building Deep Understanding</h3>
                 <p>Rather than quick fixes, I help you develop a strong conceptual foundation, ensuring you master the core concepts and apply them confidently on test day.</p>
               </div>
             </div>
             <div className="approach">
-              <img src="/assets/strategy-icon.png" alt="strategy icon" />
+              <img src="/assets/strategy-icon.png" alt="strategy icon" loading="lazy" width="48" height="48" />
               <div className="text">
                 <h3>Confidence & Strategy</h3>
                 <p>I emphasize key skills like critical thinking and efficient test strategies, helping to boost your confidence and performance under timed conditions.</p>

@@ -2,7 +2,8 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100vw;
+    width: 100%;
+    max-width: none;
     pointer-events: none; // Make header transparent to clicks
 
     .nav {
@@ -10,6 +11,7 @@
       background-color: white;
       display: flex;
       width: 100%;
+      max-width: none;
       align-items: center;
       background: rgba(255, 255, 255, 0.90);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);

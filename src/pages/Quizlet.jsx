@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Quizlet = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -18,6 +19,17 @@ const Quizlet = () => {
 
   return (
     <>
+      <Helmet>
+        <title>LSAT Quizlet Flashcards | LSAT Academy</title>
+        <meta name="description" content="Study LSAT vocabulary, logical reasoning terms, and key concepts with free Quizlet flashcard sets curated by David McMaster at LSAT Academy." />
+        <link rel="canonical" href="https://www.lsat.academy/lsat-quizlet" />
+        <meta property="og:title" content="LSAT Quizlet Flashcards | LSAT Academy" />
+        <meta property="og:description" content="Study LSAT vocabulary, logical reasoning terms, and key concepts with free Quizlet flashcard sets curated by David McMaster at LSAT Academy." />
+        <meta property="og:url" content="https://www.lsat.academy/lsat-quizlet" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="LSAT Quizlet Flashcards | LSAT Academy" />
+        <meta name="twitter:description" content="Study LSAT vocabulary, logical reasoning terms, and key concepts with free Quizlet flashcard sets curated by David McMaster at LSAT Academy." />
+      </Helmet>
       <main className="blogs max padding spacer">
         <h1>LSAT Quizlet</h1>
         <iframe 

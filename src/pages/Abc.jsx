@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Abc = () => {
   const handleDownload = () => {
@@ -12,6 +13,45 @@ const Abc = () => {
 
   return (
     <>
+      <Helmet>
+        <title>The ABCs of Applying to Law School | LSAT Academy</title>
+        <meta name="description" content="A comprehensive guide to applying to law school — from choosing when to apply and studying for the LSAT to crafting your personal statement and gathering recommendations." />
+        <link rel="canonical" href="https://www.lsat.academy/abc" />
+        <meta property="og:title" content="The ABCs of Applying to Law School | LSAT Academy" />
+        <meta property="og:description" content="A comprehensive guide to applying to law school — from choosing when to apply and studying for the LSAT to crafting your personal statement and gathering recommendations." />
+        <meta property="og:url" content="https://www.lsat.academy/abc" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content="The ABCs of Applying to Law School | LSAT Academy" />
+        <meta name="twitter:description" content="A comprehensive guide to applying to law school — from choosing when to apply and studying for the LSAT to crafting your personal statement and gathering recommendations." />
+        <script type="application/ld+json">{`
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The ABCs of Applying to Law School",
+    "description": "A comprehensive guide to applying to law school — from choosing when to apply and studying for the LSAT to crafting your personal statement and gathering recommendations.",
+    "image": "https://www.lsat.academy/600-logo.png",
+    "datePublished": "2025-04-05",
+    "dateModified": "2025-04-05",
+    "author": {
+      "@type": "Person",
+      "name": "David McMaster",
+      "url": "https://www.lsat.academy/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LSAT Academy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.lsat.academy/600-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.lsat.academy/abc"
+    }
+  }
+`}</script>
+      </Helmet>
       <main className="blogs max padding spacer">
         <article>
           <h1>The ABCs of Applying to Law School</h1>

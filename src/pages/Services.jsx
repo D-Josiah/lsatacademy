@@ -1,34 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
+import PackagesSection from "../components/PackagesSection";
 
 const Services = () => {
   const navigate = useNavigate();
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+  const [calendlyVisible, setCalendlyVisible] = useState(false);
+  const calendlyRef = useRef(null);
 
   useEffect(() => {
-    // Preload Calendly script immediately
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCalendlyVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px' }
+    );
+
+    if (calendlyRef.current) {
+      observer.observe(calendlyRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!calendlyVisible) return;
+
     const calendlyScript = document.createElement("script");
     calendlyScript.src = "https://assets.calendly.com/assets/external/widget.js";
     calendlyScript.async = true;
-    
-    // Add preconnect for faster loading
-    const preconnect = document.createElement("link");
-    preconnect.rel = "preconnect";
-    preconnect.href = "https://assets.calendly.com";
-    document.head.appendChild(preconnect);
-    
+    calendlyScript.onload = () => setCalendlyLoaded(true);
     document.body.appendChild(calendlyScript);
 
-    // Cleanup
     return () => {
       if (calendlyScript.parentNode) {
         calendlyScript.parentNode.removeChild(calendlyScript);
       }
-      if (preconnect.parentNode) {
-        preconnect.parentNode.removeChild(preconnect);
-      }
     };
-  }, []);
+  }, [calendlyVisible]);
 
   const handleSurvey = () => {
     const surveySection = document.getElementById('survey-section');
@@ -43,6 +57,27 @@ const Services = () => {
 
   return (
     <>
+      <Helmet>
+        <title>LSAT Tutoring Services & Pricing | LSAT Academy</title>
+        <meta name="description" content="Explore LSAT tutoring options with David McMaster. Private 1-on-1 sessions at $85/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation." />
+        <link rel="canonical" href="https://www.lsat.academy/services" />
+        <meta property="og:title" content="LSAT Tutoring Services & Pricing | LSAT Academy" />
+        <meta property="og:description" content="Private 1-on-1 LSAT tutoring at $85/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation with David McMaster." />
+        <meta property="og:url" content="https://www.lsat.academy/services" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="LSAT Tutoring Services & Pricing | LSAT Academy" />
+        <meta name="twitter:description" content="Private 1-on-1 LSAT tutoring at $85/hr, discounted packages, group tutoring, and a free consultation with David McMaster." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.lsat.academy/services" }
+            ]
+          }
+        `}</script>
+      </Helmet>
       <main className="consultation max padding spacer">
         
         <section className="services padding" id="services">
@@ -70,19 +105,19 @@ const Services = () => {
                 <li className="package-deal">15% discount for 20 hour package</li>
               </ul>
             
-              <button 
+              <button
                 onClick={() => window.open('https://calendly.com/dave-mcmaster/private-lsat-tutoring', '_blank')}
                 className="inquire-button"
               >
                 Schedule 1-on-1
               </button>
-              <button 
+              <button
                 onClick={() => {
                   const contactSection = document.getElementById('contact');
                   if (contactSection) {
                     contactSection.scrollIntoView({ behavior: 'smooth' });
                   }
-                }} 
+                }}
                 className="inquire-button"
               >
                 Discount Inquiry
@@ -102,24 +137,43 @@ const Services = () => {
             </div>
           </div>
         </section>
+         <span id="packages"></span>
+         <PackagesSection />
+
          <h2 style={{ marginTop:'40px', textAlign:'center' }}>Pick a Time That Works for You</h2>
 
-         {/* Calendly Widget - Free Consultation */}
-        <div
-          className="calendly-inline-widget"
-          data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
-          style={{ minWidth: "320px", height: "700px" }}
-          id="free-consultation"
-        >
-        </div>
-
-         {/* Calendly Widget - 1-on-1 Tutoring */}
-        <div
-          className="calendly-inline-widget"
-          data-url="https://calendly.com/dave-mcmaster/private-lsat-tutoring?text_color=023247&primary_color=023247"
-          style={{ minWidth: "320px", height: "700px" }}
-        >
-        </div>
+         <div ref={calendlyRef} style={{ position: 'relative' }}>
+           {(!calendlyVisible || !calendlyLoaded) && (
+             <div style={{
+               display: 'flex',
+               flexDirection: 'column',
+               justifyContent: 'center',
+               alignItems: 'center',
+               minHeight: '700px',
+               backgroundColor: '#f5f7fa',
+               borderRadius: '8px',
+               gap: '20px'
+             }}>
+               <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>Loading calendar...</p>
+               <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
+             </div>
+           )}
+           {calendlyVisible && (
+             <>
+               <div
+                 className="calendly-inline-widget"
+                 data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
+                 style={{ minWidth: "320px", height: "700px", display: calendlyLoaded ? 'block' : 'none' }}
+                 id="free-consultation"
+               />
+               <div
+                 className="calendly-inline-widget"
+                 data-url="https://calendly.com/dave-mcmaster/private-lsat-tutoring?text_color=023247&primary_color=023247"
+                 style={{ minWidth: "320px", height: "700px", display: calendlyLoaded ? 'block' : 'none' }}
+               />
+             </>
+           )}
+         </div>
 
         {/* Group Tutoring Content */}
         <section className="group-tutoring">

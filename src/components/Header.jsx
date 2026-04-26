@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header max">
+    <header className="header">
       <nav className="nav">
         <div className="mobile-header">
           <img 

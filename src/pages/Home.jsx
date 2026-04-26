@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import ContactForm from "../components/ContactForm";
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -18,6 +19,66 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>LSAT Academy | Expert LSAT Tutoring with David McMaster</title>
+        <meta name="description" content="Boost your LSAT score with expert 1-on-1 tutoring from David McMaster, a 99th percentile tutor with 15 years of experience. Free consultation available." />
+        <link rel="canonical" href="https://www.lsat.academy/" />
+        <meta property="og:title" content="LSAT Academy | Expert LSAT Tutoring with David McMaster" />
+        <meta property="og:description" content="Boost your LSAT score with expert 1-on-1 tutoring from David McMaster, a 99th percentile tutor with 15 years of experience. Free consultation available." />
+        <meta property="og:url" content="https://www.lsat.academy/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="LSAT Academy | Expert LSAT Tutoring with David McMaster" />
+        <meta name="twitter:description" content="Boost your LSAT score with expert 1-on-1 tutoring from David McMaster, a 99th percentile tutor with 15 years of experience." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": "https://www.lsat.academy/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is LSAT Academy?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "LSAT Academy provides expert LSAT tutoring with a 99th percentile tutor. We offer private tutoring, group sessions, comprehensive resources, and free consultations to help you achieve your best LSAT score."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does LSAT tutoring cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Private tutoring is $85 per hour, with a 5% discount on 10-hour packages and 15% discount on 20-hour packages. Free consultations are available."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I book a free LSAT consultation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We offer free 1-hour consultations with David McMaster. Visit the consultation page to schedule a session and discuss your LSAT goals."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer online LSAT tutoring?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we provide online LSAT tutoring to students anywhere in the United States. Sessions are scheduled around your availability."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is a good LSAT score?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A good LSAT score is the score that gets you into your target law school with the financial support you need. Scores range from 120-180, with higher scores improving your options."
+                }
+              }
+            ]
+          }
+        `}</script>
+      </Helmet>
       <main className="home max padding">
         <section className="hero">
           <div className="hero-content">
@@ -40,7 +101,7 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <img src="assets/hero-image.png" alt="hero image, image of david mcmaste lsat tutor" className="hero-image" />
+          <img src="/assets/hero-image.png" alt="David McMaster, LSAT tutor and founder of LSAT Academy" className="hero-image" loading="eager" fetchpriority="high" width="600" height="600" />
         </section>
         <section className="choose max">
 
@@ -49,7 +110,7 @@ const Home = () => {
             <hr />
             
             <div className="about-intro">
-              <img src="/assets/david.png" alt="David McMaster, LSAT Tutor" className="about-image" />
+              <img src="/assets/david.png" alt="David McMaster, LSAT Tutor" className="about-image" loading="lazy" width="400" height="400" />
               <div className="about-greeting">
                 <h3>Hey there! I'm David McMaster, the tutor behind LSAT Academy. Over the past 15 years, I've helped thousands of students master the LSAT.</h3>
               </div>
@@ -140,12 +201,12 @@ const Home = () => {
             <div className="service">
               <h3>Group Tutoring</h3>
               <p>Affordable option for students to learn in a collaborative environment with peers.</p>
-              <p className="waitlist-info">We're building our waitlist! Share your thoughts in our quick survey so we can design the perfect program and pricing for you.</p>
+              <p className="waitlist-info">Complete the survey to get 10% off and secure your spot on the waitlist.</p>
               <button 
                 onClick={handleGroupTutoringSurvey} 
                 className="survey-button"
               >
-                Answer Survey
+                Join the Waitlist
               </button>
             </div>
           </div>
@@ -159,28 +220,28 @@ const Home = () => {
           </div>
           <div className="qualities">
             <div className="quality">
-              <img src="/assets/book-icon.png" alt="book icon" />
+              <img src="/assets/book-icon.png" alt="book icon" loading="lazy" width="48" height="48" />
               <div className="quality-content">
-                <h3>Seasoned Excellence</h3>
+                <h3>15 Years of Experience</h3>
                 <p>Over 15 years of dedicated tutoring experience</p>
               </div>
             </div>
             <div className="quality">
-              <img src="/assets/test-icon.png" alt="test icon" />
+              <img src="/assets/test-icon.png" alt="test icon" loading="lazy" width="48" height="48" />
               <div className="quality-content">
-                <h3>Proven Excellence</h3>
+                <h3>99th Percentile Score</h3>
                 <p>Personal LSAT score in the 99th percentile (170+) with continued mastery over a decade</p>
               </div>
             </div>
             <div className="quality">
-              <img src="/assets/verified-icon.png" alt="verified icon" />
+              <img src="/assets/verified-icon.png" alt="verified icon" loading="lazy" width="48" height="48" />
               <div className="quality-content">
                 <h3>Verified Quality</h3>
                 <p>Verified track record with extensive student testimonials</p>
               </div>
             </div>
             <div className="quality">
-              <img src="/assets/class-icon.png" alt="classroom icon" />
+              <img src="/assets/class-icon.png" alt="classroom icon" loading="lazy" width="48" height="48" />
               <div className="quality-content">
                 <h3>Renowned Expertise</h3>
                 <p>Former elite test-prep agency instructor </p>

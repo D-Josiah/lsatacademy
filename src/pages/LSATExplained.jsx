@@ -1,8 +1,45 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const LSATExplained = () => {
   return (
     <>
+      <Helmet>
+        <title>The LSAT Explained: Everything You Need to Know | LSAT Academy</title>
+        <meta name="description" content="What is the LSAT? Understand the test format, scoring scale, 2025–2026 test dates, how to study, and what score you need to get into your target law school." />
+        <link rel="canonical" href="https://www.lsat.academy/lsat-explained" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "@id": "https://www.lsat.academy/lsat-explained",
+          "headline": "The LSAT Explained Clearly: Everything You Need to Know",
+          "description": "Direct answers to the most common LSAT questions. Understand what the LSAT measures, what's on the test, scoring, test dates 2026, and the best way to study.",
+          "image": "https://www.lsat.academy/600-logo.png",
+          "url": "https://www.lsat.academy/lsat-explained",
+          "datePublished": "2025-01-12",
+          "dateModified": "2026-03-09",
+          "author": {
+            "@type": "Person",
+            "name": "David McMaster",
+            "url": "https://www.lsat.academy",
+            "jobTitle": "LSAT Tutor & Founder"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "LSAT Academy",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.lsat.academy/600-logo.png"
+            }
+          }
+        })}</script>
+        <meta property="og:title" content="The LSAT Explained: Everything You Need to Know | LSAT Academy" />
+        <meta property="og:description" content="What is the LSAT? Understand the test format, scoring scale, 2025–2026 test dates, how to study, and what score you need to get into your target law school." />
+        <meta property="og:url" content="https://www.lsat.academy/lsat-explained" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content="The LSAT Explained: Everything You Need to Know | LSAT Academy" />
+        <meta name="twitter:description" content="What is the LSAT? Understand the test format, scoring scale, 2025–2026 test dates, how to study, and what score you need to get into your target law school." />
+      </Helmet>
       <style>{`
         :root {
           --myblue: #1a3a52;

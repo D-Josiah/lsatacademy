@@ -1,45 +1,63 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
 
 const Consultation = () => {
   const navigate = useNavigate();
   const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+  const [calendlyVisible, setCalendlyVisible] = useState(false);
+  const calendlyRef = useRef(null);
 
+  // Lazy load Calendly when user scrolls near it
   useEffect(() => {
-    // Preload Calendly script immediately
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCalendlyVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px' }
+    );
+
+    if (calendlyRef.current) {
+      observer.observe(calendlyRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Load Calendly script only when visible
+  useEffect(() => {
+    if (!calendlyVisible) return;
+
     const calendlyScript = document.createElement("script");
     calendlyScript.src = "https://assets.calendly.com/assets/external/widget.js";
     calendlyScript.async = true;
-    
-    // Add preconnect for faster loading
-    const preconnect = document.createElement("link");
-    preconnect.rel = "preconnect";
-    preconnect.href = "https://assets.calendly.com";
-    document.head.appendChild(preconnect);
-    
-    // Set loaded state when script loads
+
     calendlyScript.onload = () => {
       setCalendlyLoaded(true);
     };
-    
+
     document.body.appendChild(calendlyScript);
 
-    // Load Reddit embed script
+    return () => {
+      if (calendlyScript.parentNode) {
+        calendlyScript.parentNode.removeChild(calendlyScript);
+      }
+    };
+  }, [calendlyVisible]);
+
+  // Load Reddit embed script
+  useEffect(() => {
     const redditScript = document.createElement("script");
     redditScript.src = "https://embed.reddit.com/widgets.js";
     redditScript.async = true;
     redditScript.charset = "UTF-8";
     document.body.appendChild(redditScript);
 
-    // Cleanup
     return () => {
-      if (calendlyScript.parentNode) {
-        calendlyScript.parentNode.removeChild(calendlyScript);
-      }
-      if (preconnect.parentNode) {
-        preconnect.parentNode.removeChild(preconnect);
-      }
       if (redditScript.parentNode) {
         redditScript.parentNode.removeChild(redditScript);
       }
@@ -48,6 +66,17 @@ const Consultation = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Book a Free LSAT Consultation | LSAT Academy</title>
+        <meta name="description" content="Schedule your free 1-hour LSAT consultation with David McMaster. Discuss your goals, get personalized advice, and find out if private tutoring is right for you." />
+        <link rel="canonical" href="https://www.lsat.academy/consultation" />
+        <meta property="og:title" content="Book a Free LSAT Consultation | LSAT Academy" />
+        <meta property="og:description" content="Schedule your free 1-hour LSAT consultation with David McMaster. Discuss your goals, get personalized advice, and find out if private tutoring is right for you." />
+        <meta property="og:url" content="https://www.lsat.academy/consultation" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Book a Free LSAT Consultation | LSAT Academy" />
+        <meta name="twitter:description" content="Schedule your free 1-hour LSAT consultation with David McMaster. Discuss your goals, get personalized advice, and find out if private tutoring is right for you." />
+      </Helmet>
       <style>{`
         :root {
           --myblue: #1a3a52;
@@ -146,33 +175,44 @@ const Consultation = () => {
         </div>
         <h3 style={{ marginTop:'40px', textAlign:'center' }}>Pick a Time That Works for You</h3>
 
-          {/* Calendly Widget - Free Consultation */}
-        <div style={{ position: 'relative', minHeight: '700px' }} id="free-consultation">
-          {!calendlyLoaded && (
+          {/* Calendly Widget - Free Consultation (lazy loaded) */}
+        <div ref={calendlyRef} style={{ position: 'relative', minHeight: '700px' }} id="free-consultation">
+          {(!calendlyVisible || !calendlyLoaded) && (
             <div style={{
               display: 'flex',
+              flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
               minHeight: '700px',
-              backgroundColor: '#f9f9f9'
+              backgroundColor: '#f5f7fa',
+              borderRadius: '8px',
+              gap: '20px'
             }}>
-              <img 
-                src="/assets/loading.gif" 
-                alt="Loading..." 
-                style={{ width: '80px', height: '80px' }}
-              />
+              {/* Skeleton loader */}
+              <div style={{ width: '80%', maxWidth: '500px' }}>
+                <div style={{ height: '40px', backgroundColor: '#e2e8f0', borderRadius: '8px', marginBottom: '16px', animation: 'pulse 1.5s ease-in-out infinite' }} />
+                <div style={{ height: '20px', backgroundColor: '#e2e8f0', borderRadius: '6px', marginBottom: '12px', width: '60%', animation: 'pulse 1.5s ease-in-out infinite' }} />
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginTop: '24px' }}>
+                  {[...Array(6)].map((_, i) => (
+                    <div key={i} style={{ height: '80px', backgroundColor: '#e2e8f0', borderRadius: '8px', animation: 'pulse 1.5s ease-in-out infinite' }} />
+                  ))}
+                </div>
+              </div>
+              <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>Loading calendar...</p>
+              <style>{`@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }`}</style>
             </div>
           )}
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
-            style={{ 
-              minWidth: "320px", 
-              height: "700px",
-              display: calendlyLoaded ? 'block' : 'none'
-            }}
-          >
-          </div>
+          {calendlyVisible && (
+            <div
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/dave-mcmaster/free-lsat-consultation?text_color=023247&primary_color=023247"
+              style={{
+                minWidth: "320px",
+                height: "700px",
+                display: calendlyLoaded ? 'block' : 'none'
+              }}
+            />
+          )}
         </div>
 
         {/* Consultation Testimonials */}

@@ -22,6 +22,12 @@ import LSATAnswers from "./pages/LSATAnswers";
 import ThankYouConsultation from "./pages/ThankYouConsultation";
 import LSATExplained from './pages/LSATExplained';
 import ThankYouDownload from "./pages/ThankYouDownload";
+import Payment from "./pages/Payment";
+import RCTips from "./pages/RCTips";
+import GettingStuck from "./pages/GettingStuck";
+import Premises from "./pages/Premises";
+import MBTQuestions from "./pages/MBTQuestions";
+import NotFound from "./pages/NotFound";
 
 // Component to track page views
 const PageViewTracker = () => {
@@ -55,8 +61,8 @@ const App = () => {
         <Route path="/consultation" element={<Consultation />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/sufficient_assumption" element={<SufficientAssumption />} />
-        <Route path="/indicator_words" element={<IndicatorWords />} />
+        <Route path="/sufficient-assumption" element={<SufficientAssumption />} />
+        <Route path="/indicator-words" element={<IndicatorWords />} />
         <Route path="/abc" element={<Abc/>} />
         <Route path="/lsat-quizlet" element={<Quizlet/>} />
         <Route path="/patterns" element={<Patterns/>} />
@@ -67,6 +73,12 @@ const App = () => {
         <Route path="/lsat-explained" element={<LSATExplained/>} />
         <Route path="/thank-you-consultation" element={<ThankYouConsultation/>} />
         <Route path="/thank-you-download" element={<ThankYouDownload/>} />
+        <Route path="/payment" element={<Payment/>} />
+        <Route path="/rc-tips" element={<RCTips/>} />
+        <Route path="/getting-stuck" element={<GettingStuck/>} />
+        <Route path="/premises" element={<Premises/>} />
+        <Route path="/mbt-questions" element={<MBTQuestions/>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>

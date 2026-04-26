@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Testimonials = () => {
   useEffect(() => {
@@ -14,6 +15,17 @@ const Testimonials = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Student Testimonials | LSAT Academy</title>
+        <meta name="description" content="Read real student reviews and survey results from LSAT Academy. See how David McMaster's tutoring has helped students improve their LSAT scores and gain confidence." />
+        <link rel="canonical" href="https://www.lsat.academy/testimonials" />
+        <meta property="og:title" content="Student Testimonials | LSAT Academy" />
+        <meta property="og:description" content="Read real student reviews and survey results from LSAT Academy. See how David McMaster's tutoring has helped students improve their LSAT scores and gain confidence." />
+        <meta property="og:url" content="https://www.lsat.academy/testimonials" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Student Testimonials | LSAT Academy" />
+        <meta name="twitter:description" content="Read real student reviews and survey results from LSAT Academy. See how David McMaster's tutoring has helped students improve their LSAT scores and gain confidence." />
+      </Helmet>
       <main className="testimonials max padding spacer">
         <h1>Student Testimonials</h1>
 

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /payment
+Disallow: /thank-you-consultation
+Disallow: /thank-you-download
+
+Sitemap: https://www.lsat.academy/sitemap.xml
