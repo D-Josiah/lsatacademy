@@ -1,3 +1,26 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-  }
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "lsat.academy" }],
+      "destination": "https://www.lsat.academy/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/sufficient_assumption",
+      "destination": "/sufficient-assumption",
+      "permanent": true
+    },
+    {
+      "source": "/indicator_words",
+      "destination": "/indicator-words",
+      "permanent": true
+    },
+    {
+      "source": "/lsat-answer",
+      "destination": "/lsat-answers",
+      "permanent": true
+    }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

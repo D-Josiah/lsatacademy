@@ -21,8 +21,13 @@
     <meta name="theme-color" content="#1a3a52" />
 
     <!-- Performance Optimization -->
+    <link rel="preload" as="image" href="/assets/hero-image.png" fetchpriority="high" />
     <link rel="dns-prefetch" href="https://assets.calendly.com">
     <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+    <link rel="preconnect" href="https://calendly.com" crossorigin>
+    <link rel="dns-prefetch" href="https://calendly.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Open Graph (OG) Meta Tags for Social Media -->
     <meta property="og:title" content="LSAT Academy | Expert LSAT Tutoring & Test Prep" />
@@ -45,8 +50,7 @@
     <link rel="icon" href="https://www.lsat.academy/600-logo.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.lsat.academy/600-logo.png" />
 
-    <!-- Canonical URL (Prevents Duplicate Content Issues) -->
-    <link rel="canonical" href="https://www.lsat.academy" />
+    <!-- Canonical URL is set per-page via react-helmet-async -->
 
     <!-- ===== COMPREHENSIVE SCHEMA MARKUP FOR SEO ===== -->
 
@@ -155,139 +159,11 @@
       "description": "Boost your LSAT score with expert tutoring. Proven strategies, personalized guidance, free consultation.",
       "publisher": {
         "@id": "https://www.lsat.academy/#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.lsat.academy/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
       }
     }
     </script>
 
-    <!-- 4. Breadcrumb Navigation Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://www.lsat.academy/#breadcrumbs",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.lsat.academy/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Services",
-          "item": "https://www.lsat.academy/services"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "About LSAT",
-          "item": "https://www.lsat.academy/lsat-explained"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Resources",
-          "item": "https://www.lsat.academy/resources"
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "name": "Consultation",
-          "item": "https://www.lsat.academy/consultation"
-        }
-      ]
-    }
-    </script>
-
-    <!-- 5. LSAT Explained Article Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "@id": "https://www.lsat.academy/lsat-explained",
-      "headline": "The LSAT Explained Clearly: Everything You Need to Know",
-      "description": "Direct answers to the most common LSAT questions. Understand what the LSAT measures, what's on the test, scoring, test dates 2026, and the best way to study.",
-      "image": "https://www.lsat.academy/600-logo.png",
-      "url": "https://www.lsat.academy/lsat-explained",
-      "datePublished": "2025-01-12",
-      "dateModified": "2025-01-12",
-      "author": {
-        "@type": "Person",
-        "name": "David McMaster",
-        "url": "https://www.lsat.academy",
-        "jobTitle": "LSAT Tutor & Founder"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "LSAT Academy",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.lsat.academy/600-logo.png"
-        }
-      },
-      "articleBody": "Comprehensive guide covering what the LSAT is, test structure, scoring, 2026 test dates, how to study effectively, and strategies to achieve your target score."
-    }
-    </script>
-
-    <!-- 6. FAQ Schema for Rich Snippets -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "@id": "https://www.lsat.academy/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is LSAT Academy?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "LSAT Academy provides expert LSAT tutoring with a 99th percentile tutor. We offer private tutoring, group sessions, comprehensive resources, and free consultations to help you achieve your best LSAT score."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does LSAT tutoring cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our pricing varies based on the tutoring package you choose. Book a free consultation to discuss pricing options and find the right solution for your budget and timeline."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I book a free LSAT consultation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! We offer free consultations. Visit our consultation page or use the booking button to schedule your free session with our LSAT tutor to discuss your goals."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer online LSAT tutoring?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we provide online LSAT tutoring to students anywhere in the United States. Our flexible sessions can be scheduled around your availability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is a good LSAT score?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A good LSAT score is the score that gets you into your target law school with the financial support you need. Scores range from 120-180, with higher scores improving your law school options."
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- BreadcrumbList and FAQPage schema are page-specific and injected per-page via Helmet -->
 
     <!-- Poptin Script -->
     <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=8b717454c0869' async='true'></script>

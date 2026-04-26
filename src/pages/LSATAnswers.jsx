@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import { supabase } from '../lib/supabaseClient';
 
@@ -115,6 +116,18 @@ const LSATAnswers = () => {
   ];
 
   return (
+    <>
+      <Helmet>
+        <title>LSAT Answer Explanations | LSAT Academy</title>
+        <meta name="description" content="Get clear, expert explanations for LSAT questions. Submit a question and receive a detailed breakdown from David McMaster, 99th percentile LSAT tutor." />
+        <link rel="canonical" href="https://www.lsat.academy/lsat-answers" />
+        <meta property="og:title" content="LSAT Answer Explanations | LSAT Academy" />
+        <meta property="og:description" content="Get clear, expert explanations for LSAT questions. Submit a question and receive a detailed breakdown from David McMaster, 99th percentile LSAT tutor." />
+        <meta property="og:url" content="https://www.lsat.academy/lsat-answers" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="LSAT Answer Explanations | LSAT Academy" />
+        <meta name="twitter:description" content="Get clear, expert explanations for LSAT questions. Submit a question and receive a detailed breakdown from David McMaster, 99th percentile LSAT tutor." />
+      </Helmet>
     <div style={{
       minHeight: '100vh',
       backgroundColor: '#EFF2F6',
@@ -511,6 +524,7 @@ const LSATAnswers = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

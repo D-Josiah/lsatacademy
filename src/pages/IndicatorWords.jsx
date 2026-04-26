@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const IndicatorWords = () => {
   const handleDownload = () => {
@@ -12,6 +13,45 @@ const IndicatorWords = () => {
 
   return (
     <>
+      <Helmet>
+        <title>LSAT Indicator Words: A Core Logical Reasoning Fundamental | LSAT Academy</title>
+        <meta name="description" content="Master LSAT indicator words — the key to understanding argument structure. Free guide from expert tutor David McMaster covering the most important logical connectives." />
+        <link rel="canonical" href="https://www.lsat.academy/indicator-words" />
+        <meta property="og:title" content="LSAT Indicator Words: A Core Logical Reasoning Fundamental | LSAT Academy" />
+        <meta property="og:description" content="Master LSAT indicator words — the key to understanding argument structure. Free guide from expert tutor David McMaster covering the most important logical connectives." />
+        <meta property="og:url" content="https://www.lsat.academy/indicator-words" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content="LSAT Indicator Words: A Core Logical Reasoning Fundamental | LSAT Academy" />
+        <meta name="twitter:description" content="Master LSAT indicator words — the key to understanding argument structure. Free guide from expert tutor David McMaster covering the most important logical connectives." />
+        <script type="application/ld+json">{`
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Indicator Words as Essential Fundamentals",
+    "description": "Master LSAT indicator words — the key to understanding argument structure. Free guide from expert tutor David McMaster covering the most important logical connectives.",
+    "image": "https://www.lsat.academy/600-logo.png",
+    "datePublished": "2025-03-21",
+    "dateModified": "2025-03-21",
+    "author": {
+      "@type": "Person",
+      "name": "David McMaster",
+      "url": "https://www.lsat.academy/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LSAT Academy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.lsat.academy/600-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.lsat.academy/indicator-words"
+    }
+  }
+`}</script>
+      </Helmet>
       <main className="blogs max padding spacer">
         <article>
           <h1>Indicator Words as Essential Fundamentals</h1>

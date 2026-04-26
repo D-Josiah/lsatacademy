@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Library = () => {
@@ -51,10 +52,18 @@ const Library = () => {
 
   return (
     <>
+      <Helmet>
+        <title>LSAT Book Library | Best LSAT Prep Books | LSAT Academy</title>
+        <meta name="description" content="Browse David McMaster's recommended LSAT prep books and study materials. Curated list of the best resources to help you prepare for the LSAT effectively." />
+        <link rel="canonical" href="https://www.lsat.academy/library" />
+        <meta property="og:title" content="LSAT Book Library | Best LSAT Prep Books | LSAT Academy" />
+        <meta property="og:description" content="Browse David McMaster's recommended LSAT prep books and study materials. Curated list of the best resources to help you prepare for the LSAT effectively." />
+        <meta property="og:url" content="https://www.lsat.academy/library" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="LSAT Book Library | Best LSAT Prep Books | LSAT Academy" />
+        <meta name="twitter:description" content="Browse David McMaster's recommended LSAT prep books and study materials. Curated list of the best resources to help you prepare for the LSAT effectively." />
+      </Helmet>
       <style>{`
-        :root {
-          --myblue: #1a3a52;
-          --mylightblue: #2e5c8a;
           --bree: 'Bree Serif', serif;
           --poppins: 'Poppins', sans-serif;
         }

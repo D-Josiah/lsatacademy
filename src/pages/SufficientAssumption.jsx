@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const SufficientAssumption = () => {
   const handleDownload = () => {
@@ -12,6 +13,45 @@ const SufficientAssumption = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Sufficient Assumption Questions: A Better Approach | LSAT Academy</title>
+        <meta name="description" content="Learn a clearer, more reliable method for tackling Sufficient Assumption questions on the LSAT. Free guide from 99th percentile tutor David McMaster." />
+        <link rel="canonical" href="https://www.lsat.academy/sufficient-assumption" />
+        <meta property="og:title" content="Sufficient Assumption Questions: A Better Approach | LSAT Academy" />
+        <meta property="og:description" content="Learn a clearer, more reliable method for tackling Sufficient Assumption questions on the LSAT. Free guide from 99th percentile tutor David McMaster." />
+        <meta property="og:url" content="https://www.lsat.academy/sufficient-assumption" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content="Sufficient Assumption Questions: A Better Approach | LSAT Academy" />
+        <meta name="twitter:description" content="Learn a clearer, more reliable method for tackling Sufficient Assumption questions on the LSAT. Free guide from 99th percentile tutor David McMaster." />
+        <script type="application/ld+json">{`
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A Simple Way to Level up Your Sufficient Assumption Approach",
+    "description": "Learn a clearer, more reliable method for tackling Sufficient Assumption questions on the LSAT. Free guide from 99th percentile tutor David McMaster.",
+    "image": "https://www.lsat.academy/600-logo.png",
+    "datePublished": "2025-03-16",
+    "dateModified": "2025-03-16",
+    "author": {
+      "@type": "Person",
+      "name": "David McMaster",
+      "url": "https://www.lsat.academy/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LSAT Academy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.lsat.academy/600-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.lsat.academy/sufficient-assumption"
+    }
+  }
+`}</script>
+      </Helmet>
       <main className="blogs max padding spacer">
         <article>
           <h1>A Simple Way to Level up Your Sufficient Assumption Approach</h1>

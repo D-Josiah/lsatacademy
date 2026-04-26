@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const ThankYouDownload = () => {
@@ -11,6 +12,10 @@ const ThankYouDownload = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Thank You for Downloading | LSAT Academy</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <style>{`
         :root {
           --myblue: #1a3a52;

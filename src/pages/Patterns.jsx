@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Patterns = () => {
   const handleDownload = () => {
@@ -12,6 +13,45 @@ const Patterns = () => {
 
   return (
     <>
+      <Helmet>
+        <title>LSAT Patterns After 15 Years of Tutoring | LSAT Academy</title>
+        <meta name="description" content="David McMaster shares the recurring LSAT patterns he's observed after 15 years of tutoring — common mistakes, test-taking habits, and what separates high scorers." />
+        <link rel="canonical" href="https://www.lsat.academy/patterns" />
+        <meta property="og:title" content="LSAT Patterns After 15 Years of Tutoring | LSAT Academy" />
+        <meta property="og:description" content="David McMaster shares the recurring LSAT patterns he's observed after 15 years of tutoring — common mistakes, test-taking habits, and what separates high scorers." />
+        <meta property="og:url" content="https://www.lsat.academy/patterns" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:title" content="LSAT Patterns After 15 Years of Tutoring | LSAT Academy" />
+        <meta name="twitter:description" content="David McMaster shares the recurring LSAT patterns he's observed after 15 years of tutoring — common mistakes, test-taking habits, and what separates high scorers." />
+        <script type="application/ld+json">{`
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Some Patterns That Jump Out After 15 Years of Tutoring",
+    "description": "David McMaster shares the recurring LSAT patterns he's observed after 15 years of tutoring — common mistakes, test-taking habits, and what separates high scorers.",
+    "image": "https://www.lsat.academy/600-logo.png",
+    "datePublished": "2025-07-21",
+    "dateModified": "2025-07-21",
+    "author": {
+      "@type": "Person",
+      "name": "David McMaster",
+      "url": "https://www.lsat.academy/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "LSAT Academy",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.lsat.academy/600-logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.lsat.academy/patterns"
+    }
+  }
+`}</script>
+      </Helmet>
       <main className="blogs max padding spacer">
         <article>
           <h1>Some Patterns That Jump Out After 15 Years of Tutoring</h1>
