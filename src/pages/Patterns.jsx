@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import Img from "../components/Img";
 
 const Patterns = () => {
   const handleDownload = () => {
@@ -51,6 +52,17 @@ const Patterns = () => {
     }
   }
 `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "LSAT Patterns", "item": "https://www.lsat.academy/patterns" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="blogs max padding spacer">
         <article>
@@ -59,12 +71,12 @@ const Patterns = () => {
             <div className="title">
               <h3 className="date">21 July 2025</h3>
               <div className="author">
-                <img src="/assets/david.png" alt="David McMaster" />
+                <Img src="/assets/david.png" alt="David McMaster, LSAT Tutor" width="60" height="60" loading="lazy" decoding="async" />
                 <p className="david">David McMaster</p>
               </div>
               <button onClick={handleDownload}>Download</button>
             </div>
-            <img src="https://res.cloudinary.com/derzriuel/image/upload/v1753258661/Get_ready_for_something_exciting_Stay_tuned_as_we_prepare_to_unveil_a_new_experience_that_will_elevate_your_world_very_soon._1_secgly.png" alt="Patterns Article" className="blog-pic" />
+            <Img src="https://res.cloudinary.com/derzriuel/image/upload/v1753258661/Get_ready_for_something_exciting_Stay_tuned_as_we_prepare_to_unveil_a_new_experience_that_will_elevate_your_world_very_soon._1_secgly.png" alt="LSAT Patterns article cover" className="blog-pic" loading="lazy" decoding="async" />
             
           </section>
 

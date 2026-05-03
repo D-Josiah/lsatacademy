@@ -1,8 +1,10 @@
+@use "../variables" as *;
+
 .group-tutoring{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     h1{
         font-size: 3rem;
         font-family: $bree;

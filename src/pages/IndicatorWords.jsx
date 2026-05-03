@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import Img from "../components/Img";
 
 const IndicatorWords = () => {
   const handleDownload = () => {
@@ -51,6 +52,17 @@ const IndicatorWords = () => {
     }
   }
 `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "Indicator Words", "item": "https://www.lsat.academy/indicator-words" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="blogs max padding spacer">
         <article>
@@ -60,12 +72,12 @@ const IndicatorWords = () => {
             <div className="title">
               <h3 className="date">21 March 2025</h3>
               <div className="author">
-                <img src="/assets/david.png" alt="David McMaster" />
+                <Img src="/assets/david.png" alt="David McMaster, LSAT Tutor" width="60" height="60" loading="lazy" decoding="async" />
                 <p className="david">David McMaster</p>
               </div>
               <button onClick={handleDownload}>Download</button>
             </div>
-            <img src="https://res.cloudinary.com/derzriuel/image/upload/v1744264808/IndicatorWords_neku9w.png" alt="Indicator Words Guide" className="blog-pic" />
+            <Img src="https://res.cloudinary.com/derzriuel/image/upload/v1744264808/IndicatorWords_neku9w.png" alt="LSAT Indicator Words Guide cover" className="blog-pic" loading="lazy" decoding="async" />
             
           </section>
 

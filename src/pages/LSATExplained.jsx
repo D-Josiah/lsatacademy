@@ -39,6 +39,17 @@ const LSATExplained = () => {
         <meta property="og:type" content="article" />
         <meta name="twitter:title" content="The LSAT Explained: Everything You Need to Know | LSAT Academy" />
         <meta name="twitter:description" content="What is the LSAT? Understand the test format, scoring scale, 2025–2026 test dates, how to study, and what score you need to get into your target law school." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "The LSAT Explained", "item": "https://www.lsat.academy/lsat-explained" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <style>{`
         :root {

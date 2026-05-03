@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import { supabase } from '../lib/supabaseClient';
+import Img from '../components/Img';
 
 const LSATAnswers = () => {
   const [email, setEmail] = useState('');
@@ -127,6 +128,17 @@ const LSATAnswers = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="LSAT Answer Explanations | LSAT Academy" />
         <meta name="twitter:description" content="Get clear, expert explanations for LSAT questions. Submit a question and receive a detailed breakdown from David McMaster, 99th percentile LSAT tutor." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "LSAT Answers", "item": "https://www.lsat.academy/lsat-answers" }
+            ]
+          }
+        `}</script>
       </Helmet>
     <div style={{
       minHeight: '100vh',
@@ -335,9 +347,13 @@ const LSATAnswers = () => {
             flex: '1',
             minWidth: '250px'
           }}>
-            <img 
-              src="/assets/reddit-icon.png" 
-              alt="Reddit Logo" 
+            <Img
+              src="/assets/reddit-icon.png"
+              alt="Reddit logo"
+              width="60"
+              height="60"
+              loading="lazy"
+              decoding="async"
               style={{
                 width: '60px',
                 height: '60px',

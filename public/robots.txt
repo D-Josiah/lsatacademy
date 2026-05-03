@@ -4,4 +4,29 @@ Disallow: /payment
 Disallow: /thank-you-consultation
 Disallow: /thank-you-download
 
+# Explicitly allow major AI crawlers — citations from LLM answers drive referral traffic
+User-agent: GPTBot
+Allow: /
+Disallow: /payment
+Disallow: /thank-you-consultation
+Disallow: /thank-you-download
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /payment
+Disallow: /thank-you-consultation
+Disallow: /thank-you-download
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /payment
+Disallow: /thank-you-consultation
+Disallow: /thank-you-download
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://www.lsat.academy/sitemap.xml

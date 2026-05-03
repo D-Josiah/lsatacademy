@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import Img from './Img';
 
 const footStyles = {
   wrap: {
@@ -93,14 +94,18 @@ const Footer = () => {
         <div style={footStyles.grid} className="footer-grid">
           <div style={footStyles.brand}>
             <div style={footStyles.logo}>
-              <img
+              <Img
                 src="/assets/header-logo.png"
                 alt="LSAT Academy — David McMaster"
+                width="180"
+                height="56"
+                loading="lazy"
+                decoding="async"
                 style={{ height: 56, width: "auto", display: "block", filter: "brightness(0) invert(1)" }}
               />
             </div>
             <p style={footStyles.tagline}>
-              One tutor. One proven method. Thousands of students into the law schools they dreamed about.
+              One tutor. Thousands of students into the law schools they dreamed about.
             </p>
             <div style={footStyles.socials}>
               <a style={footStyles.social} href="https://www.instagram.com/lsatacademy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -132,7 +137,6 @@ const Footer = () => {
               <li><Link style={footStyles.colLink} to="/">Home</Link></li>
               <li><Link style={footStyles.colLink} to="/services">Services</Link></li>
               <li><Link style={footStyles.colLink} to="/testimonials">Testimonials</Link></li>
-              <li><Link style={footStyles.colLink} to="/consultation">Consultation</Link></li>
               <li><span style={footStyles.colLink} onClick={goToContact}>Contact</span></li>
             </ul>
           </div>
@@ -141,7 +145,6 @@ const Footer = () => {
             <div style={footStyles.colTitle}>Resources</div>
             <ul style={footStyles.colList}>
               <li><Link style={footStyles.colLink} to="/resources">Blog</Link></li>
-              <li><Link style={footStyles.colLink} to="/lsat-explained">LSAT Explained</Link></li>
               <li><Link style={footStyles.colLink} to="/discord">Discord</Link></li>
               <li><a style={footStyles.colLink} href="https://www.reddit.com/r/LSATAcademy/" target="_blank" rel="noopener noreferrer">Subreddit</a></li>
               <li><Link style={footStyles.colLink} to="/privacy-policy">Privacy Policy</Link></li>

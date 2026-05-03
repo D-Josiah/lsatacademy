@@ -1,28 +1,23 @@
+@use "variables";
+@use "components/footer";
+@use "components/header";
+@use "components/contactForm";
+@use "pages/about";
+@use "pages/home";
+@use "pages/services";
+@use "pages/testimonials";
+@use "pages/resources";
+@use "pages/privacy";
+@use "pages/blogs";
+@use "pages/group";
+@use "global";
+@use "design-system";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    margin: 0;
-  }
-
-
-  @import "variables";
-  @import "./components/footer";
-  @import "./components/header";
-  @import "./components/contactForm";
-  @import "./pages/about";
-  @import "./pages/home";
-  @import "./pages/services";
-  @import "./pages/testimonials";
-  @import "./pages/resources";
-  @import "./pages/privacy";
-  @import "./pages/blogs";
-  @import "./pages/group";
-
-
-  @import "global";
-  @import "design-system";
-
-  //FONT IMPORTS
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+  box-sizing: border-box;
+  margin: 0;
+}

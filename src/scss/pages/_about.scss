@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../variables" as *;
+
 .about {
     .about-me {
         
@@ -17,7 +20,7 @@
                 flex-grow: 1; 
                 height: 4px; 
                 border: none;
-                background: linear-gradient(to right, $myblue, lighten($myblue, 20%));
+                background: linear-gradient(to right, $myblue, color.adjust($myblue, $lightness: 20%));
             }
         }
         .about-content{

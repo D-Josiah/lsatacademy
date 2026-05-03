@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import Img from './Img';
 
 const navStyles = {
   outer: {
@@ -71,9 +72,12 @@ const Header = () => {
     <div className="v2" style={navStyles.outer}>
       <nav style={navStyles.wrap}>
         <Link to="/" style={navStyles.logo} onClick={() => setIsMenuOpen(false)}>
-          <img
+          <Img
             src="/assets/header-logo.png"
             alt="LSAT Academy — David McMaster"
+            width="180"
+            height="56"
+            decoding="async"
             style={{ height: 56, width: "auto", display: "block" }}
           />
         </Link>
@@ -156,7 +160,6 @@ const Header = () => {
         <Link to="/" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Home</Link>
         <Link to="/services" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Services</Link>
         <Link to="/testimonials" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Testimonials</Link>
-        <Link to="/consultation" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Consultation</Link>
         <Link to="/resources" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Resources</Link>
 
         <button

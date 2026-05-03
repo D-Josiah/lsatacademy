@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import Img from "../components/Img";
 
 const RCTips = () => {
   return (
@@ -42,6 +43,17 @@ const RCTips = () => {
     }
   }
 `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "RC Tips", "item": "https://www.lsat.academy/rc-tips" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="blogs max padding spacer">
         <article>
@@ -50,7 +62,7 @@ const RCTips = () => {
             <div className="title">
               <h3 className="date">09 March 2026</h3>
               <div className="author">
-                <img src="/assets/david.png" alt="David McMaster" />
+                <Img src="/assets/david.png" alt="David McMaster, LSAT Tutor" width="60" height="60" loading="lazy" decoding="async" />
                 <p className="david">David McMaster</p>
               </div>
             </div>
