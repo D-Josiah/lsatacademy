@@ -31,7 +31,7 @@ const packages = [
     discount: 0.15,
     badge: "Best Value · 15% OFF",
     featured: true,
-    description: "Full prep coverage — fundamentals through timed practice and strategy refinement.",
+    description: "Full prep coverage, from fundamentals through timed practice and strategy refinement.",
     payUrl: "https://square.link/u/1QubsUHI",
   },
 ];

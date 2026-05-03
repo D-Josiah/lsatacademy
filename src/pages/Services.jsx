@@ -45,7 +45,7 @@ const ServicesHero = () => (
         </h1>
         <p style={heroStyles.sub}>
           1-on-1 sessions, packaged hours with a discount, or a free consultation to see if working
-          together makes sense. No long contracts, no upsells.
+          together makes sense.
         </p>
       </div>
     </div>
@@ -139,7 +139,7 @@ const ServiceCards = ({ onScrollPackages, onScrollSurvey }) => (
           </span>
         </h2>
         <p style={{ color: "rgba(255,255,255,0.65)", marginTop: 16, fontSize: 17, maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
-          From a no-pressure intro call to a full 20-hour engagement. Mix and match as you go.
+          From a no-pressure intro call to a full 20-hour engagement.
         </p>
       </div>
 
@@ -745,6 +745,49 @@ const Services = () => {
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
               { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.lsat.academy/services" }
+            ]
+          }
+        `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "Private LSAT Tutoring",
+            "description": "1-on-1 LSAT tutoring with David McMaster, a 99th percentile tutor with 15+ years of experience. Personalized strategies, flexible scheduling, and discounted multi-hour packages.",
+            "url": "https://www.lsat.academy/services",
+            "provider": { "@id": "https://www.lsat.academy/#organization" },
+            "hasCourseInstance": {
+              "@type": "CourseInstance",
+              "courseMode": "online",
+              "instructor": {
+                "@type": "Person",
+                "name": "David McMaster",
+                "url": "https://www.lsat.academy/about"
+              }
+            },
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "Hourly Private LSAT Tutoring",
+                "price": "85",
+                "priceCurrency": "USD",
+                "url": "https://www.lsat.academy/services",
+                "category": "Paid"
+              },
+              {
+                "@type": "Offer",
+                "name": "10-hour Package",
+                "url": "https://www.lsat.academy/services",
+                "category": "Paid",
+                "priceCurrency": "USD"
+              },
+              {
+                "@type": "Offer",
+                "name": "20-hour Package",
+                "url": "https://www.lsat.academy/services",
+                "category": "Paid",
+                "priceCurrency": "USD"
+              }
             ]
           }
         `}</script>

@@ -517,7 +517,7 @@ const ResourcesCTA = () => (
           </span>
         </h2>
         <p style={ctaStyles.sub}>
-          For score breakthroughs, work directly with David. Start with a free consultation —
+          For score breakthroughs, work directly with David. Start with a free consultation:
           no commitment, no pressure.
         </p>
         <div style={ctaStyles.ctaRow}>
@@ -551,6 +551,16 @@ const Resources = () => (
       <meta property="og:description" content="Free LSAT study resources from David McMaster — guides on sufficient assumption, indicator words, logical reasoning patterns, law school application tips, and more." />
       <meta property="og:url" content="https://www.lsat.academy/resources" />
       <meta property="og:type" content="website" />
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+            { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" }
+          ]
+        }
+      `}</script>
     </Helmet>
     <ResourcesHero />
     <FeaturedArticle />

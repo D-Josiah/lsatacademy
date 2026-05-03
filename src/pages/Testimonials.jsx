@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
@@ -130,9 +130,81 @@ const storyStyles = {
     letterSpacing: "-0.01em",
     fontStyle: "italic",
   },
+  readMore: {
+    marginTop: 32,
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    background: "var(--navy-900)",
+    color: "#fff",
+    border: "none",
+    padding: "12px 22px",
+    borderRadius: 999,
+    fontSize: 14,
+    fontWeight: 600,
+    cursor: "pointer",
+    fontFamily: "inherit",
+  },
+};
+
+const modalStyles = {
+  overlay: {
+    position: "fixed", inset: 0,
+    background: "rgba(2, 30, 45, 0.72)",
+    backdropFilter: "blur(8px)",
+    WebkitBackdropFilter: "blur(8px)",
+    display: "flex", alignItems: "center", justifyContent: "center",
+    padding: 24, zIndex: 1000,
+  },
+  panel: {
+    background: "#fff",
+    borderRadius: "var(--radius-lg)",
+    maxWidth: 720, width: "100%",
+    maxHeight: "85vh", overflowY: "auto",
+    padding: "clamp(32px, 5vw, 56px)",
+    position: "relative",
+    boxShadow: "0 30px 80px rgba(0,0,0,0.3)",
+  },
+  close: {
+    position: "absolute", top: 16, right: 16,
+    background: "transparent",
+    border: "1px solid rgba(2, 30, 45, 0.12)",
+    borderRadius: "50%",
+    width: 36, height: 36,
+    display: "flex", alignItems: "center", justifyContent: "center",
+    cursor: "pointer",
+    color: "var(--ink-700)",
+    padding: 0, lineHeight: 0,
+    transition: "background-color 150ms ease, border-color 150ms ease",
+  },
+  eyebrow: {
+    fontFamily: "var(--font-mono)",
+    fontSize: 11,
+    textTransform: "uppercase",
+    letterSpacing: "0.18em",
+    color: "var(--teal-500)",
+    marginBottom: 14,
+  },
+  title: {
+    fontFamily: "var(--font-display)",
+    fontSize: "clamp(26px, 3vw, 32px)",
+    color: "var(--navy-900)",
+    letterSpacing: "-0.02em",
+    fontWeight: 400,
+    marginBottom: 24,
+    lineHeight: 1.15,
+  },
+  para: {
+    fontSize: 16,
+    lineHeight: 1.7,
+    color: "var(--ink-700)",
+    marginBottom: 18,
+  },
 };
 
 const SuccessStories = () => {
+  const [openIdx, setOpenIdx] = useState(null);
+
   const stories = [
     {
       i: "Story 01",
@@ -142,11 +214,13 @@ const SuccessStories = () => {
       year: "Class of 2021",
       duration: "Self-study to mastery",
       title: "From self-study ceiling to Harvard.",
-      paragraphs: [
-        "I hit a wall studying alone. The same kinds of questions kept tripping me up and I couldn't see why. Within a few weeks of working with David, the wall was gone.",
-        "What stuck wasn't a single trick. It was his ability to spot patterns in my missed questions and tailor the approach to how I specifically thought about the test. He even helped with outside factors. My insomnia was wrecking practice tests, and we worked on it together.",
+      preview: "I approached David after self-study for the LSAT left me hitting a ceiling with my score that I was pretty desperate to break. David was really good at identifying exactly where I was getting stuck and noticing patterns in the questions that I got wrong that I would never have noticed myself (hence the ceiling) and giving me very focused solutions.",
+      full: [
+        "I approached David after self-study for the LSAT left me hitting a ceiling with my score that I was pretty desperate to break. David was really good at identifying exactly where I was getting stuck and noticing patterns in the questions that I got wrong that I would never have noticed myself (hence the ceiling) and giving me very focused solutions.",
+        "I also got the sense when he was teaching me that he was really tailoring his approach to teaching me how to take the LSAT both to what skills I needed and changes I needed to make on the questions in order to maximize my score and moreover to who I was as an individual. I particularly appreciated the fact that he cared enough to ask about what outside influences could affect my test performance. In my case: insomnia. And actually offered advice! (That proved helpful enough that I actually entered the test well rested for once!)",
+        "I think the fact that David was personable, patient and encouraging made me a lot more receptive to what he was teaching me than I otherwise would have been. Thanks to David, I ended up scoring a 169 on the LSAT and I will be attending Harvard Law School in September 2018.",
       ],
-      quote: "He didn't just teach the LSAT. He taught me how I think.",
+      quote: "I particularly appreciated the fact that he cared enough to ask about what outside influences could affect my test performance.",
     },
     {
       i: "Story 02",
@@ -156,11 +230,14 @@ const SuccessStories = () => {
       year: "+15 points",
       duration: "2 months",
       title: "Fifteen points in two months. Full ride.",
-      paragraphs: [
-        "I started below 155. Two months later: 170, and a full-tuition scholarship offer from a T14 school.",
-        "David's charisma kept me engaged through late-night sessions, and his individual evaluation of my strengths and weaknesses was sharper than any course I'd tried. Email replies came within hours. The practical test-taking skills he taught me made the difference on test day.",
+      preview: "Dave was an excellent instructor and mentor during the LSAT preparation process. Thanks to his skilled instruction and helpful coaching, I received a 170 on the LSAT and a full scholarship to a Top 14 law school. In 2 months, Dave helped me add over 15 points to my score.",
+      full: [
+        "Dave was an excellent instructor and mentor during the LSAT preparation process. Thanks to his skilled instruction and helpful coaching, I received a 170 on the LSAT and a full scholarship to a Top 14 law school. In 2 months, Dave helped me add over 15 points to my score.",
+        "He is an engaging and exciting teacher, whose great charisma and upbeat humor kept the class on point and working hard. I also really appreciate how he worked hard to meet and speak with each student to evaluate their individual progress and assess their strengths and weaknesses. He has a very good perception of what one's reasoning and logical flows tend to be like, and takes the time to break down each answer choice and show why you may have mistakenly chosen an answer.",
+        "Finally, he really went the extra distance to make sure that his students get all their questions answered and are able to have full access to him as an instructor. He spent countless classes staying late to explain concepts to myself or my peers, and also is a quick and comprehensive replier of emails. I also am grateful that he also took the time to teach me practical test-taking skills along with the test's materials. I am very grateful that I had the chance to work with Dave, and would wholeheartedly recommend him to any student looking to make serious improvement on the LSAT.",
+        "Also, I really cannot recall anything that you could have done better as a teacher. It has been a while. You really were a great instructor.",
       ],
-      quote: "I really cannot recall anything you could have done better as a teacher.",
+      quote: "I really cannot recall anything that you could have done better as a teacher.",
     },
     {
       i: "Story 03",
@@ -170,13 +247,31 @@ const SuccessStories = () => {
       year: "Class of 2020",
       duration: "30th to 97th percentile",
       title: "30th to 97th percentile. Yale.",
-      paragraphs: [
-        "My diagnostic in July 2016 was at the 30th percentile. June 2017: 97th percentile on the real LSAT. Perfect score on the logic games section. 25 out of 26 on logical reasoning.",
-        "David was more like a life coach or test therapist than a traditional tutor. He even helped me workshop my law school application essays. I'm now at Yale Law.",
+      preview: "I will attend Yale Law School this fall because Dave taught me how to think (and write!) more like a lawyer. When I began my studies with a 30th percentile diagnostic exam score, I honestly thought law school would not be for me.",
+      full: [
+        "I will attend Yale Law School this fall because Dave taught me how to think (and write!) more like a lawyer.",
+        "Dave has been my LSAT tutor since July 2016. When I began my studies with a 30th percentile diagnostic exam score, I honestly thought law school would not be for me. Over the next 11 months, Dave selflessly helped me develop the skills necessary to achieve a goal I considered impossible at the outset. Thanks to those skills, on my official June 2017 LSAT, I scored in the 97th percentile with a perfect LG and a 25/26 LR.",
+        "Dave's skills encompass the entirety of the LSAT. If you struggle to read RC passages how you should, to understand how to best approach an LR stimulus, or if you are overwhelmed by how to even begin to tackle LG, Dave can help you out. If you think you're the worst test-taker in the world, or even if you know you're just too stupid to figure this test out, then Dave can help. I was afraid of LG at first, scoring -13/-14 while not making it to two whole LG on some of my very first LG sections.",
+        "Dave's function as an LSAT tutor is more like the function of a \"life coach\" or a \"test therapist\" than it is the function of a traditional tutor. Dave's role as a tutor has to do with much more than just test preparation—he will show you the ways you need to think about both the test and yourself in order to succeed on test day.",
+        "Dave's skills extend far beyond the LSAT, too. Without the countless hours he invested into my law school applications essays, I'm fairly certain I wouldn't have received as many acceptances as I have, and certainly not one from Yale Law School! Dave is more than just my tutor, in truth. He is my mentor, a man who I've come to trust and look up to as a first-generation student who has been more than a bit confused by the whole admissions process. Thanks for absolutely everything you did for me, Dave!",
       ],
-      quote: "More like a life coach or test therapist than a traditional tutor.",
+      quote: "Dave is more than just my tutor, in truth. He is my mentor.",
     },
   ];
+
+  useEffect(() => {
+    if (openIdx === null) return;
+    const onKey = (e) => { if (e.key === "Escape") setOpenIdx(null); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [openIdx]);
+
+  const open = openIdx !== null ? stories[openIdx] : null;
 
   return (
     <section style={storyStyles.wrap}>
@@ -191,7 +286,7 @@ const SuccessStories = () => {
           </h2>
         </div>
 
-        <div style={storyStyles.list}>
+        <div style={storyStyles.list} className="story-list">
           {stories.map((s, idx) => (
             <article key={idx} style={storyStyles.story(idx % 2 === 1)} className="story-row">
               <div style={storyStyles.scoreCol} className="story-score-col">
@@ -218,15 +313,55 @@ const SuccessStories = () => {
               <div style={storyStyles.bodyCol}>
                 <div style={storyStyles.index}>{s.i}</div>
                 <h3 style={storyStyles.title}>{s.title}</h3>
-                {s.paragraphs.map((p, pi) => (
-                  <p key={pi} style={storyStyles.para}>{p}</p>
-                ))}
+                <p style={storyStyles.para}>{s.preview}</p>
                 <div style={storyStyles.pullQuote}>&ldquo;{s.quote}&rdquo;</div>
+                <button
+                  type="button"
+                  onClick={() => setOpenIdx(idx)}
+                  style={storyStyles.readMore}
+                  className="story-read-more"
+                >
+                  Read full testimonial
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
               </div>
             </article>
           ))}
         </div>
       </div>
+
+      {open && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="testimonial-modal-title"
+          style={modalStyles.overlay}
+          onClick={() => setOpenIdx(null)}
+        >
+          <div
+            style={modalStyles.panel}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setOpenIdx(null)}
+              style={modalStyles.close}
+              aria-label="Close"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+            <div style={modalStyles.eyebrow}>{open.school} &middot; {open.score}{open.unit}</div>
+            <h3 id="testimonial-modal-title" style={modalStyles.title}>{open.title}</h3>
+            {open.full.map((p, i) => (
+              <p key={i} style={modalStyles.para}>{p}</p>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 };
@@ -575,6 +710,16 @@ const Testimonials = () => (
       <meta property="og:description" content="Read real student reviews and survey results from LSAT Academy. See how David McMaster's tutoring has helped students improve their LSAT scores and gain confidence." />
       <meta property="og:url" content="https://www.lsat.academy/testimonials" />
       <meta property="og:type" content="website" />
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+            { "@type": "ListItem", "position": 2, "name": "Testimonials", "item": "https://www.lsat.academy/testimonials" }
+          ]
+        }
+      `}</script>
     </Helmet>
     <TestimonialsHero />
     <SuccessStories />

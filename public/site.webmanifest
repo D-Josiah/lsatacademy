@@ -1,0 +1,18 @@
+{
+  "name": "LSAT Academy",
+  "short_name": "LSAT Academy",
+  "description": "Expert LSAT tutoring with David McMaster, a 99th percentile tutor. Personalized strategies, proven results.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a3a52",
+  "icons": [
+    {
+      "src": "/600-logo.png",
+      "sizes": "600x600",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

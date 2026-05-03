@@ -30,6 +30,43 @@ const GroupTutoring = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="Group LSAT Tutoring | LSAT Academy" />
         <meta name="twitter:description" content="Join LSAT Academy's group tutoring program — an affordable way to study LSAT with peers in a collaborative environment led by David McMaster. Join the waitlist today." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.lsat.academy/services" },
+              { "@type": "ListItem", "position": 3, "name": "Group Tutoring", "item": "https://www.lsat.academy/group-tutoring" }
+            ]
+          }
+        `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "LSAT Group Tutoring",
+            "description": "Affordable LSAT group tutoring with David McMaster — collaborative peer-based learning, expert strategy instruction, and live coaching sessions.",
+            "url": "https://www.lsat.academy/group-tutoring",
+            "provider": { "@id": "https://www.lsat.academy/#organization" },
+            "hasCourseInstance": {
+              "@type": "CourseInstance",
+              "courseMode": "online",
+              "courseWorkload": "PT8H",
+              "instructor": {
+                "@type": "Person",
+                "name": "David McMaster",
+                "url": "https://www.lsat.academy/about"
+              }
+            },
+            "offers": {
+              "@type": "Offer",
+              "category": "Paid",
+              "url": "https://www.lsat.academy/group-tutoring",
+              "priceCurrency": "USD"
+            }
+          }
+        `}</script>
       </Helmet>
       <main className="group-tutoring max padding spacer">
         

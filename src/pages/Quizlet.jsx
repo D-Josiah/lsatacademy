@@ -29,6 +29,17 @@ const Quizlet = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="LSAT Quizlet Flashcards | LSAT Academy" />
         <meta name="twitter:description" content="Study LSAT vocabulary, logical reasoning terms, and key concepts with free Quizlet flashcard sets curated by David McMaster at LSAT Academy." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "LSAT Quizlet", "item": "https://www.lsat.academy/lsat-quizlet" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="blogs max padding spacer">
         <h1>LSAT Quizlet</h1>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import Img from "../components/Img";
 
 const Library = () => {
   const books = [
@@ -62,6 +63,17 @@ const Library = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="LSAT Book Library | Best LSAT Prep Books | LSAT Academy" />
         <meta name="twitter:description" content="Browse David McMaster's recommended LSAT prep books and study materials. Curated list of the best resources to help you prepare for the LSAT effectively." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "Library", "item": "https://www.lsat.academy/library" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <style>{`
           --bree: 'Bree Serif', serif;
@@ -310,10 +322,12 @@ const Library = () => {
         <section className="books-grid">
           {books.map((book) => (
             <div key={book.id} className="book-card">
-              <img 
-                src={book.image} 
+              <Img
+                src={book.image}
                 alt={book.title}
                 className="book-image"
+                loading="lazy"
+                decoding="async"
               />
               <div className="book-content">
                 <h3 className="book-title">{book.title}</h3>
@@ -349,21 +363,21 @@ const Library = () => {
           <h3 style={{ textAlign: 'center', marginBottom: '2rem' }}>More Resources</h3>
 
           <div className="resource">
-            <img src="assets/redirect-icon.png" alt="redirect icon" className="redirect" />
+            <Img src="/assets/redirect-icon.png" alt="" aria-hidden="true" width="16" height="16" className="redirect" loading="lazy" decoding="async" />
             <Link to="/lsat-explained" className="resource-link">
               The LSAT Explained Clearly
             </Link>
           </div>
           
           <div className="resource">
-            <img src="assets/redirect-icon.png" alt="redirect icon" className="redirect" />
+            <Img src="/assets/redirect-icon.png" alt="" aria-hidden="true" width="16" height="16" className="redirect" loading="lazy" decoding="async" />
             <Link to="/lsat-quizlet" className="resource-link">
               LSAT Quizlet
             </Link>
           </div>
           
           <div className="resource">
-            <img src="assets/redirect-icon.png" alt="redirect icon" className="redirect" />
+            <Img src="/assets/redirect-icon.png" alt="" aria-hidden="true" width="16" height="16" className="redirect" loading="lazy" decoding="async" />
             <Link to="/lsat-answer" className="resource-link">
               Send David an LSAT Inquiry
             </Link>

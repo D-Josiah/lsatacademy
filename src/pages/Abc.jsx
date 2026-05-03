@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import Img from "../components/Img";
 
 const Abc = () => {
   const handleDownload = () => {
@@ -51,6 +52,17 @@ const Abc = () => {
     }
   }
 `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.lsat.academy/resources" },
+              { "@type": "ListItem", "position": 3, "name": "ABCs of Applying to Law School", "item": "https://www.lsat.academy/abc" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="blogs max padding spacer">
         <article>
@@ -60,15 +72,17 @@ const Abc = () => {
             <div className="title">
               <h3 className="date">5 April 2025</h3>
               <div className="author">
-                <img src="/assets/david.png" alt="David McMaster" />
+                <Img src="/assets/david.png" alt="David McMaster, LSAT Tutor" width="60" height="60" loading="lazy" decoding="async" />
                 <p className="david">David McMaster</p>
               </div>
               <button onClick={handleDownload}>Download</button>
             </div>
-            <img
+            <Img
               src="https://res.cloudinary.com/derzriuel/image/upload/v1744267522/Abc_jj8i7f.png"
-              alt="Law School Application Guide"
+              alt="Law School Application Guide cover"
               className="blog-pic"
+              loading="lazy"
+              decoding="async"
             />
           </section>
 

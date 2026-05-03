@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../variables" as *;
+
 .home{
     width: 100vw;
     height: fit-content;
@@ -86,7 +89,7 @@
                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
                 border: none;
                 height: 4px;
-                background: linear-gradient(to right, $myblue, lighten($myblue, 20%));
+                background: linear-gradient(to right, $myblue, color.adjust($myblue, $lightness: 20%));
                 border: none;
 
             }

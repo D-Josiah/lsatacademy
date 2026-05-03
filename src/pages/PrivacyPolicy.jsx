@@ -16,6 +16,16 @@ const PrivacyPolicy = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="Privacy Policy | LSAT Academy" />
         <meta name="twitter:description" content="Read the LSAT Academy privacy policy to understand how we collect, use, and protect your personal information." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://www.lsat.academy/privacy-policy" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="privacy max padding spacer">
         <div className="privacy-container">

@@ -28,3 +28,7 @@ dist-ssr
 
 # Working folder, not for production
 version 2.0/
+
+# Local context / screenshots — not for production or git
+public/context/
+context/

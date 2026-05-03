@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
+import Img from "../components/Img";
 
 const Consultation = () => {
   const navigate = useNavigate();
@@ -76,6 +77,16 @@ const Consultation = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="Book a Free LSAT Consultation | LSAT Academy" />
         <meta name="twitter:description" content="Schedule your free 1-hour LSAT consultation with David McMaster. Discuss your goals, get personalized advice, and find out if private tutoring is right for you." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Free Consultation", "item": "https://www.lsat.academy/consultation" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <style>{`
         :root {
@@ -225,98 +236,110 @@ const Consultation = () => {
             flexWrap: 'wrap',
             margin: '40px 0'
           }}>
-            <img 
-              src="/assets/testimonial1.jpeg" 
-              alt="Student testimonial 1" 
-              style={{ 
-                maxWidth: '800px', 
-                width: '100%', 
-                borderRadius: '15px', 
-                boxShadow: '0 6px 20px rgba(0,0,0,0.15)' 
+            <Img
+              src="/assets/testimonial1.jpeg"
+              alt="LSAT Academy student testimonial: 99th percentile score"
+              loading="lazy"
+              decoding="async"
+              style={{
+                maxWidth: '800px',
+                width: '100%',
+                borderRadius: '15px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
               }}
             />
-            <img 
-              src="/assets/testimonial2.png" 
-              alt="Student testimonial 2" 
-              style={{ 
-                maxWidth: '600px', 
-                width: '100%', 
-                borderRadius: '15px', 
-                boxShadow: '0 6px 20px rgba(0,0,0,0.15)' 
+            <Img
+              src="/assets/testimonial2.png"
+              alt="LSAT Academy student testimonial about David's tutoring"
+              loading="lazy"
+              decoding="async"
+              style={{
+                maxWidth: '600px',
+                width: '100%',
+                borderRadius: '15px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
               }}
             />
-            <img 
-              src="/assets/testimonial3.jpeg" 
-              alt="Student testimonial 3" 
-              style={{ 
-                maxWidth: '600px', 
-                width: '100%', 
-                borderRadius: '15px', 
-                boxShadow: '0 6px 20px rgba(0,0,0,0.15)' 
+            <Img
+              src="/assets/testimonial3.jpeg"
+              alt="LSAT Academy student testimonial about score improvement"
+              loading="lazy"
+              decoding="async"
+              style={{
+                maxWidth: '600px',
+                width: '100%',
+                borderRadius: '15px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
               }}
             />
           </div>
-          <div style={{ 
-            display: 'flex', 
-            gap: '30px', 
-            justifyContent: 'center', 
+          <div style={{
+            display: 'flex',
+            gap: '30px',
+            justifyContent: 'center',
             flexWrap: 'wrap',
             margin: '0 0 40px 0'
           }}>
-            <img 
-              src="/assets/testimonial4.jpeg" 
-              alt="Student testimonial 4" 
-              style={{ 
-                maxWidth: '600px', 
-                width: '100%', 
-                borderRadius: '15px', 
-                boxShadow: '0 6px 20px rgba(0,0,0,0.15)' 
+            <Img
+              src="/assets/testimonial4.jpeg"
+              alt="LSAT Academy student testimonial about T14 admission"
+              loading="lazy"
+              decoding="async"
+              style={{
+                maxWidth: '600px',
+                width: '100%',
+                borderRadius: '15px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
               }}
             />
-            <img 
-              src="/assets/testimonial5.png" 
-              alt="Student testimonial 5" 
-              style={{ 
-                maxWidth: '600px', 
-                width: '100%', 
-                borderRadius: '15px', 
-                boxShadow: '0 6px 20px rgba(0,0,0,0.15)' 
+            <Img
+              src="/assets/testimonial5.png"
+              alt="LSAT Academy student testimonial about study strategy"
+              loading="lazy"
+              decoding="async"
+              style={{
+                maxWidth: '600px',
+                width: '100%',
+                borderRadius: '15px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
               }}
             />
-            <img 
-              src="/assets/testimonial6.jpeg" 
-              alt="Student testimonial 6" 
-              style={{ 
-                maxWidth: '800px', 
-                width: '100%', 
-                borderRadius: '15px', 
-                boxShadow: '0 6px 20px rgba(0,0,0,0.15)' 
+            <Img
+              src="/assets/testimonial6.jpeg"
+              alt="LSAT Academy student testimonial about full-ride scholarship"
+              loading="lazy"
+              decoding="async"
+              style={{
+                maxWidth: '800px',
+                width: '100%',
+                borderRadius: '15px',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.15)'
               }}
             />
           </div>
         </section>
 
-      
+
 
         {/* Image Grid Section */}
         <section className="image-grid padding">
           <div className="grid-item">
-            <img src="/assets/Calendly1.png" alt="Consultation feedback 1" />
+            <Img src="/assets/Calendly1.png" alt="Free LSAT consultation feedback from a happy student" loading="lazy" decoding="async" />
           </div>
           <div className="grid-item">
-            <img src="/assets/Calendly2.png" alt="Consultation feedback 2" />
+            <Img src="/assets/Calendly2.png" alt="Free LSAT consultation feedback from a student" loading="lazy" decoding="async" />
           </div>
           <div className="grid-item">
-            <img src="/assets/Calendly3.png" alt="Consultation feedback 3" />
+            <Img src="/assets/Calendly3.png" alt="Free LSAT consultation feedback from a student" loading="lazy" decoding="async" />
           </div>
           <div className="grid-item">
-            <img src="/assets/Calendly4.png" alt="Consultation feedback 4" />
+            <Img src="/assets/Calendly4.png" alt="Free LSAT consultation feedback from a student" loading="lazy" decoding="async" />
           </div>
           <div className="grid-item">
-            <img src="/assets/Calendly5.png" alt="Consultation feedback 5" />
+            <Img src="/assets/Calendly5.png" alt="Free LSAT consultation feedback from a student" loading="lazy" decoding="async" />
           </div>
           <div className="grid-item">
-            <img src="/assets/Calendly6.png" alt="Consultation feedback 6" />
+            <Img src="/assets/Calendly6.png" alt="Free LSAT consultation feedback from a student" loading="lazy" decoding="async" />
           </div>
         </section>
       

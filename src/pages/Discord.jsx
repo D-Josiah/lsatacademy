@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import Img from "../components/Img";
 
 const Discord = () => {
   const handleDiscordClick = () => {
@@ -18,6 +19,16 @@ const Discord = () => {
         <meta property="og:type" content="website" />
         <meta name="twitter:title" content="Join the LSAT Discord Community | LSAT Academy" />
         <meta name="twitter:description" content="Real-time study groups, LSAT tips from David McMaster, peer support, and resources to ace the LSAT." />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lsat.academy/" },
+              { "@type": "ListItem", "position": 2, "name": "Discord Community", "item": "https://www.lsat.academy/discord" }
+            ]
+          }
+        `}</script>
       </Helmet>
       <main className="blogs max padding spacer discord-main">
         <h1 className="discord-h2">Join our LSAT Discord Community: Study groups, resources, tutor tips & support system</h1>
@@ -25,17 +36,21 @@ const Discord = () => {
 
 If we’ve had a free consultation, you know I could only scratch the surface of what you need. This server gives you ongoing access to support, accountability, and real help when you're stuck. </p>
         <div className="discord-images">
-          <img 
-            src="/assets/law_book.png" 
-            alt="Law Book" 
+          <Img
+            src="/assets/law_book.png"
+            alt="Open law book illustration"
             onClick={handleDiscordClick}
             style={{ cursor: 'pointer' }}
+            loading="lazy"
+            decoding="async"
           />
-          <img 
-            src="/assets/discord.png" 
-            alt="Discord Icon" 
+          <Img
+            src="/assets/discord.png"
+            alt="Discord logo"
             onClick={handleDiscordClick}
             style={{ cursor: 'pointer' }}
+            loading="lazy"
+            decoding="async"
           />
         </div>
         
@@ -43,7 +58,7 @@ If we’ve had a free consultation, you know I could only scratch the surface of
           Join our Discord server
         </button>
         
-        <img src="/assets/server.png" alt="Discord Server" className="server"/>
+        <Img src="/assets/server.png" alt="LSAT Academy Discord server screenshot" className="server" loading="lazy" decoding="async"/>
       </main>
     </>
   );

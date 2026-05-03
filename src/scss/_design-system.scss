@@ -139,16 +139,62 @@
 
   /* ---------- RESPONSIVE ---------- */
 
+  /* Small desktop / large tablet (961–1100px) — desktop layout still active,
+     but the hero photo is sized down so David doesn't have a tall empty gap
+     above his head. */
+  @media (min-width: 961px) and (max-width: 1100px) {
+    .hero-photo-area {
+      height: 480px !important;
+      min-height: 480px !important;
+    }
+  }
+
   /* Tablet & smaller — main layout collapse */
   @media (max-width: 960px) {
-    .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding-top: 24px !important; }
+    .hero-grid {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto auto auto !important;
+      grid-template-areas: "left" "photo" "ctas" !important;
+      gap: 32px !important;
+      padding-top: 24px !important;
+      text-align: center !important;
+      justify-items: center !important;
+    }
+    .hero-left {
+      align-items: center !important;
+      max-width: 560px !important;
+      width: 100% !important;
+    }
+    .hero-left .hero-trust { margin: 0 auto !important; }
+    .hero-left p { margin-left: auto !important; margin-right: auto !important; }
+    .hero-ctas { justify-content: center !important; width: 100%; }
     .services-grid { grid-template-columns: 1fr !important; max-width: 460px !important; margin-left: auto !important; margin-right: auto !important; }
     .services-grid > :nth-child(2) { transform: none !important; }
-    .meet-grid { grid-template-columns: 1fr !important; gap: 32px !important; justify-items: center !important; text-align: center !important; }
+    .meet-grid { grid-template-columns: 1fr !important; gap: 32px !important; justify-items: center !important; }
+    .meet-grid > div:first-child { text-align: center !important; }
+    .meet-body, .meet-body p { text-align: left !important; }
     .meet-stats { grid-template-columns: 1fr !important; }
-    .meet-stats > div { padding: 20px 0 !important; border-left: none !important; border-top: 1px solid var(--ink-200) !important; }
+    .meet-stats > div {
+      padding: 20px 0 !important;
+      border-left: none !important;
+      border-top: 1px solid var(--ink-200) !important;
+      text-align: center !important;
+    }
+    .meet-stats > div > div { margin-left: auto !important; margin-right: auto !important; }
     .meet-stats > div:first-child { border-top: none !important; }
     .why-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+    /* Why work with David — center each tile's content (number, title, description) */
+    .why-grid > div:first-child > div {
+      grid-template-columns: 1fr !important;
+      justify-items: center !important;
+      text-align: center !important;
+      gap: 12px !important;
+    }
+    .why-grid > div:first-child > div > div:last-child {
+      max-width: 480px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
     .community-grid { grid-template-columns: 1fr !important; }
     .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
     .contact-row { grid-template-columns: 1fr !important; }
@@ -164,37 +210,209 @@
     .cat-head { grid-template-columns: 1fr !important; gap: 20px !important; }
 
     .testimonials-scoreboard { grid-template-columns: 1fr !important; }
-    .story-row { grid-template-columns: 1fr !important; gap: 32px !important; direction: ltr !important; }
-    .story-score-col { position: static !important; }
-    .surveys-grid { grid-template-columns: 1fr !important; }
-    .reddit-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+    /* Testimonials story rows — single-column stack, width:100% capped at 85vw and centered.
+       overflow:hidden + box-sizing protect against any descendant overflow. */
+    .story-row {
+      display: block !important;
+      grid-template-columns: 1fr !important;
+      gap: 0 !important;
+      direction: ltr !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      overflow: hidden !important;
+    }
+    .story-row > * { direction: ltr !important; max-width: 100% !important; box-sizing: border-box !important; min-width: 0 !important; }
+    /* Score block: number left-aligned at top, meta details right of it */
+    .story-score-col {
+      position: static !important;
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      gap: 20px !important;
+      text-align: left !important;
+      margin-bottom: 24px !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .story-score-col > div { min-width: 0 !important; max-width: 100% !important; flex: 0 1 auto !important; }
+    .story-score-col > div + div { margin-top: 0 !important; flex: 1 1 auto !important; }
+    .story-score-col .story-big-num + div > div > div { word-break: break-word !important; overflow-wrap: anywhere !important; }
+    /* Big number scales with viewport */
+    .story-big-num {
+      font-size: clamp(60px, 14vw, 120px) !important;
+      line-height: 0.85 !important;
+      flex-shrink: 0 !important;
+      padding-right: 16px !important;
+    }
+    .story-score-col .story-big-num + div { gap: 12px !important; }
+    .story-score-col .story-big-num + div > div > div:last-child { font-size: 15px !important; }
+    /* Body title and body content */
+    .story-row > div:last-child > h3 { font-size: clamp(24px, 4.4vw, 36px) !important; }
+    .story-row > div:last-child { min-width: 0 !important; }
+    .story-row > div:last-child > * { max-width: 100% !important; }
+    /* Stories list — clearly separated on mobile/tablet with a divider rule */
+    .story-list { gap: 80px !important; }
+    .story-list > .story-row + .story-row {
+      padding-top: 80px !important;
+      border-top: 1px solid var(--ink-200) !important;
+    }
+    /* "Read full testimonial" button centered on mobile/tablet */
+    .story-read-more { display: flex !important; margin-left: auto !important; margin-right: auto !important; }
+    .surveys-grid {
+      grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+    .surveys-grid > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+      padding: 28px 24px !important;
+    }
+    .surveys-grid > div * { max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; word-wrap: break-word !important; }
+    .reddit-grid {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+    .reddit-grid > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+      min-width: 0 !important;
+    }
+    .reddit-grid > div * { max-width: 100% !important; box-sizing: border-box !important; }
+    .reddit-grid > div:last-child { padding: 20px !important; overflow: hidden !important; }
+
+    /* Global button width cap — natural-width, never full-bleed on tablet */
+    .btn {
+      width: auto !important;
+      max-width: 320px !important;
+      align-self: center !important;
+      padding-left: 28px !important;
+      padding-right: 28px !important;
+    }
   }
 
   /* Tablet portrait — section padding & hero stat cards */
   @media (max-width: 768px) {
     .container { padding: 0 24px; }
 
-    /* Hero: hide floating stat cards (they overlap on stacked layout) */
-    .hero-stat-card { display: none !important; }
-    /* Hero photo container shrinks */
-    .hero-photo-area { min-height: 380px !important; height: 380px !important; padding-right: 0 !important; }
+    /* Hero floating stat cards — keep visible, but shrink and pin them inside
+       the photo area corners so they don't overflow on narrow viewports. */
+    .hero-stat-card {
+      display: flex !important;
+      padding: 8px 12px !important;
+      min-width: 0 !important;
+      gap: 8px !important;
+      border-radius: 12px !important;
+    }
+    .hero-stat-card > div:first-child { width: 28px !important; height: 28px !important; }
+    .hero-stat-card > div:first-child svg { width: 14px !important; height: 14px !important; }
+    .hero-stat-card > div:first-child > div { font-size: 16px !important; }
+    .hero-stat-card > div:last-child > div:first-child { font-size: 9px !important; letter-spacing: 0.08em !important; }
+    .hero-stat-card > div:last-child > div:last-child { font-size: 13px !important; }
+    /* Three floating cards on mobile/tablet: top-center, left-middle, right-middle. */
+    .hero-stat-card:nth-of-type(3) {  /* 3,000+ — top, nudged left and down */
+      top: 36px !important;
+      left: 32% !important;
+      transform: translateX(-50%) !important;
+      right: auto !important;
+      bottom: auto !important;
+    }
+    .hero-stat-card:nth-of-type(4) {  /* 99th percentile — left, higher than right */
+      top: auto !important;
+      bottom: 34% !important;
+      left: 4px !important;
+      transform: none !important;
+      right: auto !important;
+    }
+    .hero-stat-card:nth-of-type(5) {  /* 16 years — right, lower so it doesn't align with left */
+      top: auto !important;
+      bottom: 14% !important;
+      right: 4px !important;
+      transform: none !important;
+      left: auto !important;
+    }
+    /* Hero photo container — scale with viewport so there is no large empty
+       band above David's head on phones, but capped so it doesn't blow up on
+       tablet portraits where the box would otherwise be ~720px tall. */
+    .hero-photo-area {
+      aspect-ratio: auto !important;
+      height: clamp(320px, 95vw, 460px) !important;
+      min-height: 0 !important;
+      padding-right: 0 !important;
+      padding-top: 0 !important;
+    }
+    .hero-photo-wrap { overflow: visible !important; }
+    /* Smaller rounded top so the frame doesn't crop into the head */
+    .hero-photo-frame > div { border-radius: 160px 160px 24px 24px !important; }
     /* Decorative dot mesh hidden on mobile */
     .hero-dotmesh { display: none !important; }
-    /* Trust pill wraps */
-    .hero-trust { flex-wrap: wrap !important; padding: 8px 14px !important; }
-    .hero-trust > div { flex-wrap: wrap !important; row-gap: 8px !important; }
+    /* Trust pill: label wraps to its own row, schools stay on one row */
+    .hero-trust {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      padding: 10px 16px !important;
+      row-gap: 6px !important;
+      column-gap: 10px !important;
+    }
+    .hero-trust > div {
+      flex-wrap: nowrap !important;
+      row-gap: 0 !important;
+      gap: 12px !important;
+      padding-right: 0 !important;
+    }
+    .hero-trust > span:first-child { padding-left: 0 !important; }
+
+    /* Contact ("Ready to master the LSAT?") centered on tablet/mobile */
+    .contact-grid > div:first-child {
+      text-align: center !important;
+      max-width: 560px !important;
+      margin: 0 auto !important;
+    }
+    .contact-grid > div:first-child h2,
+    .contact-grid > div:first-child p { margin-left: auto !important; margin-right: auto !important; }
 
     /* MeetTutor portrait recentered & shrunk */
     .meet-portrait { width: 220px !important; height: 220px !important; margin: 0 auto !important; }
     .meet-body { text-align: left !important; }
 
     /* Reviews CTA stacks */
-    .reviews-cta-inner { flex-direction: column !important; align-items: flex-start !important; }
-    .reviews-cta-inner > a, .reviews-cta-inner > .btn { width: 100% !important; justify-content: center !important; }
+    .reviews-cta-inner { flex-direction: column !important; align-items: stretch !important; }
+    .reviews-cta-inner > a, .reviews-cta-inner > .btn {
+      width: auto !important;
+      max-width: 320px !important;
+      margin: 0 auto !important;
+      justify-content: center !important;
+    }
 
-    /* Hero CTAs full-width */
-    .hero-ctas { flex-direction: column !important; align-items: stretch !important; }
-    .hero-ctas > a, .hero-ctas > button { justify-content: center !important; width: 100% !important; }
+    /* Global button width cap on mobile/tablet — natural-width, centered, never full-bleed */
+    .btn {
+      width: auto !important;
+      max-width: 320px !important;
+      align-self: center !important;
+      padding-left: 28px !important;
+      padding-right: 28px !important;
+    }
+
+    /* Hero CTAs: centered, natural-width buttons */
+    .hero-ctas { flex-direction: column !important; align-items: center !important; }
+    .hero-ctas > a, .hero-ctas > button {
+      justify-content: center !important;
+      width: auto !important;
+      max-width: 320px !important;
+      padding-left: 28px !important;
+      padding-right: 28px !important;
+    }
 
     /* Section vertical padding reduced */
     section[style*="padding: 120px"], section[style*="padding: 110px"] { padding-top: 64px !important; padding-bottom: 64px !important; }
@@ -202,12 +420,14 @@
 
     /* Form padding shrinks */
     .contact-grid form { padding: 28px !important; }
+    /* Survey/testimonials cards tighter on tablet portrait */
+    .surveys-grid > div { padding: 32px 28px !important; }
 
     /* Calendly grid stack */
     .calendly-stack { grid-template-columns: 1fr !important; }
 
     /* Big serif numbers on testimonials story shrink */
-    .story-score-col { text-align: center; }
+    .story-score-col { text-align: left !important; }
 
     /* Resources category chip wraps */
     .cat-chip { padding: 12px 18px !important; gap: 12px !important; }
@@ -218,32 +438,58 @@
 
   /* Phone — fine-grain spacing */
   @media (max-width: 480px) {
-    .container { padding: 0 18px; }
+    .container { padding: 0 16px; }
 
     /* Single column footer */
     .footer-grid { grid-template-columns: 1fr !important; }
 
     /* Tighter card padding */
-    .pkg-card, .v2-card, .surveys-grid > div { padding: 24px !important; }
+    .pkg-card, .v2-card, .surveys-grid > div { padding: 24px 20px !important; }
 
     /* Headline a touch smaller */
-    h1 { font-size: clamp(32px, 9vw, 44px) !important; }
-    h2 { font-size: clamp(26px, 7vw, 36px) !important; }
+    h1 { font-size: clamp(28px, 8.5vw, 44px) !important; }
+    h2 { font-size: clamp(24px, 7vw, 36px) !important; }
 
-    /* Buttons full width on phones for one-column flows */
-    .btn { padding: 14px 22px; font-size: 14px; }
+    /* Button padding tighter on phones */
+    .btn { padding: 12px 20px !important; font-size: 14px !important; }
 
-    /* Hide trust pill on smallest screens (it gets too cramped) */
-    .hero-trust { font-size: 11px !important; }
-    .hero-trust span { font-size: 11px !important; }
+    /* Trust pill — shrink icons/text so 3 schools fit on a 320px-wide row */
+    .hero-trust { font-size: 11px !important; padding: 8px 12px !important; column-gap: 8px !important; }
+    .hero-trust span { font-size: 10px !important; }
+    .hero-trust > div { gap: 8px !important; }
+    .hero-trust > div svg { width: 14px !important; height: 14px !important; }
 
     /* Reviews CTA tighter */
     .reviews-cta { padding: 24px !important; }
 
-    /* Stories: reduce big number */
-    .story-big-num { font-size: clamp(80px, 22vw, 130px) !important; }
+    /* Stories: reduce big number + tighten score-col layout for 320px-wide phones */
+    .story-big-num { font-size: clamp(56px, 18vw, 100px) !important; line-height: 0.85 !important; }
+    .story-score-col { gap: 14px !important; }
+    .story-score-col .story-big-num + div { gap: 10px !important; }
+    .story-score-col .story-big-num + div > div > div:last-child { font-size: 14px !important; }
+
+    /* Form padding tightened on phones */
+    .contact-grid form { padding: 18px !important; }
+
+    /* Reddit / imgur testimonials section — keep iframe and content within viewport */
+    .reddit-grid > div:last-child { padding: 18px !important; }
+    .imgur-embed-pub, .imgur-embed-pub iframe { max-width: 100% !important; width: 100% !important; }
+
+    /* Modal panel padding tighter on phones */
+    [role="dialog"] [aria-modal="true"], [aria-modal="true"] > div { padding: 24px !important; }
 
     /* Pricing card transform reset already handled at 960px */
+  }
+
+  /* Extra-narrow phones (320px iPhone SE 1st gen, etc.) */
+  @media (max-width: 360px) {
+    .container { padding: 0 14px; }
+    /* Wrap school logos to a second row if needed instead of overflowing */
+    .hero-trust > div { flex-wrap: wrap !important; row-gap: 6px !important; justify-content: center !important; }
+    /* Even tighter score-col on the smallest phones */
+    .story-score-col { gap: 10px !important; }
+    .story-big-num { font-size: clamp(52px, 17vw, 80px) !important; }
+    .story-score-col .story-big-num + div > div > div:last-child { font-size: 13px !important; }
   }
 
   input::placeholder { color: rgba(255,255,255,0.4); }

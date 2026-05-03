@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
-import emailjs from "@emailjs/browser";
+import Img from "../components/Img";
 
 const FREE_CONSULT_URL = "https://calendly.com/dave-mcmaster/free-lsat-consultation";
 const PRIVATE_TUTORING_URL = "https://calendly.com/dave-mcmaster/private-lsat-tutoring";
@@ -27,14 +27,17 @@ const heroStyles = {
   grid: {
     display: "grid",
     gridTemplateColumns: "1.05fr 0.95fr",
-    gap: "48px",
+    gridTemplateRows: "auto auto",
+    gridTemplateAreas: '"left photo" "ctas photo"',
+    columnGap: "48px",
+    rowGap: "32px",
     alignItems: "center",
     position: "relative",
     zIndex: 1,
     paddingTop: "56px",
     paddingBottom: "40px",
   },
-  left: { display: "flex", flexDirection: "column", gap: "32px" },
+  left: { display: "flex", flexDirection: "column", gap: "32px", gridArea: "left" },
   trust: {
     display: "inline-flex",
     alignItems: "center",
@@ -62,8 +65,9 @@ const heroStyles = {
     maxWidth: 520,
     lineHeight: 1.55,
   },
-  ctas: { display: "flex", gap: 14, flexWrap: "wrap" },
+  ctas: { display: "flex", gap: 14, flexWrap: "wrap", gridArea: "ctas" },
   right: {
+    gridArea: "photo",
     position: "relative",
     minHeight: 560,
     height: 560,
@@ -145,7 +149,7 @@ const Hero = () => {
       <div style={heroStyles.grainOverlay} />
       <div className="container">
         <div style={heroStyles.grid} className="hero-grid">
-          <div style={heroStyles.left}>
+          <div style={heroStyles.left} className="hero-left">
             <div style={heroStyles.trust} className="hero-trust">
               <span style={{ ...heroStyles.trustText, paddingLeft: 10 }}>
                 Past students admitted to
@@ -180,7 +184,7 @@ const Hero = () => {
 
             <h1 style={heroStyles.headline}>
               Work 1-on-1 with{" "}
-              <span style={{ fontFamily: "var(--font-display)", color: "var(--teal-500)", fontWeight: 400 }}>
+              <span style={{ fontFamily: "var(--font-display)", color: "var(--teal-500)", fontWeight: 400, whiteSpace: "nowrap" }}>
                 David McMaster
               </span>
               <span style={{ display: "block" }}>a 99th percentile LSAT tutor.</span>
@@ -189,21 +193,21 @@ const Hero = () => {
             <p style={heroStyles.sub}>
               I help you go from second-guessing every answer to walking into test day with confidence.
             </p>
+          </div>
 
-            <div style={heroStyles.ctas} className="hero-ctas">
-              <a
-                href={FREE_CONSULT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                Book a free consultation
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-              <button onClick={scrollToServices} className="btn btn-ghost">View tutoring options</button>
-            </div>
+          <div style={heroStyles.ctas} className="hero-ctas">
+            <a
+              href={FREE_CONSULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Book a free consultation
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <button onClick={scrollToServices} className="btn btn-ghost">View tutoring options</button>
           </div>
 
           <div style={heroStyles.right} className="hero-photo-area">
@@ -216,7 +220,7 @@ const Hero = () => {
               <rect width="280" height="280" fill="url(#dots)" />
             </svg>
 
-            <div style={{
+            <div className="hero-photo-frame" style={{
               position: "absolute",
               left: "6%",
               right: "6%",
@@ -233,10 +237,14 @@ const Hero = () => {
               }} />
             </div>
 
-            <div style={{ ...heroStyles.photoWrap, flexDirection: "column", justifyContent: "flex-end" }}>
-              <img
+            <div className="hero-photo-wrap" style={{ ...heroStyles.photoWrap, flexDirection: "column", justifyContent: "flex-end" }}>
+              <Img
                 src="/assets/hero-image.png"
-                alt="David McMaster, LSAT tutor"
+                alt="David McMaster, LSAT tutor and 99th percentile scorer"
+                width="480"
+                height="560"
+                fetchpriority="high"
+                decoding="async"
                 style={{ width: "100%", maxWidth: 480, height: "100%", objectFit: "contain", objectPosition: "center bottom", display: "block" }}
               />
             </div>
@@ -355,9 +363,11 @@ const MeetTutor = () => (
 
       <div style={meetStyles.grid} className="meet-grid">
         <div style={meetStyles.portrait} className="meet-portrait">
-          <img
+          <Img
             src="/assets/david.png"
-            alt="David McMaster"
+            alt="David McMaster, LSAT Tutor and 99th percentile scorer"
+            loading="lazy"
+            decoding="async"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
           <div style={meetStyles.portraitBadge}>99th Percentile</div>
@@ -401,12 +411,18 @@ const MeetTutor = () => (
               Note: some older testimonials mention logic games. Those were part of past LSAT formats.
             </div>
           </div>
-          <Link to="/testimonials" className="btn btn-primary" style={{ whiteSpace: "nowrap" }}>
+          <a
+            href="https://docs.google.com/forms/d/1rL_IQq45dGYxYBQIvjX3Pauc7UhUTCCSHK7UwB_rIoc/viewanalytics?pli=1&pli=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+            style={{ whiteSpace: "nowrap" }}
+          >
             Read student answers
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -658,9 +674,9 @@ const whyStyles = {
 const WhyChoose = () => {
   const items = [
     { n: "01", t: "16 Years of Experience", d: "Sixteen years of teaching. I've seen every section, every trick, every panic response, and know how to coach through it." },
-    { n: "02", t: "99th Percentile Score", d: "I didn't just pass the LSAT, I aced it. That means I can explain not just the answer, but how expert test-takers think through it." },
-    { n: "03", t: "Verified Results, Not Promises", d: "Transparent score-improvement data from past students. Ask for it on our first call and I'll send the spreadsheet." },
-    { n: "04", t: "Former Elite Prep Instructor", d: "Built the 1-on-1 tutoring program at a top-tier prep company before going independent to work with students directly." },
+    { n: "02", t: "99th Percentile Score", d: "I excel at the test I teach." },
+    { n: "03", t: "Verified Results, Not Promises", d: "I've taught students who've made remarkable jumps in their scores." },
+    { n: "04", t: "Former Elite Prep Instructor", d: "After years at a top-tier prep company, I left to fulfill my dreams of building a 1-on-1 tutoring program." },
   ];
   return (
     <section style={whyStyles.wrap} id="why">
@@ -689,18 +705,18 @@ const WhyChoose = () => {
             <div style={whyStyles.quoteCard}>
               <div style={whyStyles.quoteMark}>&ldquo;</div>
               <div style={whyStyles.quoteText}>
-                David found the exact two reasoning patterns I was missing. Six weeks later
-                I was 11 points higher on a real PT.
+                I put in the work, but I didn&rsquo;t believe I could get a 180 until I worked
+                with David. He&rsquo;s absolutely the reason I got the score I wanted.
               </div>
               <div style={whyStyles.quoteAttr}>
-                <div style={whyStyles.quoteAvatar}>MK</div>
+                <div style={whyStyles.quoteAvatar}>AX</div>
                 <div>
-                  <div style={whyStyles.quoteName}>Maya K.</div>
-                  <div style={whyStyles.quoteMeta}>Accepted to Columbia Law</div>
+                  <div style={whyStyles.quoteName}>Angel X.</div>
+                  <div style={whyStyles.quoteMeta}>Perfect score, headed to law school</div>
                 </div>
                 <div style={whyStyles.scorePill}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="18 15 12 9 6 15" /></svg>
-                  163 &rarr; 174
+                  167 &rarr; 180
                 </div>
               </div>
             </div>
@@ -798,7 +814,7 @@ const Community = () => (
           <div>
             <div style={commStyles.cardTitle}>Join our subreddit</div>
             <div style={commStyles.cardSub}>
-              Daily LR questions, score discussions, and application advice from students and alumni.
+              Daily LR questions, score discussions, and study tips from students preparing for the LSAT.
             </div>
           </div>
           <a style={commStyles.cardBtn} href="https://www.reddit.com/r/LSATAcademy/" target="_blank" rel="noopener noreferrer">
@@ -857,7 +873,7 @@ const ctcStyles = {
   },
   contactValue: { fontSize: 16, color: "var(--navy-900)", fontWeight: 500, marginTop: 4 },
   form: {
-    background: "#fff", borderRadius: 24, padding: 40,
+    background: "#fff", borderRadius: 24, padding: 24,
     boxShadow: "var(--shadow-card)",
     border: "1px solid rgba(10,37,64,0.06)",
     display: "flex", flexDirection: "column", gap: 20,
@@ -888,36 +904,14 @@ const ctcStyles = {
 };
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", target_date: "", current_score: "", message: "" });
-  const [showPopup, setShowPopup] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    try {
-      await emailjs.sendForm(
-        "service_0yhiz5p",
-        "template_bpp5mkj",
-        e.target,
-        "vAlH0oPhePwpjdMFK"
-      );
-      setShowPopup(true);
-      setFormData({ name: "", email: "", target_date: "", current_score: "", message: "" });
-      window._hsq = window._hsq || [];
-      window._hsq.push(["trackEvent", {
-        id: "contact_form_submission",
-        value: "Form submitted with data",
-        name: formData.name,
-        email: formData.email,
-      }]);
-    } catch (error) {
-      console.log("FAILED...", error);
-    }
-    setSubmitting(false);
-  };
+  useEffect(() => {
+    const src = "https://js-na2.hsforms.net/forms/embed/241937818.js";
+    if (document.querySelector(`script[src="${src}"]`)) return;
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <section style={ctcStyles.wrap} id="contact">
@@ -939,117 +933,18 @@ const Contact = () => {
                 book a free consultation
               </a>.
             </p>
-
-            <div style={ctcStyles.contactInfo}>
-              <div style={ctcStyles.contactItem}>
-                <div style={ctcStyles.contactIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                </div>
-                <div>
-                  <div style={ctcStyles.contactLabel}>Book direct</div>
-                  <div style={ctcStyles.contactValue}>calendly.com/dave-mcmaster</div>
-                </div>
-              </div>
-              <div style={ctcStyles.contactItem}>
-                <div style={ctcStyles.contactIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-                <div>
-                  <div style={ctcStyles.contactLabel}>Availability</div>
-                  <div style={ctcStyles.contactValue}>Mon–Fri · 9am – 6pm ET</div>
-                </div>
-              </div>
-              <div style={ctcStyles.contactItem}>
-                <div style={ctcStyles.contactIcon}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                </div>
-                <div>
-                  <div style={ctcStyles.contactLabel}>Based in</div>
-                  <div style={ctcStyles.contactValue}>Boston, MA · Online nationwide</div>
-                </div>
-              </div>
-            </div>
           </div>
 
-          <form style={ctcStyles.form} onSubmit={handleSubmit}>
-            <div style={ctcStyles.row} className="contact-row">
-              <div style={ctcStyles.field}>
-                <label style={ctcStyles.label} htmlFor="name">Full name</label>
-                <input style={ctcStyles.input} id="name" name="name" placeholder="Jamie Chen" value={formData.name} onChange={handleChange} required />
-              </div>
-              <div style={ctcStyles.field}>
-                <label style={ctcStyles.label} htmlFor="email">Email</label>
-                <input style={ctcStyles.input} id="email" name="email" type="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} required />
-              </div>
-            </div>
-
-            <div style={ctcStyles.row} className="contact-row">
-              <div style={ctcStyles.field}>
-                <label style={ctcStyles.label} htmlFor="target_date">Target test date</label>
-                <input style={ctcStyles.input} id="target_date" name="target_date" placeholder="June 2026" value={formData.target_date} onChange={handleChange} />
-              </div>
-              <div style={ctcStyles.field}>
-                <label style={ctcStyles.label} htmlFor="current_score">Current practice score</label>
-                <input style={ctcStyles.input} id="current_score" name="current_score" placeholder="e.g. 158 or haven't tested" value={formData.current_score} onChange={handleChange} />
-              </div>
-            </div>
-
-            <div style={ctcStyles.field}>
-              <label style={ctcStyles.label} htmlFor="message">What are you hoping to work on?</label>
-              <textarea style={ctcStyles.textarea} id="message" name="message" placeholder="Tell me where you're stuck, what you've already tried, and what a great outcome looks like for you." value={formData.message} onChange={handleChange} required />
-            </div>
-
-            <button type="submit" className="btn btn-dark" style={{ alignSelf: "flex-start", marginTop: 8 }} disabled={submitting}>
-              {submitting ? "Sending..." : "Send message"}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </button>
-
-            <div style={{ fontSize: 12, color: "var(--ink-500)", marginTop: 4 }}>
-              By submitting, you agree to receive a follow-up email from David. No list, no spam.
-            </div>
-          </form>
+          <div style={ctcStyles.form}>
+            <div
+              className="hs-form-frame"
+              data-region="na2"
+              data-form-id="48557ec7-db71-41a3-a20d-2cb551f7fa45"
+              data-portal-id="241937818"
+            />
+          </div>
         </div>
       </div>
-
-      {showPopup && (
-        <div
-          onClick={() => setShowPopup(false)}
-          style={{
-            position: "fixed", inset: 0, zIndex: 200,
-            background: "rgba(2,50,71,0.55)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            padding: 20,
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: "#fff", borderRadius: 18, padding: "40px 44px",
-              maxWidth: 460, width: "100%", textAlign: "center",
-              boxShadow: "var(--shadow-lg)",
-            }}
-          >
-            <h2 style={{ marginBottom: 12, color: "var(--navy-900)" }}>Thanks for reaching out!</h2>
-            <p style={{ color: "var(--ink-700)", marginBottom: 24, lineHeight: 1.55 }}>
-              I&rsquo;ve received your message and will get back to you within 24 hours.
-            </p>
-            <button onClick={() => setShowPopup(false)} className="btn btn-primary" style={{ justifyContent: "center" }}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
