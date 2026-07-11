@@ -1,33 +1,54 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import Home from './pages/Home';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useEffect, Suspense } from 'react';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import About from './pages/About';
-import Testimonials from './pages/Testimonials';
-import Services from './pages/Services';
-import Consultation from './pages/Consultation';
-import Resources from './pages/Resources';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import SufficientAssumption from './pages/SufficientAssumption';
-import IndicatorWords from './pages/IndicatorWords';
 import ScrollToTop from "./components/ScrollToTop";
-import Abc from "./pages/Abc";
-import Quizlet from "./pages/Quizlet";
-import Patterns from "./pages/Patterns";
-import Discord from "./pages/Discord";
-import Library from "./pages/Library";
-import GroupTutoring from "./pages/GroupTutoring";
-import LSATAnswers from "./pages/LSATAnswers";
-import ThankYouConsultation from "./pages/ThankYouConsultation";
-import LSATExplained from './pages/LSATExplained';
-import ThankYouDownload from "./pages/ThankYouDownload";
-import Payment from "./pages/Payment";
-import RCTips from "./pages/RCTips";
-import GettingStuck from "./pages/GettingStuck";
-import Premises from "./pages/Premises";
-import MBTQuestions from "./pages/MBTQuestions";
-import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./components/ProtectedRoute";
+import ChunkErrorBoundary from "./components/ChunkErrorBoundary";
+import { AuthProvider } from "./lib/AuthContext";
+import { lazyWithReload as lazy } from "./lib/lazyWithReload";
+
+// Pages are code-split: each route is its own chunk, fetched on demand. This
+// keeps the initial download to the shell + the landed page instead of shipping
+// every article, the drill finder, the journal and the admin panel up front.
+//
+// lazyWithReload (not React's bare lazy) wraps each import() so a stale chunk
+// after a deploy triggers one auto-reload instead of a white-screen 404 — see
+// src/lib/lazyWithReload.js.
+const Home = lazy(() => import('./pages/Home'));
+// /about is retired (301 -> / in vercel.json). The route below redirects any
+// client-side navigation too; the old page component is no longer imported.
+const Testimonials = lazy(() => import('./pages/Testimonials'));
+const Services = lazy(() => import('./pages/Services'));
+const Consultation = lazy(() => import('./pages/Consultation'));
+const Resources = lazy(() => import('./pages/Resources'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const SufficientAssumption = lazy(() => import('./pages/SufficientAssumption'));
+const IndicatorWords = lazy(() => import('./pages/IndicatorWords'));
+const Abc = lazy(() => import('./pages/Abc'));
+const Quizlet = lazy(() => import('./pages/Quizlet'));
+const Patterns = lazy(() => import('./pages/Patterns'));
+const Discord = lazy(() => import('./pages/Discord'));
+const Library = lazy(() => import('./pages/Library'));
+const GroupTutoring = lazy(() => import('./pages/GroupTutoring'));
+const LSATAnswers = lazy(() => import('./pages/LSATAnswers'));
+const ThankYouConsultation = lazy(() => import('./pages/ThankYouConsultation'));
+const LSATExplained = lazy(() => import('./pages/LSATExplained'));
+const ThankYouDownload = lazy(() => import('./pages/ThankYouDownload'));
+const Payment = lazy(() => import('./pages/Payment'));
+const RCTips = lazy(() => import('./pages/RCTips'));
+const GettingStuck = lazy(() => import('./pages/GettingStuck'));
+const Premises = lazy(() => import('./pages/Premises'));
+const MBTQuestions = lazy(() => import('./pages/MBTQuestions'));
+const DrillFinder = lazy(() => import('./pages/DrillFinder'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Login = lazy(() => import('./pages/Login'));
+const Signup = lazy(() => import('./pages/Signup'));
+const Portal = lazy(() => import('./pages/Portal'));
+const Journal = lazy(() => import('./pages/Journal'));
+const UpdatePassword = lazy(() => import('./pages/UpdatePassword'));
+const Admin = lazy(() => import('./pages/Admin'));
+const AdminStudent = lazy(() => import('./pages/AdminStudent'));
 
 // Component to track page views
 const PageViewTracker = () => {
@@ -47,15 +68,28 @@ const PageViewTracker = () => {
   return null;
 };
 
+// The marketing header/footer are stripped on the authed portal so it reads as
+// a clean standalone dashboard. Add prefixes here to bare other app pages too
+// (e.g. '/admin'). These run inside <Router>, so they can read the location.
+const BARE_PREFIXES = ['/portal', '/admin', '/update-password'];
+const isBarePath = (pathname) =>
+  BARE_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`));
+
+const SiteHeader = () => (isBarePath(useLocation().pathname) ? null : <Header />);
+const SiteFooter = () => (isBarePath(useLocation().pathname) ? null : <Footer />);
+
 const App = () => {
   return (
     <Router>
+      <AuthProvider>
       <PageViewTracker />
-      <Header/>
+      <SiteHeader />
       <ScrollToTop />
+      <ChunkErrorBoundary>
+      <Suspense fallback={<div style={{ minHeight: '60vh' }} aria-busy="true" />}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Navigate to="/" replace />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/services" element={<Services />} />
         <Route path="/consultation" element={<Consultation />} />
@@ -78,9 +112,35 @@ const App = () => {
         <Route path="/getting-stuck" element={<GettingStuck/>} />
         <Route path="/premises" element={<Premises/>} />
         <Route path="/mbt-questions" element={<MBTQuestions/>} />
+        <Route path="/drill-finder" element={<DrillFinder/>} />
+
+        {/* Student portal + admin (auth-gated, noindex) */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/update-password" element={<UpdatePassword />} />
+        <Route
+          path="/portal"
+          element={<ProtectedRoute studentOnly><Portal /></ProtectedRoute>}
+        />
+        <Route
+          path="/portal/journal"
+          element={<ProtectedRoute studentOnly><Journal /></ProtectedRoute>}
+        />
+        <Route
+          path="/admin"
+          element={<ProtectedRoute requireAdmin><Admin /></ProtectedRoute>}
+        />
+        <Route
+          path="/admin/students/:id"
+          element={<ProtectedRoute requireAdmin><AdminStudent /></ProtectedRoute>}
+        />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      </Suspense>
+      </ChunkErrorBoundary>
+      <SiteFooter />
+      </AuthProvider>
     </Router>
   );
 };

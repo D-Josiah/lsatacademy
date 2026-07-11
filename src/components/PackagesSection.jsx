@@ -5,34 +5,37 @@ const packages = [
     id: "single",
     label: "Single Session",
     hours: 1,
-    ratePerHour: 85,
+    ratePerHour: 120,
     discount: 0,
     badge: null,
     featured: false,
     description: "Targeted help on a specific section or concept. No commitment.",
-    payUrl: "https://square.link/u/3zi3tGBA",
+    payUrl: "https://checkout.square.site/merchant/6P7HMZE18EHHR/checkout/I4LPBSSD5JRMKCNFSS7O7GYS",
+    qr: "/assets/qr-single.png",
   },
   {
     id: "ten",
     label: "10-Hour Package",
     hours: 10,
-    ratePerHour: 85,
+    ratePerHour: 120,
     discount: 0.05,
     badge: "5% OFF",
     featured: false,
     description: "Build strong fundamentals across key LSAT topics over multiple sessions.",
-    payUrl: "https://square.link/u/RJlVLHVw",
+    payUrl: "https://square.link/u/33e4xtC3",
+    qr: "/assets/qr-10h.png",
   },
   {
     id: "twenty",
     label: "20-Hour Package",
     hours: 20,
-    ratePerHour: 85,
+    ratePerHour: 120,
     discount: 0.15,
     badge: "Best Value · 15% OFF",
     featured: true,
     description: "Full prep coverage, from fundamentals through timed practice and strategy refinement.",
-    payUrl: "https://square.link/u/1QubsUHI",
+    payUrl: "https://square.link/u/1ZClbmM7",
+    qr: "/assets/qr-20h.png",
   },
 ];
 
@@ -159,6 +162,28 @@ const styles = {
     transition: "transform .15s ease, box-shadow .2s ease",
     boxShadow: featured ? "0 4px 14px rgba(0,0,0,0.18)" : "0 4px 14px rgba(2, 50, 71, 0.28)",
   }),
+  qrBlock: {
+    marginTop: 16,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 8,
+  },
+  qrImg: (featured) => ({
+    width: 116,
+    height: 116,
+    borderRadius: 10,
+    background: "#fff",
+    padding: 8,
+    border: featured ? "1px solid rgba(255,255,255,0.18)" : "1px solid var(--ink-100)",
+  }),
+  qrLabel: (featured) => ({
+    fontFamily: "var(--font-mono)",
+    fontSize: 10,
+    textTransform: "uppercase",
+    letterSpacing: "0.12em",
+    color: featured ? "rgba(255,255,255,0.6)" : "var(--ink-500)",
+  }),
   footer: {
     textAlign: "center",
     marginTop: 48,
@@ -253,6 +278,21 @@ const PackagesSection = ({
               </svg>
               Pay now
             </a>
+
+            {pkg.qr && (
+              <div style={styles.qrBlock}>
+                <img
+                  src={pkg.qr}
+                  alt={`QR code to pay for the ${pkg.label}`}
+                  style={styles.qrImg(pkg.featured)}
+                  width="116"
+                  height="116"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span style={styles.qrLabel(pkg.featured)}>Scan to pay</span>
+              </div>
+            )}
           </div>
         );
       })}

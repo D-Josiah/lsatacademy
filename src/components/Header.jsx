@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Img from './Img';
+import { useAuth } from '../lib/AuthContext';
 
 const navStyles = {
   outer: {
@@ -52,7 +53,16 @@ const navStyles = {
 const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { session, isAdmin, signOut } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const accountPath = isAdmin ? '/admin' : '/portal';
+
+  const handleSignOut = async () => {
+    setIsMenuOpen(false);
+    await signOut();
+    navigate('/');
+  };
 
   const goToContact = () => {
     setIsMenuOpen(false);
@@ -87,6 +97,11 @@ const Header = () => {
           <Link to="/services" style={navStyles.link}>Services</Link>
           <Link to="/testimonials" style={navStyles.link}>Testimonials</Link>
           <Link to="/resources" style={navStyles.link}>Resources</Link>
+          {session ? (
+            <Link to={accountPath} style={navStyles.link}>My Account</Link>
+          ) : (
+            <Link to="/login" style={navStyles.link}>Student Login</Link>
+          )}
         </div>
 
         <button
@@ -161,6 +176,19 @@ const Header = () => {
         <Link to="/services" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Services</Link>
         <Link to="/testimonials" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Testimonials</Link>
         <Link to="/resources" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Resources</Link>
+        {session ? (
+          <>
+            <Link to={accountPath} onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>My Account</Link>
+            <button
+              onClick={handleSignOut}
+              style={{ ...navStyles.link, fontSize: 18, padding: '10px 0', background: 'none', border: 'none', textAlign: 'left', cursor: 'pointer' }}
+            >
+              Log out
+            </button>
+          </>
+        ) : (
+          <Link to="/login" onClick={() => setIsMenuOpen(false)} style={{ ...navStyles.link, fontSize: 18, padding: '10px 0' }}>Student Login</Link>
+        )}
 
         <button
           className="btn btn-primary"

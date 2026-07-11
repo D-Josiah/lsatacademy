@@ -208,7 +208,7 @@ const ServiceCards = ({ onScrollPackages, onScrollSurvey }) => (
             </li>
           </ul>
           <div style={svcStyles.cardPrice}>
-            <div style={svcStyles.cardPriceNum}>$85</div>
+            <div style={svcStyles.cardPriceNum}>$120</div>
             <div style={svcStyles.cardPriceUnit}>per hour</div>
           </div>
           <button style={svcStyles.cardBtn(true)} onClick={onScrollPackages}>
@@ -732,10 +732,10 @@ const Services = () => {
     <div className="v2">
       <Helmet>
         <title>LSAT Tutoring Services & Pricing | LSAT Academy</title>
-        <meta name="description" content="Explore LSAT tutoring options with David McMaster. Private 1-on-1 sessions at $85/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation." />
+        <meta name="description" content="Explore LSAT tutoring options with David McMaster. Private 1-on-1 sessions at $120/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation." />
         <link rel="canonical" href="https://www.lsat.academy/services" />
         <meta property="og:title" content="LSAT Tutoring Services & Pricing | LSAT Academy" />
-        <meta property="og:description" content="Private 1-on-1 LSAT tutoring at $85/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation with David McMaster." />
+        <meta property="og:description" content="Private 1-on-1 LSAT tutoring at $120/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation with David McMaster." />
         <meta property="og:url" content="https://www.lsat.academy/services" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
@@ -762,14 +762,14 @@ const Services = () => {
               "instructor": {
                 "@type": "Person",
                 "name": "David McMaster",
-                "url": "https://www.lsat.academy/about"
+                "url": "https://www.lsat.academy/"
               }
             },
             "offers": [
               {
                 "@type": "Offer",
                 "name": "Hourly Private LSAT Tutoring",
-                "price": "85",
+                "price": "120",
                 "priceCurrency": "USD",
                 "url": "https://www.lsat.academy/services",
                 "category": "Paid"

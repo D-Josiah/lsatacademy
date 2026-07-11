@@ -21,13 +21,19 @@
     <link rel="canonical" href="https://www.lsat.academy/" />
 
     <!-- Performance Optimization -->
-    <link rel="preload" as="image" href="/assets/hero-image.webp" type="image/webp" fetchpriority="high" />
+    <!-- Note: the hero-image preload is injected per-route from Home.jsx (it's a
+         home-page-only asset), so it isn't wasted/flagged on other routes. -->
     <link rel="dns-prefetch" href="https://assets.calendly.com">
     <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
     <link rel="preconnect" href="https://calendly.com" crossorigin>
     <link rel="dns-prefetch" href="https://calendly.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts loaded here (one combined request) rather than via @import in CSS,
+         so they fetch in parallel with the stylesheet. Weights are subset to
+         what the site uses — keep in sync with src/scss/style.scss. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@100;400;500;600;700&display=swap">
 
     <!-- Open Graph (OG) Meta Tags for Social Media -->
     <meta property="og:title" content="LSAT Academy | Expert LSAT Tutoring & Test Prep" />
@@ -142,7 +148,7 @@
         "@type": "AggregateOffer",
         "priceCurrency": "USD",
         "lowPrice": "0",
-        "highPrice": "85",
+        "highPrice": "120",
         "offerCount": 3,
         "offers": [
           {
@@ -150,7 +156,7 @@
             "name": "Private LSAT Tutoring",
             "description": "One-on-one personalized LSAT tutoring with expert strategies tailored to your strengths and weaknesses",
             "url": "https://www.lsat.academy/services",
-            "price": "85",
+            "price": "120",
             "priceCurrency": "USD"
           },
           {

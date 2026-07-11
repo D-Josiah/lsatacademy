@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [showPopup, setShowPopup] = useState(false);
+  // Bot mitigation (SEC-006): a hidden honeypot field real users never fill,
+  // and a minimum time-on-form so scripted instant submits are dropped. Real
+  // rate-limiting still belongs in the EmailJS dashboard (allowed origins).
+  const [website, setWebsite] = useState(""); // honeypot
+  const mountedAt = useRef(Date.now());
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -11,6 +16,12 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Drop obvious bots silently: honeypot filled, or submitted < 3s after load.
+    if (website || Date.now() - mountedAt.current < 3000) {
+      setShowPopup(true); // show the same success UI; don't tip off the bot
+      return;
+    }
 
     try {
       const result = await emailjs.sendForm(
@@ -82,6 +93,17 @@ const ContactForm = () => {
             ></textarea>
           </div>
         </div>
+        {/* Honeypot — visually hidden, off-screen, not tabbable. Bots fill it. */}
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+          aria-hidden="true"
+        />
         <button type="submit">Send</button>
       </form>
 

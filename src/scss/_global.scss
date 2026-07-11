@@ -83,6 +83,14 @@ body{
     color: $myblue;
     background-color: $mywhite;
 }
+
+// `body` is a column flex with `align-items: center`, which makes its only child
+// (#root) shrink to its content width instead of filling the viewport. That made
+// page width vary with content (e.g. the portal tabs rendered different widths).
+// Force #root to span the full width; `.container` still caps + centers content.
+#root {
+    width: 100%;
+}
 button {
   background: linear-gradient(to right, $myblue, color.adjust($myblue, $lightness: 20%)); /* Gradient added */
   width: fit-content;

@@ -145,6 +145,7 @@ const Footer = () => {
             <div style={footStyles.colTitle}>Resources</div>
             <ul style={footStyles.colList}>
               <li><Link style={footStyles.colLink} to="/resources">Blog</Link></li>
+              <li><Link style={footStyles.colLink} to="/drill-finder">LR Drill Finder</Link></li>
               <li><Link style={footStyles.colLink} to="/discord">Discord</Link></li>
               <li><a style={footStyles.colLink} href="https://www.reddit.com/r/LSATAcademy/" target="_blank" rel="noopener noreferrer">Subreddit</a></li>
               <li><Link style={footStyles.colLink} to="/privacy-policy">Privacy Policy</Link></li>

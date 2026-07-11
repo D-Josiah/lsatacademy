@@ -561,7 +561,7 @@ const HomeServices = ({ onSurvey }) => (
             Personalized, focused sessions tailored to your strengths and weaknesses. Discounts available on 10 and 20 hour packages.
           </p>
           <div style={svcStyles.cardPrice}>
-            <div style={svcStyles.cardPriceNum}>$85</div>
+            <div style={svcStyles.cardPriceNum}>$120</div>
             <div style={svcStyles.cardPriceUnit}>per hour</div>
           </div>
           <button
@@ -674,7 +674,7 @@ const whyStyles = {
 const WhyChoose = () => {
   const items = [
     { n: "01", t: "16 Years of Experience", d: "Sixteen years of teaching. I've seen every section, every trick, every panic response, and know how to coach through it." },
-    { n: "02", t: "99th Percentile Score", d: "I excel at the test I teach." },
+    { n: "02", t: "99th Percentile Score", d: "I teach the test I've actually mastered, not just one I've read about." },
     { n: "03", t: "Verified Results, Not Promises", d: "I've taught students who've made remarkable jumps in their scores." },
     { n: "04", t: "Former Elite Prep Instructor", d: "After years at a top-tier prep company, I left to fulfill my dreams of building a 1-on-1 tutoring program." },
   ];
@@ -968,6 +968,9 @@ const Home = () => {
         <title>LSAT Academy | Expert LSAT Tutoring with David McMaster</title>
         <meta name="description" content="Work 1-on-1 with David McMaster, a 99th percentile LSAT tutor. Personalized prep, proven strategies, and a free consultation. Boston-based, online nationwide." />
         <link rel="canonical" href="https://www.lsat.academy/" />
+        {/* Hero image preload — scoped to the home route so it isn't fetched
+            (and flagged "preloaded but not used") on every other page. */}
+        <link rel="preload" as="image" href="/assets/hero-image.webp" type="image/webp" fetchpriority="high" />
       </Helmet>
       <Hero />
       <MeetTutor />
