@@ -15,18 +15,6 @@
     </image:image>
   </url>
 
-  <!-- About Page -->
-  <url>
-    <loc>https://www.lsat.academy/about</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://www.lsat.academy/assets/david.png</image:loc>
-      <image:title>David McMaster, LSAT Tutor and founder of LSAT Academy</image:title>
-    </image:image>
-  </url>
-
   <!-- Services Page -->
   <url>
     <loc>https://www.lsat.academy/services</loc>
@@ -80,6 +68,14 @@
     <loc>https://www.lsat.academy/resources</loc>
     <lastmod>2026-05-03</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- LR Drill Finder -->
+  <url>
+    <loc>https://www.lsat.academy/drill-finder</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 

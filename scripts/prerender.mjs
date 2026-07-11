@@ -22,14 +22,9 @@ const DEFAULT_OG_IMAGE = `${SITE}/600-logo.png`;
 
 const routes = [
   // path, title, description, ogType, optional ogImage, optional extraJsonLd (string)
-  {
-    path: '/about',
-    title: 'About David McMaster | LSAT Academy Tutor',
-    description: 'Meet David McMaster — 99th percentile LSAT scorer, former elite test-prep instructor, and founder of LSAT Academy with 15 years of tutoring experience.',
-    ogType: 'website',
-    ogImage: `${SITE}/assets/david.png`,
-    breadcrumbs: [['Home', '/'], ['About', '/about']],
-  },
+  // NOTE: /about is intentionally absent — it's a retired page 301-redirected to
+  // home in vercel.json (so the "David McMaster" ranking transfers there). Do not
+  // re-add it here or a crawlable snapshot will reappear.
   {
     path: '/services',
     title: 'LSAT Tutoring Services & Pricing | LSAT Academy',
@@ -78,6 +73,13 @@ const routes = [
     description: 'Free LSAT articles and study tools from David McMaster — sixteen years of LSAT teaching distilled into focused reads.',
     ogType: 'website',
     breadcrumbs: [['Home', '/'], ['Resources', '/resources']],
+  },
+  {
+    path: '/drill-finder',
+    title: 'LR Drill Finder | Filter LSAT Logical Reasoning Questions | LSAT Academy',
+    description: 'Search and filter every LSAT Logical Reasoning question from PrepTests 101–159 by subtype, difficulty, question type, and argument structure. A free drilling tool from LSAT Academy.',
+    ogType: 'website',
+    breadcrumbs: [['Home', '/'], ['Resources', '/resources'], ['LR Drill Finder', '/drill-finder']],
   },
   {
     path: '/lsat-answers',

@@ -36,7 +36,7 @@ const IndicatorWords = () => {
     "author": {
       "@type": "Person",
       "name": "David McMaster",
-      "url": "https://www.lsat.academy/about"
+      "url": "https://www.lsat.academy/"
     },
     "publisher": {
       "@type": "Organization",

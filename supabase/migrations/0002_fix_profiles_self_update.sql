@@ -1,0 +1,47 @@
+-- ============================================================================
+-- SECURITY FIX — privilege escalation via profiles_update_self
+--
+-- The live `profiles_update_self` policy allowed an authenticated student to
+-- UPDATE their own profile row with no column restriction. Because Postgres RLS
+-- cannot limit *which columns* an UPDATE writes, a student could set their own
+-- role = 'admin' (full takeover) or meeting_credits = 999 (steal paid sessions):
+--
+--     portal.from('profiles').update({ role: 'admin' }).eq('id', myId)
+--
+-- The app does not use student self-edit of profiles (password changes go
+-- through Supabase Auth), so the safe fix is to remove the policy. Admin updates
+-- continue to work via profiles_update_admin (is_admin()).
+--
+-- See SECURITY-AUDIT.md (SEC-001).
+-- Apply:  supabase db push   (or paste into the SQL editor)
+-- ============================================================================
+
+drop policy if exists profiles_update_self on public.profiles;
+
+-- ----------------------------------------------------------------------------
+-- OPTIONAL — only if students must edit benign profile fields (e.g. full_name,
+-- calendly_email) from the portal. RLS can't do per-column, and admin shares the
+-- same `authenticated` role, so column GRANTs would also restrict admins. Use a
+-- trigger that blocks NON-admins from changing protected columns, then you can
+-- safely re-add a self-update policy. Leave commented unless you need it.
+-- ----------------------------------------------------------------------------
+-- create or replace function public.profiles_block_protected_cols()
+-- returns trigger language plpgsql security definer set search_path = public as $$
+-- begin
+--   if not public.is_admin() then
+--     if new.role is distinct from old.role
+--        or new.meeting_credits is distinct from old.meeting_credits then
+--       raise exception 'not allowed to modify role or meeting_credits';
+--     end if;
+--   end if;
+--   return new;
+-- end $$;
+--
+-- drop trigger if exists profiles_protect_cols on public.profiles;
+-- create trigger profiles_protect_cols
+--   before update on public.profiles
+--   for each row execute function public.profiles_block_protected_cols();
+--
+-- create policy profiles_update_self on public.profiles
+--   for update to authenticated
+--   using (id = auth.uid()) with check (id = auth.uid());

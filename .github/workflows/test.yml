@@ -1,0 +1,48 @@
+name: Tests
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  unit:
+    name: Unit & component (Vitest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run test
+
+  e2e:
+    name: End-to-end (Playwright)
+    runs-on: ubuntu-latest
+    # Unit tests are the gate; only spend e2e time once they pass.
+    needs: unit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+      - name: Run Playwright tests
+        run: npm run test:e2e
+        env:
+          # Optional: set these as repo secrets to enable the signed-in e2e flow.
+          # Without them, the login test self-skips and the rest still run.
+          E2E_STUDENT_EMAIL: ${{ secrets.E2E_STUDENT_EMAIL }}
+          E2E_STUDENT_PASSWORD: ${{ secrets.E2E_STUDENT_PASSWORD }}
+      - name: Upload Playwright report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
