@@ -274,8 +274,8 @@ const ThankYouConsultation = () => {
           </div>
 
           <div className="cta-buttons">
-            <Link to="/" className="cta-button cta-primary">
-              Back to Home
+            <Link to="/faq" className="cta-button cta-primary">
+              Read the FAQ
             </Link>
             <Link to="/library" className="cta-button cta-secondary">
               View Resources

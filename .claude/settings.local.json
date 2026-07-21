@@ -5,7 +5,11 @@
       "Bash(git checkout *)",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(npx playwright *)",
+      "Bash(npx vite *)",
+      "Bash(node /private/tmp/claude-501/-Users-dalisayjosiah00gmail-com-Documents-GitHub-lsatacademy/0bc76d22-dfad-44ea-b201-d909251aa25c/scratchpad/check-faq.cjs)",
+      "Bash(kill %1)"
     ]
   }
 }

@@ -64,7 +64,7 @@ const S = {
 };
 
 const AddStudentModal = ({ onClose, onCreated }) => {
-  const [form, setForm] = useState({ full_name: '', email: '', password: '', meeting_credits: '0' });
+  const [form, setForm] = useState({ first_name: '', last_name: '', email: '', password: '', meeting_credits: '0' });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
 
@@ -79,7 +79,8 @@ const AddStudentModal = ({ onClose, onCreated }) => {
       body: {
         email: form.email.trim(),
         password: form.password,
-        full_name: form.full_name.trim(),
+        // profiles.full_name is a single column, so join the two parts here.
+        full_name: `${form.first_name.trim()} ${form.last_name.trim()}`.trim(),
         meeting_credits: Number(form.meeting_credits) || 0,
       },
     });
@@ -98,8 +99,16 @@ const AddStudentModal = ({ onClose, onCreated }) => {
         <div style={S.modalTitle}>Add a student</div>
         {error && <div style={S.error}>{error}</div>}
         <form onSubmit={submit}>
-          <label style={S.label}>Full name</label>
-          <input style={S.input} value={form.full_name} onChange={set('full_name')} required />
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div>
+              <label style={S.label}>First name</label>
+              <input style={S.input} value={form.first_name} onChange={set('first_name')} required />
+            </div>
+            <div>
+              <label style={S.label}>Last name</label>
+              <input style={S.input} value={form.last_name} onChange={set('last_name')} required />
+            </div>
+          </div>
           <label style={S.label}>Email</label>
           <input style={S.input} type="email" value={form.email} onChange={set('email')} required />
           <label style={S.label}>Temporary password</label>

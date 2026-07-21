@@ -161,7 +161,8 @@ const Signup = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [fullName, setFullName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -190,6 +191,8 @@ const Signup = () => {
     }
 
     setBusy(true);
+    // profiles.full_name is a single column, so join the two parts here.
+    const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
     const { data, error: err } = await signUp(email, password, fullName);
     if (err) {
       setError(
@@ -272,18 +275,33 @@ const Signup = () => {
               )}
 
               <form onSubmit={submit}>
-                <div style={S.field}>
-                  <label style={S.label} htmlFor="signup-name">Full name</label>
-                  <input
-                    id="signup-name"
-                    type="text"
-                    autoComplete="name"
-                    placeholder="Jane Doe"
-                    style={S.input}
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    required
-                  />
+                <div className="signup-name-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                  <div style={S.field}>
+                    <label style={S.label} htmlFor="signup-first-name">First name</label>
+                    <input
+                      id="signup-first-name"
+                      type="text"
+                      autoComplete="given-name"
+                      placeholder="Jane"
+                      style={S.input}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div style={S.field}>
+                    <label style={S.label} htmlFor="signup-last-name">Last name</label>
+                    <input
+                      id="signup-last-name"
+                      type="text"
+                      autoComplete="family-name"
+                      placeholder="Doe"
+                      style={S.input}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div style={S.field}>
@@ -371,6 +389,7 @@ const Signup = () => {
           .login-v2 .login-brand h2 { font-size: 24px !important; margin: 24px 0 18px !important; }
         }
         @media (max-width: 480px) {
+          .login-v2 .signup-name-row { grid-template-columns: 1fr !important; gap: 0 !important; }
           .login-v2 .login-brand { display: none !important; }
           .login-v2 .login-card { box-shadow: var(--shadow-md); }
         }

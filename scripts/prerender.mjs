@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/services',
     title: 'LSAT Tutoring Services & Pricing | LSAT Academy',
-    description: 'Explore LSAT tutoring options with David McMaster. Private 1-on-1 sessions at $85/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation.',
+    description: 'Explore LSAT tutoring options with David McMaster. Private 1-on-1 sessions at $120/hr, discounted 10 and 20-hour packages, group tutoring, and a free consultation.',
     ogType: 'website',
     breadcrumbs: [['Home', '/'], ['Services', '/services']],
   },
@@ -45,6 +45,13 @@ const routes = [
     description: 'Schedule your free 1-hour LSAT consultation with David McMaster. Discuss your goals, get personalized advice, and find out if private tutoring is right for you.',
     ogType: 'website',
     breadcrumbs: [['Home', '/'], ['Free Consultation', '/consultation']],
+  },
+  {
+    path: '/faq',
+    title: 'Frequently Asked Questions | LSAT Academy',
+    description: 'Answers to the questions students ask after their free LSAT consultation — pricing, packages, session length, payment, refunds, scheduling, and what happens between sessions.',
+    ogType: 'website',
+    breadcrumbs: [['Home', '/'], ['FAQ', '/faq']],
   },
   {
     path: '/lsat-explained',

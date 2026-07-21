@@ -168,8 +168,11 @@
     .hero-left .hero-trust { margin: 0 auto !important; }
     .hero-left p { margin-left: auto !important; margin-right: auto !important; }
     .hero-ctas { justify-content: center !important; width: 100%; }
-    .services-grid { grid-template-columns: 1fr !important; max-width: 460px !important; margin-left: auto !important; margin-right: auto !important; }
-    .services-grid > :nth-child(2) { transform: none !important; }
+    .services-grid { grid-template-columns: 1fr !important; max-width: 460px !important; margin-left: auto !important; margin-right: auto !important; gap: 32px !important; }
+    // Reset the featured card's translateY on ALL children: it's the 2nd card
+    // on Home/Services but the 3rd in PackagesSection. Without this the raised
+    // card eats the space above it when the grid stacks.
+    .services-grid > * { transform: none !important; }
     .meet-grid { grid-template-columns: 1fr !important; gap: 32px !important; justify-items: center !important; }
     .meet-grid > div:first-child { text-align: center !important; }
     .meet-body, .meet-body p { text-align: left !important; }

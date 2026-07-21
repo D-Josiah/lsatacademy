@@ -33,9 +33,11 @@ const Library = lazy(() => import('./pages/Library'));
 const GroupTutoring = lazy(() => import('./pages/GroupTutoring'));
 const LSATAnswers = lazy(() => import('./pages/LSATAnswers'));
 const ThankYouConsultation = lazy(() => import('./pages/ThankYouConsultation'));
+const Faq = lazy(() => import('./pages/Faq'));
 const LSATExplained = lazy(() => import('./pages/LSATExplained'));
 const ThankYouDownload = lazy(() => import('./pages/ThankYouDownload'));
 const Payment = lazy(() => import('./pages/Payment'));
+const BookSession = lazy(() => import('./pages/BookSession'));
 const RCTips = lazy(() => import('./pages/RCTips'));
 const GettingStuck = lazy(() => import('./pages/GettingStuck'));
 const Premises = lazy(() => import('./pages/Premises'));
@@ -93,6 +95,7 @@ const App = () => {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/services" element={<Services />} />
         <Route path="/consultation" element={<Consultation />} />
+        <Route path="/faq" element={<Faq />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/sufficient-assumption" element={<SufficientAssumption />} />
@@ -108,6 +111,7 @@ const App = () => {
         <Route path="/thank-you-consultation" element={<ThankYouConsultation/>} />
         <Route path="/thank-you-download" element={<ThankYouDownload/>} />
         <Route path="/payment" element={<Payment/>} />
+        <Route path="/book-session" element={<BookSession/>} />
         <Route path="/rc-tips" element={<RCTips/>} />
         <Route path="/getting-stuck" element={<GettingStuck/>} />
         <Route path="/premises" element={<Premises/>} />

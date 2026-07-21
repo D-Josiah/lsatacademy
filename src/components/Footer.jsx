@@ -137,6 +137,7 @@ const Footer = () => {
               <li><Link style={footStyles.colLink} to="/">Home</Link></li>
               <li><Link style={footStyles.colLink} to="/services">Services</Link></li>
               <li><Link style={footStyles.colLink} to="/testimonials">Testimonials</Link></li>
+              <li><Link style={footStyles.colLink} to="/faq">FAQ</Link></li>
               <li><span style={footStyles.colLink} onClick={goToContact}>Contact</span></li>
             </ul>
           </div>
